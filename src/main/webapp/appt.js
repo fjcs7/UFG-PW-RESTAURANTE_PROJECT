@@ -51,9 +51,20 @@ appt.config(function($routeProvider, $locationProvider)
    .when('/encaminharEntregasConfirmacao', {
       templateUrl : 'views/encaminharEntregasConfirmacao.html',
       controller  : 'encaminharEntregasConfirmacao',
-   }) 
- 
- 
-   // caso não seja nenhum desses, redirecione para a rota '/'
+   })
+   // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
+       .when('/cadastrarFuncionario', {
+          templateUrl : 'views/cadastrarFuncionario.html',
+          controller  : 'cadastrarFuncionario',
+       })
+
+       // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
+       .when('/relatorios', {
+          templateUrl : 'views/relatorios.html',
+          controller  : 'relatorios',
+       })
+
+
+       // caso não seja nenhum desses, redirecione para a rota '/'
    .otherwise ({ redirectTo: '/' });
 });
