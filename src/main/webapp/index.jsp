@@ -1,10 +1,11 @@
+
 <%@ include file="/views/header.html"%>
 <%@ include file="/views/barra_de_menus.html"%>
-		<title>Mostra alunos Aprovados</title>
+
+<title>Restaurante</title>
 	</head>
 	<body>
 	<div class="container">
-
 		<div ng-view></div>  
 	</div>
 	<script src="appt.js"></script>
@@ -102,6 +103,32 @@
 			 $("#troco").val(valorRecebido - 130.00);
 		 }
 		 
+		 $("body").vegas({
+			    delay: 30000,
+			    timer: false,
+			    shuffle: true,
+			    firstTransition: 'fade',
+			    firstTransitionDuration: 5000,
+			    animation: 'random',
+			    transitionDuration: 5000,
+			    slides: [
+			        { src: 'images/fundo.jpg' },
+			        { src: 'images/fundo9.jpg' },
+			        { src: 'images/fundo10.jpg' },
+			        { src: 'images/fundo8.jpg' }
+			    ]
+			});
+		 
 
+		   
+		 
+		 $("body").vegas('play');
+		 
+			</script>
+			
+			
+			 
+
+	
 	</body>
 </html>
