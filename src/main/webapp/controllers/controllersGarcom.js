@@ -35,12 +35,6 @@ appt.controller('encaminharEntregasConfirmacao', function($rootScope, $location)
 
 
 
-appt.controller('controllersGerenciais', function($rootScope, $location) {
-    $rootScope.activetab = $location.path();
-});
-
-
-
 appt.controller('relatorioDevolucoes', function($rootScope, $location) {
     $rootScope.activetab = $location.path();
     angular.module('dateInputExample', [])
