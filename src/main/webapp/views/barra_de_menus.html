@@ -1,13 +1,32 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header" ng-class="{active: activetab == '/'}">
-      <a class="navbar-brand" href="#/pedidosGarcom">Pedidos</a>
-      <a class="navbar-brand" href="#/relatorios">Relatorios</a>
-      <a class="navbar-brand" href="#/cadastrarFuncionario">Funcionarios</a>
-      <a class="navbar-brand" href="#/pedidosGarcom">Regioes</a>
-      <a class="navbar-brand" href="#/entregas">Entregas</a>
-      <a class="navbar-brand" href="#/pedidosGarcom">Cardapio</a>
-      <a class="navbar-brand" href="#/pedidosGarcom">Ajuda</a>
+      <a class="navbar-brand" href="#/pedidosGarcom">Início</a>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Funcionário <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/cadastrarFuncionario">Cadastrar</a></li>
+                        <li><a href="#/listarFuncionario">Listar</a></li>
+                        <li><a href="#/alterarFuncionario">Alterar</a></li>
+                    </ul>
+                </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Pedidos <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#/pedidosGarcom">Pedidos Garçom</a></li>
+                    <li><a href="#/cadastrarPedido">Cadastrar Pedidos</a></li>
+                </ul>
+            </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Relatórios <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/relatorioEficiencia">Eficiência</a></li>
+                        <li><a href="#/relatorioDevolucoes">Devoluções</a></li>
+                    </ul>
+                </li>
+                    <li><a href="#/entregas">Entregas</a></li>
+                    <li><a href="#/recebimento">Recebimento</a></li>
+                    <li><a href="#/pagamentos">Pagamentos</a></li>
+        </ul>
     </div>
   </div>
 </nav>

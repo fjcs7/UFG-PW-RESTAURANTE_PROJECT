@@ -59,11 +59,29 @@ appt.config(function($routeProvider, $locationProvider)
        })
 
        // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
-       .when('/relatorios', {
-          templateUrl : 'views/relatorios.html',
-          controller  : 'relatorios',
+       .when('/listarFuncionario', {
+          templateUrl : 'views/listarFuncionario.html',
+          controller  : 'listarFuncionario',
        })
 
+       // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
+       .when('/alterarFuncionario', {
+           templateUrl : 'views/alterarFuncionario.html',
+           controller  : 'alterarFuncionario',
+       })
+
+       // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
+       .when('/relatorioDevolucoes', {
+          templateUrl : 'views/relatorioDevolucoes.html',
+          controller  : 'relatorioDevolucoes',
+
+       })
+       // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
+       .when('/relatorioEficiencia', {
+           templateUrl : 'views/relatorioEficiencia.html',
+           controller  : 'relatorioEficiencia',
+
+       })
 
        // caso não seja nenhum desses, redirecione para a rota '/'
    .otherwise ({ redirectTo: '/' });
