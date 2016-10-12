@@ -1,103 +1,137 @@
-<div class="page-header">
-        <div class="well well-sm">
-		  	<center><h2><b class="fa fa-plus-circle"> Cadastrar Pedido</b></h2></center>
-		</div>
+
+<div class="row well well-sm">
+  	<center><h2><b class="fa fa-plus-circle"> Cadastrar Pedido</b></h2></center>
+</div>
 		
-		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
-			<form class="form-horizontal">
-			  
-			    <legend>Dados do Cliente</legend>    
-			    <span class="col-md-10">			    
-				    <span class="form-group">
-				      <label for="nomCliente" class="control-label">Nome</label>
-				 	  <input type="text" class="form-control" id="nomCliente" placeholder="Cliente">
-	   		        </span>
-   		        </span>
-   		        
-   		        <span class="col-md-2">	
-	   		        <span class="form-group">
-	   		        	<label for="carroCliente" class="control-label">Possui carro</label>
-	   		        	<div class="radio" name="carroCliente">
-	   		        	  <label><input checked="checked"  type="radio" name="carroCliente" onclick="carroClientes();" value="2">Não</label>
-						  <label><input type="radio" name="carroCliente" onclick="carroClientes();" value="1">Sim</label>
-						  
-						</div>		    
-				    </span>
-				</span>		   
-			    
-			   	<div id="dadosCarro" class="oculto">
-			   		<legend>Dados do Carro</legend>
-			   		<div class="col-md-6">
-					    <span class="form-group">
-					      <label for="nomCliente" class="control-label">Marca/Modelo</label>
-					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Marca/Modelo">
-		   		        </span>
-	   		        </div>
-	   		        
-	   		        <div class="col-md-3">
-		   		        <span class="form-group">
-					      <label for="nomCliente" class="control-label">Placa</label>
-					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Placa">
-		   		        </span>
-	   		        </div>
-	   		        
-	   		        <div class="col-md-3">
-		   		        <span class="form-group">
-					      <label for="nomCliente" class="control-label">Cor</label>
-					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Cor">
-		   		        </span>
-	   		        </div>
-   		        </div>
-			    		    
-			</form>
-			<legend>Dados do Pedido</legend>
-			
-			<div class="row" style="margin-bottom: 20px;">
-				<span class="col-md-2">
-					<input type="number" class="form-control" placeholder="Mesa">
-				</span>
+<div class="row jumbotron">
+	<form class="form">
+		<div class="box">
+	    	<legend>Dados do Cliente</legend>
+	      	<div class="row">
+				<div class="col-md-10">
+					 <div class="form-group">
+	                     <label for="nomCliente" class="control-label">Nome</label>
+					 	 <input type="text" class="form-control" id="nomCliente" placeholder="Cliente">
+                     </div>
+				</div>
 				
-				<span class="col-md-2" style="float: right;">
-					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAdidionarItem"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Item</button>
-				</span>
+				<div class="col-md-2">
+					 <div class="form-group">
+						<label for="carroCliente" class="control-label">Possui carro</label>
+						<div class="radio" name="carroCliente">
+							<label><input checked="checked"  type="radio" name="carroCliente" onclick="carroClientes();" value="2">Não</label>
+							<label><input type="radio" name="carroCliente" onclick="carroClientes();" value="1">Sim</label>
+                     	</div>
+					</div>
+				</div>			
 			</div>
 			
-			<div id= "divItensPedido" class="table-responsive oculto">
+			
+		</div>		
+		<br>
+		<div class="box oculto" id="dadosCarro">
+	    	<legend>Dados do Veículo</legend>
+	      	<div class="row">				
+				
+				<div class="col-md-4">
+					 <div class="form-group">
+	                     <label for="placa" class="control-label">Placa</label>
+					 	 <input type="text" class="form-control" name="placa" placeholder="Placa">
+                     </div>
+				</div>
+				
+				<div class="col-md-4">
+					 <div class="form-group">
+	                     <label for="marca-modelo" class="control-label">Marca/Modelo</label>
+					 	 <input type="text" class="form-control" id="marca-modelo" placeholder="Marca/Modelo">
+                     </div>
+				</div>
+				
+				<div class="col-md-4">
+					 <div class="form-group">
+	                     <label for="cor" class="control-label">Cor</label>
+					 	 <input type="text" class="form-control" id="cor" placeholder="Cor">
+                     </div>
+				</div>				
+						
+			</div>			
+			
+		</div>
+		<br>
+		<div class="box">
+	    	<legend>Dados do Pedido</legend>
+	      	<div class="row">		
+							
+				<div class="col-md-2">
+					 <div class="form-group">
+						 <label for="mesa">Mesa</label>
+					  	 <input class="form-control input-sm" id="mesa" name="mesa" type="text" placeholder="Mesa">
+                     </div>
+				</div>
+				
+				<div class="col-md-10">
+					 <div class="form-group float-right">
+	                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAdidionarItem" style="margin-top:20px;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Item</button>
+                     </div>
+				</div>				
+						
+			</div>
+			<br>
+			<div id="divItensPedido" class="table-responsive box-white oculto">
 				<table class="table table-hover" id="itensPedido">
 				  <thead style="background: #F5F5F5;">
 					    <tr>
 					      <th><center>#</center></th>
 					      <th><center>Descrição</center></th>
-					      <th width="150px"><center>Quantidade</center></th>
-					      <th><center>Ação</center></th>
+					      <th><center>Quantidade</center></th>
+					      <th width="200px"><center>Ações</center></th>
 					    </tr>
 					  </thead>
+					  <tr ng-repeat="item in itens">
+					  	<td><center>{{item.numero}}</center></td>
+			    		<td><center>{{item.descricao}}</center></td>
+			    		<td>
+							<center>
+								<span class=""><i class="fa fa-plus-square" aria-hidden="true"></i></span>
+								<span> {{item.quantidade}}</span>
+								<span class=""><i class="fa fa-minus-square" aria-hidden="true"></i></span>
+							</center>
+						</td>
+			    		
+			    		<td>
+			    			<center>
+						      	
+						      	<a type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalCancelar"><i class="fa fa-times-circle" aria-hidden="true"></i> Devolver</a>
+						      	<a ng-class="{active: activetab == '/alterar'}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Remover</a>
+						    </center>
+						</td>
+			    	  </tr>	
 					  <tbody>
 					    
 					  </tbody>
 					</table>			
 			</div>
-			<span class="row">	
-   		        <span>   		        	
-   		        	  <label><input checked="checked"  type="checkbox" name="servir" value="1">Entregar pratos e bebidas juntos</label>
-					      
-			    </span>
-			</span>	
-			<div style="float: right;">
-				<a href="#/pedidosGarcom" class="btn btn-default" ng-class="{active: activetab == '/'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
-				
-				<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
-				
-			</div>
+		</div>
+		<br>
+		<div class="float-right">
+			<a href="#/pedidosGarcom" class="btn btn-default" ng-class="{active: activetab == '/'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+			
+			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+			
+		</div>				
+			
+	</div>	
 					
-	</div>
-	
+  </form>
+  
+  
+
 </div>
+
 
 <!-- Modal -->
 <div id="modalAdidionarItem" class="modal fade" role="dialog">
   <div class="modal-dialog">
-<meta charset="UTF-8">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">

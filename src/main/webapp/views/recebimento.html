@@ -1,4 +1,3 @@
-<div class="page-header">
 
    <div class="well well-sm">
 		  	<center><h2><b class="fa fa-dollar"> Recebimento</b></h2></center>
@@ -15,7 +14,7 @@
 					
 					<div class="box" style="margin: 10px 0px 10px;">
 						<legend>Forma de Pagamento</legend>
-						<select class="form-control" id="selectFormaPgto" onchange="controlaFormaPgto();">
+						<select class="form-control" id="selectFormaPgto" onchange="controlaFormaPgto();" style="height: 38px;">
 							<option value="1" selected>Dinheiro</option>
 							<option value="2">Cartão</option>
 							<option value="3">Cheque</option>
@@ -35,13 +34,13 @@
 					<div class="box oculto" style="margin: 10px 0px 10px;" id="divCartao">
 						<legend><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Cartão</legend>
 						<span>Tipo</span>
-						<select class="form-control">
+						<select class="form-control" style="height: 38px;">
 							<option value="1" selected>Débito</option>
 							<option value="2">Crédito</option>
 						</select>
 						
 						<span>Bandeira</span>
-						<select class="form-control">
+						<select class="form-control" style="height: 38px;">
 							<option value="1" selected>Mastercad</option>
 							<option value="2">Visa</option>
 							<option value="3">Elo</option>
@@ -169,7 +168,7 @@
 	        </div>
 	        
 	    </div>
-</div>
+
 
 <!-- Modal -->
 <div id="modalConfirmarPgto" class="modal fade" role="dialog">

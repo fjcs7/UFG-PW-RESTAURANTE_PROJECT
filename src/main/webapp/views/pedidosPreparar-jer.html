@@ -1,127 +1,139 @@
-<link href="lib/bootstrap/css/w3.css" rel="stylesheet">
-<div class="page-header">
-                         
-        <div class="well well-sm">
-		  	<center><h2><b class="fa fa fa-pencil-square-o"> Pedidos em espera</b></h2></center>
-		</div>
+<meta charset="UTF-8">
 
-
-  <div class="w3-card-8 w3-pale-blue w3-animate-right" style="width:30%; float: left; margin: 10px;">
-
-
-    <div class="w3-container w3-center w3-animate-right">
-      <h3>Bife Choziro</h3>
-      <img src="Imagens/bife-completo.png" alt="Avatar" style="width:70%">
-      <h5>Bem passado.</h5>
-      
-      <div class="w3-section">
-        <button class="w3-btn w3-large w3-green">Preparando</button>
-        <button class="w3-btn w3-large w3-red">Entregue</button>
-      </div>
-    </div>
-
-  </div>
-  
-  <div class="w3-card-8 w3-sand w3-animate-right" style="width:30%; float: left; margin: 10px;">
-
-    <div class="w3-container w3-center w3-animate-right">
-      <h3>Macarronada Especial</h3>
-      <img src="Imagens/Macarronada-especial.png" alt="Avatar" style="width:94%">
-      <h5>Dobro de molho, sem cebola e sal.</h5>
-      
-      <div class="w3-section">
-        <button class="w3-btn w3-large w3-green">Preparando</button>
-        <button class="w3-btn w3-large w3-red">Entregue</button>
-      </div>
-    </div>
-
-  </div>
-  <div class="w3-card-8 w3-pale-blue w3-animate-right" style="width:30%; float: left; margin: 10px;">
-
-    <div class="w3-container w3-center w3-animate-right">
-      <h3>Panqueca de carne</h3>
-      <img src="Imagens/panqueca.png" alt="Avatar" style="width:75%">
-      <h5>Molho vermelho, sem queijo.</h5>
-      
-      <div class="w3-section">
-        <button class="w3-btn w3-large w3-green">Preparando</button>
-        <button class="w3-btn w3-large w3-red">Entregue</button>
-      </div>
-    </div>
-    </div>
-		
-	<div class="w3-card-8 w3-pale-blue w3-animate-right" style="width:30%; float: left; margin: 10px;">
-
-
-    <div class="w3-container w3-center w3-animate-right">
-      <h3>Salada de camarão</h3>
-      <img src="Imagens/salada-camarao.png" alt="Avatar" style="width:70%">
-      <h5>Sem acréscimo</h5>
-      
-      <div class="w3-section">
-        <button class="w3-btn w3-large w3-green">Preparando</button>
-        <button class="w3-btn w3-large w3-red">Entregue</button>
-      </div>
-    </div>
-
-  </div>
-  
-  <div class="w3-card-8 w3-sand w3-animate-right" style="width:30%; float: left; margin: 10px;">
-
-    <div class="w3-container w3-center w3-animate-right">
-      <h3>Peixe no limão grelhado</h3>
-      <img src="Imagens/peixe-limao.png" alt="Avatar" style="width:80%">
-      <h5>Menos limão.</h5>
-      
-      <div class="w3-section">
-        <button class="w3-btn w3-large w3-green">Preparando</button>
-        <button class="w3-btn w3-large w3-red">Entregue</button>
-      </div>
-    </div>
-
-  </div>
-  <div class="w3-card-8 w3-pale-blue w3-animate-right" style="width:30%; float: left; margin: 10px;">
-
-    <div class="w3-container w3-center w3-animate-right">
-      <h3>Feijão Tropeiro</h3>
-      <img src="Imagens/feijao-tropeiro.png" alt="Avatar" style="width:75%">
-      <h5>Sem acréscimo</h5>
-      
-      <div class="w3-section">
-        <button class="w3-btn w3-large w3-green">Preparando</button>
-        <button class="w3-btn w3-large w3-red">Entregue</button>
-      </div>
-    </div>
-		
-		
-  </div>
-  
-  
-  <div style="float: right; margin: 20px;">
-			
-			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarCardapio"><i class="fa fa-floppy-o" aria-hidden="true"></i> Relatório</a>
-		</div>
-
-<!-- Modal -->
-<div id="modalSalvarCardapio" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-   <meta charset="UTF-8">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Relatório</h4>
-      </div>
-      <div class="modal-body">
-      	<div class="alert alert-success">
-      		<center>
-      			Dia terminado com sucesso <p>
-      			Número de pratos atendidos e entregues: <h3>120</h3>
-      		</center>
-      		<a href="#/pedidosGarcom" class="btn btn-default" ng-class="{active: activetab == '/'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
-      	</div>
-      </div>
-     </div>
-    </div>
+<link href="lib/bootstrap-4.0.0-alpha.4/dist/css/bootstrap.min.css" rel="stylesheet">
+<div class="row well well-sm">
+  	<center><h2><b class="fa fa fa-pencil-square-o"> Pedidos em espera</b></h2></center>
 </div>
+
+<div class="row flip-left">
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="card card-success text-xs-center">
+				<div class="card-header">
+				  <h3>Panqueca</h3>
+				</div>  
+				<div class="card-block" style="background: white;">
+				  	<img class="card-img-top img-fluid" src="images/panqueca.png" alt="Card image cap">
+				  	<p class="card-text alert alert-info">Sem alface.</p>
+				</div>
+				  <div class="card-footer text-muted">
+				    <a href="#" class="btn btn-success">Entregue</a>
+				  </div>
+			</div>
+		
+		</div>
+		<div class="col-md-3">
+			<div class="card card-success text-xs-center">
+				<div class="card-header">
+				  <h3>Macarronada</h3>
+				</div>  
+				<div class="card-block" style="background: white;">
+				  	<img class="card-img-top img-fluid" src="images/Macarronada-especial.png" alt="Card image cap">
+				   	<p class="card-text alert alert-info">Dobro de molho, sem cebola e sal.</p>
+				</div>
+				  <div class="card-footer text-muted">
+				    <a href="#" class="btn btn-success">Entregue</a>
+				  </div>
+			</div>
+		
+		</div>
+		 <div class="col-md-3">
+			<div class="card card-success text-xs-center">
+				<div class="card-header">
+				  <h3>Peixe</h3>
+				</div>  
+				<div class="card-block" style="background: white;">
+				  	<img class="card-img-top img-fluid" src="images/peixe-limao.png" alt="Card image cap">
+				</div>
+				  <div class="card-footer text-muted">
+				    <a href="#" class="btn btn-warning">Preparando</a>
+				    <a href="#" class="btn btn-success">Entregue</a>
+				  </div>
+			</div>
+		
+		</div>
+		
+		<div class="col-md-3">
+			<div class="card card-success text-xs-center">
+				<div class="card-header">
+				  <h3>Bife Completo</h3>
+				</div>  
+				<div class="card-block">
+				  	<img class="card-img-top img-fluid" src="images/bife-completo.png" alt="Card image cap">
+	
+				</div>
+				  <div class="card-footer text-muted">
+				    <a href="#" class="btn btn-warning">Preparando</a>
+				    <a href="#" class="btn btn-success">Entregue</a>
+				  </div>
+			</div>
+		
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="card card-success text-xs-center">
+				<div class="card-header">
+				  <h3>Salada de Camarão</h3>
+				</div>  
+				<div class="card-block" style="background: white;">
+				  	<img class="card-img-top img-fluid" src="images/salada-camarao.png" alt="Card image cap">
+				   	
+				</div>
+				  <div class="card-footer text-muted">
+				     <a href="#" class="btn btn-warning">Preparando</a>
+				    <a href="#" class="btn btn-success">Entregue</a>
+				  </div>
+			</div>
+		
+		</div>
+		<div class="col-md-3">
+			<div class="card card-success text-xs-center">
+				<div class="card-header">
+				  <h3>Salada de Tomate</h3>
+				</div>  
+				<div class="card-block" style="background: white;">
+				  	<img class="card-img-top img-fluid" src="images/salada-tomate-alface.png" alt="Card image cap">
+				   	
+				</div>
+				  <div class="card-footer text-muted">
+				    <a href="#" class="btn btn-success">Entregue</a>
+				  </div>
+			</div>
+		
+		</div>
+		 <div class="col-md-3">
+			<div class="card card-success text-xs-center">
+				<div class="card-header">
+				  <h3>Porção de Camarão</h3>
+				</div>  
+				<div class="card-block" style="background: white;">
+				  	<img class="card-img-top img-fluid" src="images/porcao-camarao.png" alt="Card image cap">
+				</div>
+				  <div class="card-footer text-muted">
+				    <a href="#" class="btn btn-warning">Preparando</a>
+				    <a href="#" class="btn btn-success">Entregue</a>
+				  </div>
+			</div>
+		
+		</div>
+		
+		<div class="col-md-3">
+			<div class="card card-success text-xs-center">
+				<div class="card-header">
+				  <h3>Filé de Frango</h3>
+				</div>  
+				<div class="card-block" style="background: white;">
+				  	<img class="card-img-top img-fluid" src="images/file-frango.png" alt="Card image cap">
+				</div>
+				  <div class="card-footer text-muted">
+				    <a href="#" class="btn btn-warning">Preparando</a>
+				    <a href="#" class="btn btn-success">Entregue</a>
+				  </div>
+			</div>
+		
+		</div>
+	</div>
 </div>
+

@@ -1,92 +1,106 @@
-<div class="page-header">
-                <div class="well well-sm">
-                    <center><h2><b class="fa  fa-line-chart"> Relatório de Eficiência</b></h2></center>
-                </div>
-		
-		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
-			<form class="form-group">
-				<legend>Periodo</legend>
-	        <div class="container">
-                                  <!-- Periodo init -->
-                 <div class="well well-sm">
-                    <form name="datarelatorio" ng-controller="DateController">
-                       <label>Inicio:  <b class="fa fa-calendar-o"> </b> </label>
-                            <input type="date" id="datainicial" name="datainicial" ng-model="datainicial" placeholder="dd-mm-aaaa"  required />
-                        <label>Final:  <b class="fa fa-calendar-o"> </b></label>
-                            <input type="date" id="datafinal" name="datafinal" ng-model="datafinal" placeholder="dd-mm-aaaa" required />
 
-                               <div role="alert">
-                                     <span class="error" ng-show="datarelatorio.input.$error.required">
-                                         Campo em Branco!</span>
-                                     <span class="error" ng-show="datarelatorio.$error.date">
-                                         Data Inválida!</span>
-                                </div>
-                    </form>
-                 </div>
+        <div class="row well well-sm">
+		  	 <center><h2><b class="fa  fa-line-chart"> Relatório de Eficiência</b></h2></center>
+        </div>
 
-                          <!-- Periodo end -->
-
-                          <!-- Filtros - begin (html-basico) -->
-                          <legend>Filtros</legend>
-                    <form class="form-inline">
-                        <div class="form-group">
-                          <label>Regiao:</label>
-                                      <select class="selectpicker">
-                                              <option>Todas</option>
-                                              <option>Regiao 1</option>
-                                              <option>Regiao 2</option>
-                                             <option>Regiao 3</option>
-                                        </select>
-
-                            <label>Garçom:</label>
-                                      <select class="selectpicker">
+		<div class="row jumbotron">
+		     			
+ 		        <form class="form">	
+ 		        			
+					<div class="box">
+						<legend>Período</legend>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+		                            <label>Início:  <b class="fa fa-calendar-o"> </b> </label>
+                            		<input type="date" id="datainicial" class="form-control" name="datainicial" ng-model="datainicial" placeholder="dd-mm-aaaa"  required />
+		                         </div>
+	                         </div>
+	                         
+	                         <div class="col-md-3">
+								<div class="form-group">
+		                            <label>Final:  <b class="fa fa-calendar-o"> </b></label>
+                            		<input type="date" id="datafinal" name="datafinal" class="form-control" ng-model="datafinal" placeholder="dd-mm-aaaa" required />
+		                         </div>
+	                         </div>
+	                 		
+						</div>
+					</div>
+					<br>
+					
+						<div class="box">
+						<legend>Filtros</legend>
+							<div class="row">	                         
+		                         <div class="col-md-2">
+									<div class="form-group">
+			                          <label>Garçom:</label>
+                                      <select class="form-control" style="height:38px;">
                                               <option>Todos</option>
                                               <option>Carlos</option>
                                               <option>Fernando</option>
                                              <option>Geraldo</option>
                                         </select>
-                            <label>Entrega:</label>
-                                      <select class="selectpicker">
+			                         </div>
+		                         </div>
+		                         
+		                         <div class="col-md-2">
+									<div class="form-group">
+			                          <label>Entrega:</label>
+                                      <select class="form-control" style="height:38px;">
                                               <option>Todos</option>
                                               <option>Sim</option>
                                               <option>Nao</option>
                                         </select>
-                            <label>Forma de Pagamento:</label>
-                                      <select class="selectpicker">
+			                         </div>
+		                         </div>
+		                         
+		                         <div class="col-md-2">
+									<div class="form-group">
+			                          <label>Forma Pgto:</label>
+                                      <select class="form-control" style="height:38px;">
                                               <option>Todos</option>
                                               <option>Dinheiro</option>
-                                              <option>Cartao</option>
+                                              <option>Cartão</option>
                                             <option>Cheque</option>
                                         </select>
-                            <br><br>
-                            <label>Operadora de Caixa:</label>
-                                      <select class="selectpicker">
+			                         </div>
+		                         </div>
+		                         
+		                         <div class="col-md-2">
+									<div class="form-group">
+			                          <label>Op. Caixa:</label>
+                                      <select class="form-control" style="height:38px;">
                                               <option>Todas</option>
                                               <option>Maria</option>
                                               <option>Joana</option>
                                             <option>Abadia</option>
                                         </select>
-                            <label>Telefonista:</label>
-                                      <select class="selectpicker" >
-                                              <option>Todas</option>
+			                         </div>
+		                         </div>
+		                         
+		                         <div class="col-md-2">
+									<div class="form-group">
+			                          <label>Telefonista:</label>
+                                      <select class="form-control" style="height:38px;">
+                                             <option>Todas</option>
                                               <option>Simone</option>
                                               <option>Geralda</option>
                                             <option>Joaquina</option>
                                         </select>
-                    </form>
-             <!-- Filtros - end (html-basico) -->
+			                         </div>
+		                         </div>
+			
+							</div>
+						</div>
+						<br>
+						<div class="text-right">
+	                       <a class="btn btn-warning" data-toggle="modal" data-target="#modalVisualizar"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar</a>
+                           <a class="btn btn-info" data-toggle="modal" data-target="#modalImprimir"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</a>
+	                   </div>	
+				
+				</form>
+ 		     </div>	     
 
-
-	            </div><!-- end container -->
-
-                    <div class="text-right">
-                        <a href="#/cadastrarFuncionario" class="btn btn-default" ng-class="{active: activetab == '/cadastrarFuncionario'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
-                        <a class="btn btn-warning" data-toggle="modal" data-target="#modalVisualizar"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar</a>
-                        <a class="btn btn-info" data-toggle="modal" data-target="#modalImprimir"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</a>
-                    </div>
-	        </div>
-	
-</div>
 
 
             <!-- Modal  Visualizar-->

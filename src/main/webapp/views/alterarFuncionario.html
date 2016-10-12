@@ -1,88 +1,151 @@
-<div class="page-header" xmlns="http://www.w3.org/1999/html">
-        <div class="well well-sm">
-		  	<center><h2><b class="fa fa-user"> Alterar Funcionario</b></h2></center>
+
+        <div class="row well well-sm">
+		  	<center><h2><b class="fa fa-user"> Alterar Funcionário</b></h2></center>
         </div>
 
-		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
-				<legend>Dados do Funcionario</legend>
-		     <div class="container">
- 		                 <form class="form-inline">
-                                 <div class="form-group">
-                                     <label for="nome">Nome:</label>
-                                      <input type="text" class="form-control input-sm" id="nome" placeholder="Nome do Funcionário">
-                                     <label for="cpf">CPF:</label>
-                                    <input type="text" class="form-control input-sm" id="cpf" placeholder="CPF">
-                                 </div>
-                        </form>
-                            <br>
-                        <form class="form-inline">
-                                    <div class="form-group">
-                                         <label for="nome">Cargo:</label>
-                                               <select id="cargo" class="selectpicker">
-                                                  <option>Telefonista</option>
-                                                  <option>Garçom</option>
-                                                  <option>Cozinheiro</option>
-                                                  <option>Gerente</option>
-                                                </select>
-                                                      <label for="telefone">Telefone:</label>
-                                                      <input type="text" class="form-control input-sm" id="telefone" placeholder="Telefone">
-                                                      <label for="cep">CEP:</label>
-                                                      <input type="text" class="form-control input-sm" id="cep" placeholder="CEP">
-                                    </div>
-                        </form>
-                                    <br>
-                                     <form class="form-group">
-                                         <label for="logradouro">Logradouro:</label>
-                                         <input type="text" class="form-control input-lg" id="logradouro" placeholder="Logradouro">
-                                     </form>
-                                             <br>
-                                <form class="form-inline">
-                                        <form class="form-group">
-                                             <label for="numeroFachada">Numero:</label>
-                                             <input type="text" class="form-control input-sm" id="numeroFachada" placeholder="Numero">
-                                            <label for="quadra">Quadra:</label>
-                                            <input type="text" class="form-control input-sm" id="quadra" placeholder="Quadra">
-                                            <label for="lote">Lote:</label>
-                                            <input type="text" class="form-control input-sm" id="lote" placeholder="Lote">
-                                                <label for="cidade">Cidade:</label>
-                                                    <select id="cidade" class="selectpicker">
-                                                        <option>Goiania</option>
-                                                        <option>Ap de Goiania</option>
-                                                        <option>Anapolis</option>
-                                                        <option>Trindade</option>
-                                                    </select>
-                                        </form>
-                                </form>
-                                        <br>
-                                <form class="form-inline">
-                                            <form class="form-group">
-                                                <label for="bairro">Bairro:</label>
-                                                <select id="bairro" class="selectpicker">
-                                                        <option>Jardim Guanabara III</option>
-                                                        <option>Bairro Ipiranga</option>
-                                                        <option>Setor Central</option>
-                                                        <option>Setor Campinas</option>
-                                                     </select>
-                                                <label for="pontoReferencia">Referencia:</label>
-                                                <input type="text" class="form-control input-sm" id="pontoReferencia" placeholder="Referencia">
-                                                </form>
-                                     </form><br>
-                 <legend>Dados de Acesso</legend>
-                            <form class="form-inline">
-                                <form class="form-group">
-                                    <label>Senha:</label>
-                                    <input type="password" class="form-control input-sm" ng-model="senha" placeholder="Senha">
-                                    <label>Confirmação:</label>
-                                    <input type="password" class="form-control input-sm" ng-model="confirmacao" placeholder="Confirmação">
-
-                                </form>
-                            </form><br><br>
-                <div class="text-right">
-				<a href="#/cadastrarFuncionario" class="btn btn-default" ng-class="{active: activetab == '/cadastrarFuncionario'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
-				<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarFuncionario"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
-				</div>
-	         </div>
-
+		<div class="row jumbotron">
+		     			
+ 		        <form class="form">	
+ 		        	
+ 		        	<div class="box">
+ 		        		<legend>Dados do Funcionário</legend>
+	 		        	<div class="row">
+							<div class="col-md-6">
+								 <div class="form-group">
+	                                 <label for="nome">Nome</label>
+	                                 <input type="text" class="form-control" nome="nome" placeholder="Nome do Funcionário">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="Ccpf">CPF</label>
+	                                 <input type="text" class="form-control" nome="cpf" placeholder="999.999.999-11">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="telefone">Telefone:</label>
+	                                 <input type="text" class="form-control" nome="telefone" placeholder="(99)99999-9999">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="nascimento">Nascimento:</label>
+	                                 <input type="date" class="form-control" nome="nascimento" placeholder="(99)99999-9999">
+	                             </div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								 <div class="form-group">
+	                                 <label for="logradouro">Logradouro</label>
+	                                 <input type="text" class="form-control" nome="logradouro" placeholder="logradouro">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="numero">Número</label>
+	                                 <input type="number" class="form-control" nome="numero" placeholder="9999">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="quadra">Quadra</label>
+	                                 <input type="number" class="form-control" nome="quadra" placeholder="99">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="lote">Lote</label>
+	                                 <input type="number" class="form-control" nome="lote" placeholder="99">
+	                             </div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								 <div class="form-group">
+	                                 <label for="bairro">Bairro</label>
+	                                 <input type="text" class="form-control" nome="bairro" placeholder="logradouro">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="cidade">Cidade</label>
+	                                  <select id="cidade" class="form-control" style="height: 38px;">
+	                                      <option>Goiania</option>
+	                                      <option>Ap de Goiania</option>
+	                                      <option>Anapolis</option>
+	                                      <option>Trindade</option>
+	                                   </select>
+	                             </div>
+							</div>
+							
+							<div class="col-md-4">
+								<div class="form-group">
+	                                 <label for="referencia">Referência</label>
+	                                 <input type="number" class="form-control" nome="referencia" placeholder="Referência">
+	                             </div>
+							</div>
+							
+						</div>
+					</div>
+					<br>	
+					
+					<div class="box">
+						<legend>Cargo</legend>
+						<div class="row">
+							<div class="col-md-2">
+								<div class="form-group">
+		                              <select id="cidade" class="form-control" style="height: 38px;">
+		                                 <option>Telefonista</option>
+	                                     <option>Garçom</option>
+	                                     <option>Cozinheiro</option>
+	                                     <option>Gerente</option>
+		                               </select>
+		                         </div>
+	                         </div>
+		
+						</div>
+					</div>
+					<br>
+					
+						<div class="box">
+						<legend>Dados de Acesso</legend>
+							<div class="row">
+								<div class="col-md-2">
+									<div class="form-group">
+			                             <label>Senha:</label>
+		                                 <input type="password" class="form-control" ng-model="senha" placeholder="Senha">
+			                         </div>
+		                         </div>
+		                         
+		                         <div class="col-md-2">
+									<div class="form-group">
+			                             <label>Confirmação</label>
+		                                 <input type="password" class="form-control" ng-model="confirmacao" placeholder="Senha">
+			                         </div>
+		                         </div>
+			
+							</div>
+						</div>
+						<br>
+						<div class="text-right">
+							<a href="#/cadastrarFuncionario" class="btn btn-default" ng-class="{active: activetab == '/cadastrarFuncionario'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+							<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarFuncionario"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+						</div>				
+				
+				</form>
+ 		     </div>
+	
 
                             <!-- Modal  SalvarPedido-->
                 <div id="modalSalvarFuncionario" class="modal fade" role="dialog">
