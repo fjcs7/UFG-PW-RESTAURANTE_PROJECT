@@ -1,4 +1,4 @@
-    <div id="wrapper" ng-show="vm.logado">
+    <div id="wrapper">
         <div class="overlay"></div>
     
         <!-- Sidebar -->
@@ -47,7 +47,7 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <button  ng-show="globals.currentUser.logado" type="button" class="hamburger is-closed" data-toggle="offcanvas">
                 <span class="hamb-top"></span>
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>

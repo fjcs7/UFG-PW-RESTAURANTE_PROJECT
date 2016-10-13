@@ -17,42 +17,34 @@
 
         function Login(username, password, callback) {
 
-            /* Dummy authentication for testing, uses $timeout to simulate api call
-             ----------------------------------------------*/
             $timeout(function () {
                 var response;
                 
                 UserService.GetByUsername(username)
                     .then(function (user) {
                         if (user !== null && user.password === password) {
-                            response = { success: true, perfil: user.perfil };
+                            response = { success: true, perfil: user.perfil, nomeDeExibicao: user.nomeDeExibicao};
                         } else {
                             response = { success: false, message: 'Usuário ou senha incorreto' };
                         }
                         
                         callback(response);
                     });
-            }, 1000);
-
-            /* Use this for real authentication
-             ----------------------------------------------*/
-            //$http.post('/api/authenticate', { username: username, password: password })
-            //    .success(function (response) {
-            //        callback(response);
-            //    });
-
+            }, 500);
         }
 
-        function SetCredentials(username, password) {
+        function SetCredentials(username, password, nomeDeExibicao, perfil) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
                     username: username,
+                    nomeDeExibicao: nomeDeExibicao,
+                    perfil: perfil,
+                    logado: 'true',
                     authdata: authdata
                 }
             };
-
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
         }

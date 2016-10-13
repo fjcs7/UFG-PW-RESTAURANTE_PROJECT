@@ -5,11 +5,7 @@ appt.config(function($routeProvider, $locationProvider)
    
    $routeProvider
  
-   	   .when('/', {
-      templateUrl : 'app/pedido/pedido.listar.garcom.html',
-      controller  : 'pedidoController',
-   		   controllerAs: 'vm'
-	   })
+ 
 	   
 	   .when('/cadastrar', {
       templateUrl : 'app/pedido/pedido.cadastrar.garcom.html',
@@ -107,20 +103,32 @@ appt.config(function($routeProvider, $locationProvider)
 		   controllerAs: 'vm'
 	    })
 	    
-	    .when('/pedidosGarcom', {
-		   templateUrl: 'app/pedido/pedidosGarcom.html', 
-		   controller: 'listarPedidos',
+	    .when('/', {
+		   templateUrl: 'app/login/login.view.html', 
+		   controller: 'LoginController',
 		   controllerAs: 'vm'
+	    })
+	    
+	    .when('/pedidosGarcom', {
+		   templateUrl: 'app/pedido/pedido.listar.garcom.html', 
+		   controller: 'pedidoController',
+		   controllerAs: 'vm'
+	    })
+	    
+	    .when('/menuBar', {
+	       templateUrl: 'app/shared/barra_de_menus.html',
+		   controller: 'menuBar',
+		   controllerAs: 'mm'
 	    })
     
    
    
    
-    // caso não seja nenhum desses, redirecione para a rota '/'
+    // caso nï¿½o seja nenhum desses, redirecione para a rota '/'
    .otherwise ({ redirectTo: '/' });
 })
 
-appt.run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
+//appt.run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 appt.run(function($rootScope, $location, $cookieStore, $http) {
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
@@ -130,10 +138,12 @@ appt.run(function($rootScope, $location, $cookieStore, $http) {
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+            var restrictedPage = $.inArray($location.path(), ['/login']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
                 $location.path('/login');
             }
         });
  });
+
+

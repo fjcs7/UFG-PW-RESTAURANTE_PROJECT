@@ -1,19 +1,18 @@
 
 <%@ include file="/app/shared/header.html"%>
+
 <!-- /#wrapper -->
 <script src="appt.js"></script>
 <script src="app/app-services/authentication.service.js"></script>
 <script src="app/app-services/flash.service.js"></script>
-<%@ include file="/app/shared/barra_de_menus.html"%>
-   
-<!-- Real user service that uses an api -->
-<!-- <script src="app-services/user.service.js"></script> -->
-
-<!-- Fake user service for demo that uses local storage -->
 <script src="app/app-services/user.service.local-storage.js"></script>
 
 <script src="app/login/login.controller.js"></script>
+<script src="controllers/controllersGarcom.js"></script>
+<script src="app/shared/menu.controller.js"></script>
+
 <%@ include file="app/shared/barra_de_menus.html"%>
+
 
 
 <title>Restaurante</title>

@@ -22,7 +22,8 @@
             vm.logado = true;
             AuthenticationService.Login(vm.username, vm.password, function (response) {
                 if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
+                    AuthenticationService.SetCredentials(vm.username, vm.password, response.nomeDeExibicao, response.perfil);
+                    $location.path('/menuBar');
                     if(response.perfil==='garcom'){
                     	$location.path('/pedidosGarcom');
                     } else if (response.perfil==='telefonista'){
