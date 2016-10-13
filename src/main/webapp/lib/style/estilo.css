@@ -320,10 +320,15 @@ html { height: 100%;}
   top: 20px;  
   z-index: 999;
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 60px;
+  height: 60px;
   margin-left: 15px;
-  border: none;
+  padding: 10px;
+  
+  border-radius: 50%;
+   
+  background: -moz-linear-gradient(top,#fff,#ddd) repeat-X;
+  background: -webkit-gradient(linear, left top, left bottom, to(#ddd), from(#fff)) repeat-X;
 }
 .hamburger:hover,
 .hamburger:focus,
