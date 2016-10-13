@@ -109,8 +109,8 @@
             /*if(!localStorage.users){
                 localStorage.users = JSON.stringify([]);
             }*/
-        	var usuarios = [{username:'garçom', password:'1234', perfil:'garcon'},
-                            {username:'garcom', password:'1234', perfil:'garcon'},
+        	var usuarios = [{username:'garçom', password:'1234', perfil:'garcom'},
+                            {username:'garcom', password:'1234', perfil:'garcom'},
                             {username:'telefonista', password:'1234', perfil:'telefonista'},
                             {username:'teste', password:'teste', perfil:'telefonista'}]
 

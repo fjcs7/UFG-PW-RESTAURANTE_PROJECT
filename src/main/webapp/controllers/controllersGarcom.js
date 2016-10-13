@@ -1,5 +1,5 @@
 appt.controller('pedidoController', function($rootScope, $location) {
-		 
+		 alert("entrou");
 		   $rootScope.pedidos = [  {numero: 1, descricao: 'Arroz temperado', tempoEspera: '00:30:39', mesa: 13 },
 					               {numero: 2, descricao: 'Feijoada', tempoEspera: '00:23:30', mesa: 34},
 					               {numero: 3, descricao: 'Arroz branco e feijão tropeiro', tempoEspera: '00:18:40', mesa: 3},

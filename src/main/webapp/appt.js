@@ -5,11 +5,7 @@ appt.config(function($routeProvider, $locationProvider)
    
    $routeProvider
  
-   	   .when('/', {
-      templateUrl : 'app/pedido/pedido.listar.garcom.html',
-      controller  : 'pedidoController',
-   		   controllerAs: 'vm'
-	   })
+ 
 	   
 	   .when('/cadastrar', {
       templateUrl : 'app/pedido/pedido.cadastrar.garcom.html',
@@ -108,19 +104,19 @@ appt.config(function($routeProvider, $locationProvider)
 	    })
 	    
 	    .when('/pedidosGarcom', {
-		   templateUrl: 'app/pedido/pedidosGarcom.html', 
-		   controller: 'listarPedidos',
+		   templateUrl: 'app/pedido/pedido.listar.garcom.html', 
+		   controller: 'pedidoController',
 		   controllerAs: 'vm'
 	    })
     
    
    
    
-    // caso não seja nenhum desses, redirecione para a rota '/'
+    // caso nï¿½o seja nenhum desses, redirecione para a rota '/'
    .otherwise ({ redirectTo: '/' });
 })
 
-appt.run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
+//appt.run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 appt.run(function($rootScope, $location, $cookieStore, $http) {
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
