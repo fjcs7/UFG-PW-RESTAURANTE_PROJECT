@@ -5,49 +5,65 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                       Brand
-                    </a>
+                    <center><img src="images/background/xicara.gif" alt="restaurante" class="img"></center>
                 </li>
-                <li>
-                     <a href="#/pedidosGarcom"> Pedidos</a>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Entregas <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Entregas</li>
+                    <li><a href="#/entregas">Listar</a></li>
+                    <li><a href="#/encaminharEntregas">Encaminhar</a></li>
+                  </ul>
                 </li>
-                <li>
-                    <a  href="#/entregas"> Entregas</a>
+          
+                
+                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Funcionários <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Funconários</li>
+                    <li><a href="#/listarFuncionario">Listar</a></li>
+                    <li><a href="#/cadastrarFuncionario">Cadastrar</a></li>
+                  </ul>
                 </li>
+                
                 <li>
                     <a href="#/pagamentos"> Pagamentos</a>
                 </li>
-                <li>
-                    <a href="#">Team</a>
-                </li>
+                
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Dropdown heading</li>
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Pedidos <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Pedidos</li>
+                    <li><a href="#/pedidosGarcom">Listar</a></li>
+                    <li><a href="#/cadastrar">Cadastrar</a></li>
                   </ul>
                 </li>
-                <li>
-                    <a href="#">Services</a>
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Pedidos <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Pedidos</li>
+                    <li><a href="#/pedidosTelefonista">Listar</a></li>
+                    <li><a href="#/cadastrarPedidosTelefonista">Cadastrar</a></li>
+                  </ul>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Relatórios <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Relatórios</li>
+                    <li><a href="#/relatorioDevolucoes">Devoluções</a></li>
+                    <li><a href="#/relatorioEficiencia">Eficiência</a></li>
+                  </ul>
                 </li>
-                <li>
-                    <a href="https://twitter.com/maridlcrmn">Follow me</a>
-                </li>
+                
             </ul>
         </nav>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <button  ng-show="globals.currentUser.logado" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <button ng-show="globals.currentUser.logado" type="button" class="hamburger is-closed" data-toggle="offcanvas" ng-show="$location.path() != '/login'">
                 <span class="hamb-top"></span>
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
