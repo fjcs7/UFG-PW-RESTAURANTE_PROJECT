@@ -1,80 +1,120 @@
+<meta charset="UTF-8">
 <div ng-init="itens = [{numero: 1, descricao: 'Feijão tropeiro', quantidade: '2'},
                          {numero: 2, descricao: 'Arroz branco', quantidade: '2'},
                          {numero: 3, descricao: 'Suco de laranja', quantidade: '2'}]"></div>
                         
-   <div class="row well well-sm">
-  	<center><h2><b class="fa fa fa-pencil-square-o"> Alterar Pedido</b></h2></center>
+<div class="row well well-sm">
+  	<center><h2><b class="fa fa fa-plus-circle"> Cadastrar Pedido</b></h2></center>
 </div>
 
-<div class="row jumbotron">
+<div class="row jumbotron flip-left">
 	<form class="form">
 		<div class="box">
 	    	<legend>Dados do Cliente</legend>
-	      	<div class="row">
-				<div class="col-md-10">
-					 <div class="form-group">
-	                     <label for="nomCliente" class="control-label">Nome</label>
-					 	 <input type="text" class="form-control" id="nomCliente" placeholder="Cliente" value="Priscila Alcântara">
-                     </div>
-				</div>
-				
-				<div class="col-md-2">
-					 <div class="form-group">
-						<label for="carroCliente" class="control-label">Possui carro</label>
-						<div class="radio" name="carroCliente">
-							<label><input type="radio" name="carroCliente" onclick="carroClientes();" value="2">Não</label>
-							<label><input checked="checked" type="radio" name="carroCliente" onclick="carroClientes();" value="1">Sim</label>
-                     	</div>
-					</div>
-				</div>			
-			</div>
-			
+	 		        	<div class="row">
+							<div class="col-md-6">
+								 <div class="form-group">
+	                                 <label for="nome">Nome</label>
+	                                 <input type="text" class="form-control" nome="nome" placeholder="Nome do Funcionário">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="telefone">Telefone</label>
+	                                 <input type="text" class="form-control" nome="telefone" placeholder="(99)99999-9999">
+	                             </div>
+							</div>
+							
+							
+						</div>
+						
+						
+		</div>		
+		<br>
+				<div class="box">
+	    	<legend>Dados da Entrega</legend>
+						
+						<div class="row">
+							<div class="col-md-6">
+								 <div class="form-group">
+	                                 <label for="logradouro">Logradouro</label>
+	                                 <input type="text" class="form-control" nome="logradouro" placeholder="logradouro">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="numero">Número</label>
+	                                 <input type="number" class="form-control" nome="numero" placeholder="9999">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="quadra">Quadra</label>
+	                                 <input type="number" class="form-control" nome="quadra" placeholder="99">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="lote">Lote</label>
+	                                 <input type="number" class="form-control" nome="lote" placeholder="99">
+	                             </div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								 <div class="form-group">
+	                                 <label for="bairro">Bairro</label>
+	                                 <input type="text" class="form-control" nome="bairro" placeholder="Bairro">
+	                             </div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="form-group">
+	                                 <label for="cidade">Cidade</label>
+	                                  <select id="cidade" class="form-control" style="height: 38px;">
+	                                      <option>Goiania</option>
+	                                      <option>Ap de Goiania</option>
+	                                      <option>Anapolis</option>
+	                                      <option>Trindade</option>
+	                                   </select>
+	                             </div>
+							</div>
+							
+							<div class="col-md-4">
+								<div class="form-group">
+	                                 <label for="referencia">Referência</label>
+	                                 <input type="number" class="form-control" nome="referencia" placeholder="Referência">
+	                             </div>
+							</div>
+							
+						</div>	
 			
 		</div>		
 		<br>
-		<div class="box" id="dadosCarro">
-	    	<legend>Dados do Veículo</legend>
-	      	<div class="row">				
-				
-				<div class="col-md-4">
-					 <div class="form-group">
-	                     <label for="placa" class="control-label">Placa</label>
-					 	 <input type="text" class="form-control" name="placa" placeholder="Cliente" value="ABC-9087">
-                     </div>
-				</div>
-				
-				<div class="col-md-4">
-					 <div class="form-group">
-	                     <label for="marca-modelo" class="control-label">Marca/Modelo</label>
-					 	 <input type="text" class="form-control" id="marca-modelo" placeholder="Cliente" value="Chevrolet Prisma">
-                     </div>
-				</div>
-				
-				<div class="col-md-4">
-					 <div class="form-group">
-	                     <label for="cor" class="control-label">Cor</label>
-					 	 <input type="text" class="form-control" id="cor" placeholder="Cliente" value="Prata">
-                     </div>
-				</div>				
-						
-			</div>			
-			
-		</div>
-		<br>
+		
 		<div class="box">
 	    	<legend>Dados do Pedido</legend>
 	      	<div class="row">		
 				
 				<div class="col-md-2">
-					 <div class="form-group"> <label for="numero">Número</label>
-				  <input class="form-control input-sm" id="numero" name="numero" value="34" type="text" disabled>
+					 <div class="form-group"> <label for="total">Total (R$)</label>
+				  <input class="form-control" id="total" name="numero" value="155,00" type="text" disabled>
                      </div>
 				</div>
 				
 				<div class="col-md-2">
 					 <div class="form-group">
-						 <label for="mesa">Mesa</label>
-					  	 <input class="form-control input-sm" id="mesa" name="mesa" value="10" type="text">
+                         <label for="formaPgto">Forma Pgto</label>
+                          <select id="formaPgto" class="form-control" style="height: 38px;">
+                              <option>Dinheiro</option>
+                              <option>Cartão</option>
+                              <option>Cheque</option>
+                           </select>
                      </div>
 				</div>
 				
@@ -120,9 +160,15 @@
 					  </tbody>
 					</table>			
 			</div>
-		</div>				
+		</div>
+		<br>
+		<div class="text-right">
+			<a href="#/pedidosTelefonista" class="btn btn-default"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+		</div>					
 			
-	</div>	
+	</div>
+	
 					
   </form>
 
@@ -131,7 +177,7 @@
 <!-- Modal -->
 <div id="modalAdidionarItem" class="modal fade" role="dialog">
   <div class="modal-dialog">
-<meta charset="UTF-8">
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -175,7 +221,6 @@
 <!-- Modal -->
 <div id="modalSalvarPedido" class="modal fade" role="dialog">
   <div class="modal-dialog">
-   <meta charset="UTF-8">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">

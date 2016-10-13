@@ -1,5 +1,5 @@
-<link href="lib/bootstrap/css/w3.css" rel="stylesheet">
-<div class="page-header">
+<link href="lib/CSSW3S/w3.css" rel="stylesheet">
+
 <div ng-init="item = [{prato: 'Arroz Carreteiro', bebida: 'Coca-cola', doces: 'petit-gateau c/ sorvete chocolate'},
 						{prato: 'Panqueca', bebida: 'Guaraná 2l', doces: 'Browne c/ sorvete baunilha'},
 						{prato: 'Bife chorizo', bebida: 'Agua tônica', doces: 'petit-gateau c/ sorvete castalha'},
@@ -9,7 +9,7 @@
 		<div class="well well-sm">
 		  	<center><h2><b class="fa fa-plus-circle"> Cadastrar Cardápio</b></h2></center>
 		</div>
-		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+		<div class="jumbotron flip-left"" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
 			<form class="form-horizontal">
 			
 		<div class="row" style="margin-bottom: 10px;">
@@ -18,7 +18,7 @@
 				</span>
 		</div>
 		
-		<div class="w3-container">
+		<div class="w3-container box-white">
 
 		
 		  <table class="w3-table w3-bordered">
@@ -37,18 +37,13 @@
 		      
 		      	<td>
 		       	<center>
-		      		<a ng-class="{active: activetab == '/alterar'}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Remover</a>
+		      		<a class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Remover</a>
 		       	</center>
 		       	
 				</td>
 		    </tr>
 		   
 		  </table>
-		</div>
-	
-		<div style="float: right; margin: 20px; margin-top: 15px;">
-			<a href="#/pedidosGarcom" class="btn btn-default" ng-class="{active: activetab == '/'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
-			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarCardapio"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
 		</div>
 </form>
 </div>	 
@@ -124,5 +119,4 @@
     </div>
 </div>
       	
-</div>
 </div>

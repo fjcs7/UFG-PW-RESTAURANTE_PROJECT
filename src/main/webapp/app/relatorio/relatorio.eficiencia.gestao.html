@@ -1,9 +1,9 @@
 
         <div class="row well well-sm">
-		  	 <center><h2><b class="fa fa-line-chart"> Relatório de Devoluções</b></h2></center>
+		  	 <center><h2><b class="fa  fa-line-chart"> Relatório de Eficiência</b></h2></center>
         </div>
 
-		<div class="row jumbotron">
+		<div class="row jumbotron flip-left">
 		     			
  		        <form class="form">	
  		        			
@@ -23,27 +23,14 @@
                             		<input type="date" id="datafinal" name="datafinal" class="form-control" ng-model="datafinal" placeholder="dd-mm-aaaa" required />
 		                         </div>
 	                         </div>
-	                         
-	                         <div class="col-md-4">
-								<div class="form-group">
-									<label>Tipo</label><br>
-		                            <md-radio-group ng-model="tipoRelatorio">
-                                        <label><input  type="radio" ng-model="tipoRelatorio.nome" checked="checked">Todos</label>
-                                        <label><input type="radio" ng-model="tipoRelatorio.nome" value="1">Refeicoes</label>
-                                        <label> <input type="radio" ng-model="tipoRelatorio.nome" value="2"> Bebidas</label>
-                                    </md-radio-group>
-		                         </div>
-	                         </div>                         
-	                         
-		
+	                 		
 						</div>
 					</div>
 					<br>
 					
 						<div class="box">
 						<legend>Filtros</legend>
-							<div class="row">
-		                         
+							<div class="row">	                         
 		                         <div class="col-md-2">
 									<div class="form-group">
 			                          <label>Garçom:</label>
@@ -108,7 +95,7 @@
 						<br>
 						<div class="text-right">
 	                       <a class="btn btn-warning" data-toggle="modal" data-target="#modalVisualizar"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar</a>
-	                       <a class="btn btn-info" data-toggle="modal" data-target="#modalImprimir"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</a>
+                           <a class="btn btn-info" data-toggle="modal" data-target="#modalImprimir"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</a>
 	                   </div>	
 				
 				</form>
@@ -116,30 +103,30 @@
 
 
 
-  <!-- Modal  Visualizar-->
-  <div id="modalVisualizar" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-             <meta charset="UTF-8">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title"><i class="fa fa-cutlery" aria-hidden="true"></i> Relatório de Devoluções</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="relatorio_devolucao.png" alt="Relatório Devolução" style="width:500px;height:448px;">
-                  </div>
+            <!-- Modal  Visualizar-->
+            <div id="modalVisualizar" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                       <meta charset="UTF-8">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><i class="fa fa-line-chart" aria-hidden="true"></i> Relatório de Eficiência</h4>
+                          </div>
+                          <div class="modal-body">
+                              <img src="images/relatorio/relatorio_eficiencia.png" alt="Relatório Devolução" style="width:500px;height:448px;">
+                            </div>
 
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</button>
-                        <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
-                      </div>
-              </div>
-          </div>
-  </div>
-	
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</button>
+                                  <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
+                                </div>
+                        </div>
+                    </div>
+            </div>
 
-  <!-- Modal Imprimir-->
+
+        <!-- Modal Imprimir-->
         <div id="modalImprimir" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <meta charset="UTF-8">
@@ -152,10 +139,10 @@
                             <div class="modal-body">
                                 Enviado para Impressora Padrão do Sistema!
                             </div>
-                                <div class="text-right">
+                                <div class="modal-footer">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
                                 </div>
-                </div>
+                			</div>
 
 
 
