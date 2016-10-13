@@ -1,18 +1,18 @@
-<div ng-init="pagamentos = [{numero: 1, garcom: 'Marcelo Santos', valor: '230,00'},
-                         {numero: 4, garcom: 'Caio Alves', valor: '39,00'},
-                         {numero: 33, garcom: 'Fernando Lopes', valor: '28,90'},
-                         {numero: 29, garcom: 'João Pedro', valor: '10,00' },
-                         {numero: 41, garcom: 'Carlos Pereira', valor: '110,00' }]">
-</div>
+
+<div ng-init="entregas = [{numero: 1, telefonista: 'Fernanda Almeida', valor: '39,00'},
+                         {numero: 4, telefonista: 'joana Carvalho', valor: '76,80'},
+                         {numero: 6, telefonista: 'joana Carvalho', valor: '130,90'},
+                         {numero: 16, telefonista: 'Júlia Lara', valor: '45,00'},
+                         {numero: 20, telefonista: 'Fernanda Almeida', valor: '205,90'}]"></div>
 
    <div class="well well-sm">
-		  	<center><h2><b class="fa fa-dollar"> Pagamentos</b></h2></center>
+		  	<center><h2><b class="fa fa-motorcycle"> Entregas</b></h2></center>
 		</div>
-		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+		<div class="jumbotron flip-left" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
 			
-			<div class="row distanciaTop-30 box" >
+			<div class="row distanciaTop-30 box">
 			
-			  <div class="col-xs-12">
+			  <div class="col-md-10 col-xs-12">
 			    <div class="input-group">
 			      
 			      <input type="text" id="pesquisa" ng-model="pesquisa" class="form-control" placeholder="Pesquisa">
@@ -22,6 +22,10 @@
 			    </div><!-- /input-group -->
 			  </div><!-- /.col-lg-6 -->
 			  
+			  <span class="col-md-2 col-xs-12" ng-class="{active: activetab == '/cadastrar'}">
+			  	
+			 	 <a class="btn btn-default"  href="#/encaminharEntregas"><i class="fa fa-motorcycle" aria-hidden="true"></i> Encaminhar</a>
+			  </span>
 			  
 			</div><!-- /.row -->
 			
@@ -29,26 +33,27 @@
 				<table class="table table-hover">
 				  <thead style="background: #F5F5F5;">
 					    <tr>
-					      <th><center># Pedido</center></th>
-					      <th><center>Garçom</center></th>
-					      <th><center>Valor (R$)</center></th>
+					      <th><center>#</center></th>
+					      <th><center>Telefonista</center></th>
+					      <th><center>Valor</center></th>
 					      <th class="width-actions-250"><center>Ações</center></th>
 					    </tr>
 					  </thead>
 					  <tbody>
-					  <tr ng-repeat="pagamento in pagamentos | filter:pesquisa">
-					  	<td><center>{{pagamento.numero}}</center></td>
-			    		<td><center>{{pagamento.garcom}}</center></td>
-			    		<td><center>{{pagamento.valor}}</center></td>
+					  <tr ng-repeat="entrega in entregas | filter:pesquisa">
+					  	<td><center>{{entrega.numero}}</center></td>
+			    		<td><center>{{entrega.telefonista}}</center></td>
+			    		<td><center>{{entrega.valor}}</center></td>
 			    		<td>
 			    			<center>
-						      	<a href="#/receber" class="btn btn-success"><i class="fa fa-dollar" aria-hidden="true"></i> Receber</a>
+						      	<a class="btn btn-success"><i class="fa fa-check-square-o" aria-hidden="true"></i> Confirmar</a>
 						      	<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalCancelar"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar</a>
 						    </center>
 						</td>
 			    	  </tr>					  
 					  </tbody>
-					</table>			
+					</table>
+							
 			</div>
 	</div>
 
@@ -97,8 +102,8 @@
         
       </div>
       <div class="modal-footer">
-      	<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-        <button type="button" class="btn btn-success" data-dismiss="modal">Confirmar</button>
+      	<a class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+        <a class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Confirmar</a>
       </div>
     </div>
 

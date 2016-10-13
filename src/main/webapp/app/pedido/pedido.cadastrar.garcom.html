@@ -1,0 +1,150 @@
+
+<div class="row well well-sm">
+  	<center><h2><b class="fa fa-plus-circle"> Cadastrar Pedido</b></h2></center>
+</div>
+		
+<div class="row jumbotron flip-left">
+	<form class="form">
+		
+		<div class="box">
+	    	<legend>Dados do Pedido</legend>
+	      	<div class="row">		
+							
+				<div class="col-md-2">
+					 <div class="form-group">
+						 <label for="mesa">Mesa</label>
+					  	 <input class="form-control input-sm" id="mesa" name="mesa" type="text" placeholder="Mesa">
+                     </div>
+				</div>
+				
+				<div class="col-md-10">
+					 <div class="form-group float-right">
+	                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAdidionarItem" style="margin-top:20px;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Item</button>
+                     </div>
+				</div>				
+						
+			</div>
+			<br>
+			<div ng-show="itens.length>0" id="divItensPedido" class="table-responsive box-white">
+				<table class="table table-hover" id="itensPedido">
+				  <thead style="background: #F5F5F5;">
+					    <tr>
+					      <th><center>#</center></th>
+					      <th><center>Descrição</center></th>
+					      <th><center>Quantidade</center></th>
+					      <th class="width-actions-250"><center>Ações</center></th>
+					    </tr>
+					  </thead>
+					  <tr ng-repeat="item in itens">
+					  	<td><center>{{item.numero}}</center></td>
+			    		<td><center>{{item.descricao}}</center></td>
+			    		<td>
+							<center>
+								<span class=""><i class="fa fa-plus-square" aria-hidden="true"></i></span>
+								<span> {{item.quantidade}}</span>
+								<span class=""><i class="fa fa-minus-square" aria-hidden="true"></i></span>
+							</center>
+						</td>
+			    		
+			    		<td>
+			    			<center>
+						      	
+						      	<a type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalCancelar"><i class="fa fa-times-circle" aria-hidden="true"></i> Devolver</a>
+						      	<a ng-click="removerItem(item.$index)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Remover</a>
+						    </center>
+						</td>
+			    	  </tr>	
+					  <tbody>
+					    
+					  </tbody>
+					</table>			
+			</div>
+		</div>
+		<br>
+		<div class="float-right">
+			<a href="#/pedidosGarcom" class="btn btn-default" ng-class="{active: activetab == '/'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+			
+			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+			
+		</div>				
+			
+	</div>	
+					
+  </form>
+  
+  
+
+</div>
+
+
+<!-- Modal -->
+<div id="modalAdidionarItem" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Item</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="box">
+      		<form class="form-horizontal">
+			  <fieldset>
+			  <div class="col-md-9">			    
+				    <span class="form-group">
+				      <label for="item" class="control-label">Item</label>
+				  
+				      <input type="text" required autocomplete="off" class="form-control" ng-model="item.descricao" placeholder="item">
+				  
+				    </span>
+			    </div>
+			    
+			    <div class="col-md-3">
+				    <span class="form-group">
+				      <label for="quantidadeItem" class="control-label">Quantidade</label>
+				 	  <input type="number" class="form-control" ng-model="item.quantidade" placeholder="QTD" required="required" autocomplete="off">
+				  
+				    </span>
+			    </div>
+			  </fieldset>
+			</form>
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="AdicionaLinha(item);"><i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalSalvarPedido" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+   <meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="alert alert-success">
+      		<center>
+      			Pedido salvo com sucesso. <p>
+      			Pedido Número: <h3>34</h3>
+      		</center>
+      		
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<a class="btn btn-default" ng-class="{active: activetab == '/'}">Ok</a>
+       
+      </div>
+    </div>
+
+  </div>
+</div>

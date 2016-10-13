@@ -6,102 +6,97 @@ appt.config(function($routeProvider, $locationProvider)
    $routeProvider
  
    	   .when('/', {
-   		   templateUrl: 'app/login/login.view.html', 
-   		   controller: 'LoginController',
+      templateUrl : 'app/pedido/pedido.listar.garcom.html',
+      controller  : 'pedidoController',
    		   controllerAs: 'vm'
 	   })
 	   
 	   .when('/cadastrar', {
-	      templateUrl : 'app/pedido/pedido.cadastrar.garcom.html',
-	      controller  : 'alterarPedidos',
+      templateUrl : 'app/pedido/pedido.cadastrar.garcom.html',
+      controller  : 'pedidoController',
 	   }) 
 	   
 	   .when('/alterar', {
-	      templateUrl : 'app/pedido/pedido.alterar.garcom.html',
-	      controller  : 'alterarPedidos',
+      templateUrl : 'app/pedido/pedido.alterar.garcom.html',
+      controller  : 'pedidoController',
 	   }) 
 	   
 	   .when('/pagamentos', {
-	      templateUrl : 'app/pagamento/pagamento.listar.caixa.html',
+      templateUrl : 'app/pagamento/pagamento.listar.caixa.html',
 	      controller  : 'pagamentos',
 	   }) 
 	   
 	   .when('/receber', {
-	      templateUrl : 'app/pagamento/pagamento.receber.caixa.html',
+      templateUrl : 'app/pagamento/pagamento.receber.caixa.html',
 	      controller  : 'receber',
 	   }) 
 	   
 	   .when('/entregas', {
-	      templateUrl : 'app/entrega/entrega.listar.caixa.html',
+      templateUrl : 'app/entrega/entrega.listar.caixa.html',
 	      controller  : 'entregas',
 	   }) 
 	   
 	   .when('/encaminharEntregas', {
-	      templateUrl : 'app/entrega/entrega.encaminhar.caixa.html',
+      templateUrl : 'app/entrega/entrega.encaminhar.caixa.html',
 	      controller  : 'encaminharEntregas',
 	   }) 
 	   
 	   .when('/encaminharEntregasConfirmacao', {
-	      templateUrl : 'app/entrega/entrega.encaminhar-confirmacao.caixa.html',
+      templateUrl : 'app/entrega/entrega.encaminhar-confirmacao.caixa.html',
 	      controller  : 'encaminharEntregasConfirmacao',
 	   }) 
 
 	   .when('/pedidosTelefonista', {
-	      emplateUrl : 'app/pedido/pedidostelefonista.html',
+      templateUrl : 'app/pedido/pedido.listar.telefonista.html',
 	      controller  : 'telefonista',
 	   }) 
 	   
 	   .when('/cadastrarPedidosTelefonista', {
-	      templateUrl : 'app/pedido/pedido.cadastrar.telefonista.html',
+      templateUrl : 'app/pedido/pedido.cadastrar.telefonista.html',
 	      controller  : 'telefonista',
 	   }) 
 	   
 	   
 	   .when('/alterarPedidosTelefonista', {
-	      templateUrl : 'app/pedido/pedido.alterar.telefonista.html',
+      templateUrl : 'app/pedido/pedido.alterar.telefonista.html',
 	      controller  : 'telefonista',
 	   }) 
 	   
 	   // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
 	   .when('/pedidosPreparar', {
-	      templateUrl : 'app/pedido/pedido.preparar.cozinha.html',
+      templateUrl : 'app/pedido/pedido.preparar.cozinha.html',
 	      controller  : 'pedidosPreparar',
 	   })
 	   
-	   // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
 	   .when('/cadastrarFuncionario', {
-	      templateUrl : 'app/funcionario/funcionario.cadastrar.gestao.html',
+      templateUrl : 'app/funcionario/funcionario.cadastrar.gestao.html',
 	      controller  : 'cadastrarFuncionario',
 	   })
 
-	   // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
 	   .when('/listarFuncionario', {
-	      templateUrl : 'app/funcionario/funcionario.listar.gestao.html',
+      templateUrl : 'app/funcionario/funcionario.listar.gestao.html',
 	      controller  : 'listarFuncionario',
 	   })
 
-	   // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
 	   .when('/alterarFuncionario', {
-	       templateUrl : 'app/funcionario/funcionario.alterar.gestao.html',
+       templateUrl : 'app/funcionario/funcionario.alterar.gestao.html',
 	       controller  : 'alterarFuncionario',
 	   })
 
-	   // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
 	   .when('/relatorioDevolucoes', {
-	      templateUrl : 'app/relatorio/relatorio.devolucoes.gestao.html',
+      templateUrl : 'app/relatorio/relatorio.devolucoes.gestao.html',
 	      controller  : 'relatorioDevolucoes',
 
 	   })
-	   // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
+   
 	   .when('/relatorioEficiencia', {
-	       templateUrl : 'app/relatorio/relatorio.eficiencia.gestao.html',
+       templateUrl : 'app/relatorio/relatorio.eficiencia.gestao.html',
 	       controller  : 'relatorioEficiencia',
 
 	   })
 	   
-	   // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
 	   .when('/cadastrodeCardapio', {
-	       templateUrl : 'views/cadastrodeCardapio-jer.html',
+       templateUrl : 'app/cardapio/cardapio.listar-cadastrar.cozinha.html',
 	       controller  : 'cadastrodeCardapio',
 
 	   })
@@ -121,7 +116,7 @@ appt.config(function($routeProvider, $locationProvider)
    
    
    
-    // caso n√£o seja nenhum desses, redirecione para a rota '/'
+    // caso n„o seja nenhum desses, redirecione para a rota '/'
    .otherwise ({ redirectTo: '/' });
 })
 

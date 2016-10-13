@@ -1,10 +1,10 @@
 body{
-  
+  background: url(../../images/background/fundo3.jpg) no-repeat center;
   font-size: 16px;
 }
 
 .maps {
-  background: url(../../images/rota.gif) no-repeat center;
+  background: url(../../images/map/rota.gif) no-repeat center;
   background-size: cover; /*Css padrão*/
   -webkit-background-size: cover; /*Css safari e chrome*/
   -moz-background-size: cover; /*Css firefox*/
@@ -168,7 +168,7 @@ html { height: 100%;}
     margin-left: -220px;
     overflow-y: auto;
     overflow-x: hidden;
-    background-image: url(../../images/fundo-menu.jpg);
+    background-image: url(../../images/background/fundo-menu.jpg);
 
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
