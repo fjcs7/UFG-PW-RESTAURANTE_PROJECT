@@ -1,20 +1,48 @@
 package ufg.pw.projeto_restaurante.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "itemvenda")
+
 public class ItemVenda {
 	
+	@Id
+	private Integer id;	
+	
+	@Column
 	private Double preco;
+	
+	@Column
 	private String nome;
+	
+	@Column
 	private String descricao;
+	
+	@Column
 	private TipoItemVenda tipo;
 	
 	public ItemVenda(String nome, String descricao, Double preco, TipoItemVenda tipo) {
-		
-		this.nome      = nome;
-		this.descricao = descricao;
-		this.preco     = preco;
-		this.tipo      = tipo;
-		
+			
+			this.nome      = nome;
+			this.descricao = descricao;
+			this.preco     = preco;
+			this.tipo      = tipo;
+			
 	}
+	
+	public ItemVenda() {	}
+	
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}	
 	
 	public Double getPreco() {
 		return preco;
