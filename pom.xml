@@ -24,6 +24,77 @@
       <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
+    
+    <!-- Para Postgres -->
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>9.4.1211.jre7</version>
+	</dependency>
+	
+	<!-- Para hibernate -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.2.2.Final</version>
+	</dependency>
+	
+	<!-- Dependências do hibernate -->
+	<dependency>
+	    <groupId>antlr</groupId>
+	    <artifactId>antlr</artifactId>
+	    <version>2.7.7</version>
+	</dependency>
+	
+	<!-- Dependências do hibernate -->
+	<dependency>
+	    <groupId>dom4j</groupId>
+	    <artifactId>dom4j</artifactId>
+	    <version>1.6.1</version>
+	</dependency>
+
+	<!-- Dependências do hibernate -->
+	<dependency>
+	    <groupId>org.apache.geronimo.specs</groupId>
+	    <artifactId>geronimo-jta_1.1_spec</artifactId>
+	    <version>1.1.1</version>
+	</dependency>
+	
+	<!-- Dependências do hibernate -->
+	<dependency>
+	    <groupId>org.hibernate.common</groupId>
+	    <artifactId>hibernate-commons-annotations</artifactId>
+	    <version>5.0.1.Final</version>
+	</dependency>
+		
+	<!-- Dependências do hibernate -->
+	<dependency>
+	    <groupId>org.hibernate.javax.persistence</groupId>
+	    <artifactId>hibernate-jpa-2.1-api</artifactId>
+	    <version>1.0.0.Final</version>
+	</dependency>
+	
+	<!-- Dependências do hibernate -->
+	<dependency>
+	    <groupId>org.javassist</groupId>
+	    <artifactId>javassist</artifactId>
+	    <version>3.20.0-GA</version>
+	</dependency>
+	
+	<!-- Dependências do hibernate -->
+	<dependency>
+	    <groupId>org.jboss</groupId>
+	    <artifactId>jandex</artifactId>
+	    <version>2.0.0.Final</version>
+	</dependency>
+	
+	<!-- Dependências do hibernate -->
+	<dependency>
+	    <groupId>org.jboss.logging</groupId>
+	    <artifactId>jboss-logging</artifactId>
+	    <version>3.3.0.Final</version>
+	</dependency>
+
   </dependencies>
 
 	<build>
