@@ -1,10 +1,10 @@
 package ufg.pw.projeto_restaurante.model;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-import antlr.collections.List;
 
 public class ItemVendaDAO {
 	
@@ -12,11 +12,10 @@ public class ItemVendaDAO {
     protected EntityManager entityManager;
     
     public static ItemVendaDAO getInstance(){
-              if (instance == null){
-                       instance = new ItemVendaDAO();
-              }
-              
-              return instance;
+	      if (instance == null){
+	               instance = new ItemVendaDAO();
+	      }
+	      return instance;
     }
     
     private ItemVendaDAO() {
@@ -28,7 +27,6 @@ public class ItemVendaDAO {
 	        if (entityManager == null) {
 	                 entityManager = factory.createEntityManager();
 	        }
-	
 	        return entityManager;
 	}
 	

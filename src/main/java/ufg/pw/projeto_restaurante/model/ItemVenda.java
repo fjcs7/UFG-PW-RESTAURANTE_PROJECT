@@ -2,6 +2,8 @@ package ufg.pw.projeto_restaurante.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +13,7 @@ import javax.persistence.Table;
 public class ItemVenda {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;	
 	
 	@Column
@@ -31,7 +34,6 @@ public class ItemVenda {
 			this.descricao = descricao;
 			this.preco     = preco;
 			this.tipo      = tipo;
-			
 	}
 	
 	public ItemVenda() {	}
