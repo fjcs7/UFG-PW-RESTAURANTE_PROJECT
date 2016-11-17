@@ -51,4 +51,7 @@ Divisão provisória das telas a serem construidas:
      -> Alterar de funcionário
      
      -> Listar funcionário
+     
+     
+     Para lembrar: Rest com Java - http://www.k19.com.br/artigos/criando-um-webservice-restful-em-java/
 
