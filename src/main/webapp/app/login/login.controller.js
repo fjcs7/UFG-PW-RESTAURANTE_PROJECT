@@ -28,6 +28,12 @@
                     	$location.path('/pedidosGarcom');
                     } else if (response.perfil==='telefonista'){
                     	$location.path('/pedidosTelefonista');
+                    } else if (response.perfil==='gerente'){
+                    	$location.path('/listarFuncionario');
+                    } else if (response.perfil==='cozinha'){
+                    	$location.path('/pedidosPreparar');
+                    } else if (response.perfil==='caixa'){
+                    	$location.path('/pagamentos');
                     }
                 } else {
                     FlashService.Error(response.message);
@@ -39,3 +45,4 @@
     }
 
 })();
+

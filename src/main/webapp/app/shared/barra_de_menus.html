@@ -1,69 +1,91 @@
-    <div id="wrapper">
+<div id="wrapper">
         <div class="overlay"></div>
-    
+    	
         <!-- Sidebar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
-                    <center><img src="images/background/xicara.gif" alt="restaurante" class="img"></center>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Entregas <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Entregas</li>
-                    <li><a href="#/entregas">Listar</a></li>
-                    <li><a href="#/encaminharEntregas">Encaminhar</a></li>
-                  </ul>
-                </li>
-          
-                
-                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Funcionários <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Funconários</li>
-                    <li><a href="#/listarFuncionario">Listar</a></li>
-                    <li><a href="#/cadastrarFuncionario">Cadastrar</a></li>
-                  </ul>
-                </li>
-                
-                <li>
-                    <a href="#/pagamentos"> Pagamentos</a>
-                </li>
-                
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Pedidos <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Pedidos</li>
-                    <li><a href="#/pedidosGarcom">Listar</a></li>
-                    <li><a href="#/cadastrar">Cadastrar</a></li>
-                  </ul>
-                </li>
-                
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Pedidos <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Pedidos</li>
-                    <li><a href="#/pedidosTelefonista">Listar</a></li>
-                    <li><a href="#/cadastrarPedidosTelefonista">Cadastrar</a></li>
-                  </ul>
-                </li>
-                
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Relatórios <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Relatórios</li>
-                    <li><a href="#/relatorioDevolucoes">Devoluções</a></li>
-                    <li><a href="#/relatorioEficiencia">Eficiência</a></li>
-                  </ul>
-                </li>
-                
-            </ul>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
+        <div ng-if="globals.currentUser.perfil != null">
+	        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+	            <ul class="nav sidebar-nav">
+	                <li class="sidebar-brand">
+	                    <center>
+		                    <img src="images/background/xicara.gif" alt="restaurante" class="img">
+		                    <div class="box"><i class="fa fa-user" aria-hidden="true"></i> {{globals.currentUser.nomeDeExibicao}}
+		                    <a class="btn btn-danger" href="#/" onclick="fechaMenu()"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Sair</a></div>
+	                    </center>
+	                    
+	                    
+	                </li>
+	                
+	                <div ng-if="globals.currentUser.perfil == 'caixa'">
+		                <li class="dropdown" >
+		                    <a class="dropdown-toggle" data-toggle="dropdown">Entregas <span class="caret"></span></a>
+		                    <ul class="dropdown-menu" role="menu">
+		                    <li class="dropdown-header">Entregas</li>
+		                    <li><a href="#/entregas">Listar</a></li>
+		                    <li><a href="#/encaminharEntregas">Encaminhar</a></li>
+		                  </ul>
+		                </li>
+		                
+		                <li>
+		                    <a href="#/pagamentos"> Pagamentos</a>
+		                </li>          
+	                </div>
+	                
+	                <div ng-if="globals.currentUser.perfil == 'gerente'">
+		                 <li class="dropdown" ng-show="globals.currentUser.perfil == 'gerente'">
+		                    <a class="dropdown-toggle" data-toggle="dropdown">FuncionÃ¡rios <span class="caret"></span></a>
+		                    <ul class="dropdown-menu" role="menu">
+		                    <li class="dropdown-header">FunconÃ¡rios</li>
+		                    <li><a href="#/listarFuncionario">Listar</a></li>
+		                    <li><a href="#/cadastrarFuncionario">Cadastrar</a></li>
+		                  </ul>
+		                </li>
+		                <li class="dropdown">
+		                    <a class="dropdown-toggle" data-toggle="dropdown" ng-show="globals.currentUser.perfil == 'gerente'">RelatÃ³rios <span class="caret"></span></a>
+		                    <ul class="dropdown-menu" role="menu">
+		                    <li class="dropdown-header">RelatÃ³rios</li>
+		                    <li><a href="#/relatorioDevolucoes">DevoluÃ§Ãµes</a></li>
+		                    <li><a href="#/relatorioEficiencia">EficiÃªncia</a></li>
+		                  </ul>
+		                </li>
+	                </div>
+	                
+	                <div ng-if="globals.currentUser.perfil == 'garcom'">
+		                <li class="dropdown">
+		                    <a class="dropdown-toggle" data-toggle="dropdown">Pedidos <span class="caret"></span></a>
+		                    <ul class="dropdown-menu" role="menu">
+		                    <li class="dropdown-header">Pedidos</li>
+		                    <li><a href="#/pedidosGarcom">Listar</a></li>
+		                    <li><a href="#/cadastrar">Cadastrar</a></li>
+		                  </ul>
+		                </li>
+	                </div>
+	                
+	                <div ng-if="globals.currentUser.perfil == 'cozinha'">
+		                <li ><a href="#/pedidosPreparar">Pedidos</a></li>
+		                <li ><a href="#/cadastrodeCardapio">CardÃ¡pio</a></li>
+		                
+		            </div>
+	                
+	                <div ng-if="globals.currentUser.perfil == 'telefonista'">
+		                <li class="dropdown">
+		                    <a class="dropdown-toggle" data-toggle="dropdown">Pedidos <span class="caret"></span></a>
+		                  <ul class="dropdown-menu" role="menu">
+		                    <li class="dropdown-header">Pedidos</li>
+		                    <li><a href="#/pedidosTelefonista">Listar</a></li>
+		                    <li><a href="#/cadastrarPedidosTelefonista">Cadastrar</a></li>
+		                  </ul>
+		                </li>
+	                </div>
+	                
+	                
+	            </ul>
+	            
+	        </nav>
+	        <!-- /#sidebar-wrapper -->
+		</div>
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <button ng-show="globals.currentUser.logado" type="button" class="hamburger is-closed" data-toggle="offcanvas" ng-show="$location.path() != '/login'">
+            <button id="hamburguer" ng-show="globals.currentUser.logado" type="button" class="hamburger is-closed" data-toggle="offcanvas">
                 <span class="hamb-top"></span>
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>

@@ -1,4 +1,4 @@
-
+<meta charset="UTF-8">
 <div class="row well well-sm">
   	<center><h2><b class="fa fa-plus-circle"> Cadastrar Pedido</b></h2></center>
 </div>
@@ -62,9 +62,9 @@
 		</div>
 		<br>
 		<div class="float-right">
-			<a href="#/pedidosGarcom" class="btn btn-default" ng-class="{active: activetab == '/'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+			<a href="#/pedidosGarcom" class="btn btn-default"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
 			
-			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+			<a class="btn btn-info" "#/pedidosGarcom"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
 			
 		</div>				
 			
@@ -120,31 +120,3 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div id="modalSalvarPedido" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-   <meta charset="UTF-8">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</h4>
-      </div>
-      <div class="modal-body">
-      	<div class="alert alert-success">
-      		<center>
-      			Pedido salvo com sucesso. <p>
-      			Pedido Número: <h3>34</h3>
-      		</center>
-      		
-      	</div>
-        
-      </div>
-      <div class="modal-footer">
-      	<a class="btn btn-default" ng-class="{active: activetab == '/'}">Ok</a>
-       
-      </div>
-    </div>
-
-  </div>
-</div>

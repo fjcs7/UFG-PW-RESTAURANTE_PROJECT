@@ -1,4 +1,4 @@
-
+<meta charset="UTF-8">
    <div class="well well-sm">
 		  	<center><h2><b class="fa fa-dollar"> Recebimento</b></h2></center>
 		</div>
@@ -24,10 +24,10 @@
 					<div class="box" style="margin: 10px 0px 10px;" ng-show="selectFormaPgto == 1" id="divDinheiro">
 						<legend><i class="fa fa-money" aria-hidden="true"></i> Dinheiro</legend>
 						<span>Valor Recebido</span>
-						<input type="number" ng-model="valorRecebido" id="valorRecebido" class="form-control">
+						<input type="text" value="150,00" id="valorRecebido" class="form-control">
 						
-						<span ng-show="valorRecebido > 130">Troco</span>
-						<input type="number" ng-model="troco" ng-show="valorRecebido > 130" class="form-control" disabled>
+						<span >Troco</span>
+						<input type="text" value="20,00" value="150,00" class="form-control" disabled>
 						
 					</div>
 					
@@ -52,7 +52,7 @@
 						<legend><i class="fa fa-list-alt" aria-hidden="true"></i> Cheque</legend>
 						
 						<span>Vencimento</span>
-						<input type="text" class="form-control datepicker">
+						<input type="date" class="form-control">
 						
 						<span>Núero</span>
 						<input type="text" class="form-control">						
@@ -166,38 +166,9 @@
 			<div class="row" style="float:right;">
 				<span class="col-md-12">
 					<a href="#/pagamentos" class="btn btn-default"> <i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
-		        	<a class="btn btn-primary" onclick="AdicionaLinha();" data-toggle="modal" data-target="#modalConfirmarPgto"><i class="fa fa-dollar" aria-hidden="true"></i> Confimar</a>
+		        	<a href="#/pagamentos"  class="btn btn-success"><i class="fa fa-check-square-o" aria-hidden="true"></i> Confimar</a>
 	        	</span>
 	        </div>
 	        
 	    </div>
-
-
-<!-- Modal -->
-<div id="modalConfirmarPgto" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-   <meta charset="UTF-8">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="fa fa-dollar" aria-hidden="true"></i> Recebimento</h4>
-      </div>
-      <div class="modal-body">
-      	<div class="alert alert-success">
-      		<center>
-      			Pagamento realizado com sucesso. 
-      		</center>
-      		
-      	</div>
-        
-      </div>
-      <div class="modal-footer">
-      	<a href="#/pagamentos" class="btn btn-default" ng-class="{active: activetab == '/pagamentos'}">Ok</a>
-       
-      </div>
-    </div>
-
-  </div>
-</div>
 

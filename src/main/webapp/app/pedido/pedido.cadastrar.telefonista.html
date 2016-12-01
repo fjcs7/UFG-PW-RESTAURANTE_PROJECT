@@ -161,7 +161,7 @@
 		<br>
 		<div class="text-right">
 			<a href="#/pedidosTelefonista" class="btn btn-default"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
-			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+			<a class="btn btn-info" href="#/pedidosTelefonista"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
 		</div>					
 			
 	</div>
@@ -215,31 +215,3 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div id="modalSalvarPedido" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</h4>
-      </div>
-      <div class="modal-body">
-      	<div class="alert alert-success">
-      		<center>
-      			Pedido salvo comsucesso.<br>
-      			Pedido número<br>
-      			<h4>34</h4>
-      		</center>
-      		
-      	</div>
-        
-      </div>
-      <div class="modal-footer">
-      	<a ng-click="salvar()" class="btn btn-default" ng-class="{active: activetab == '/'}">Ok</a>
-       
-      </div>
-    </div>
-
-  </div>
-</div>

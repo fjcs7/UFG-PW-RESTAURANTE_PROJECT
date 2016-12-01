@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <div ng-init="itens = [{numero: 1, descricao: 'Feijão tropeiro', quantidade: '2'},
                          {numero: 2, descricao: 'Arroz branco', quantidade: '2'},
                          {numero: 3, descricao: 'Suco de laranja', quantidade: '2'}]">
@@ -68,7 +69,15 @@
 					  </tbody>
 					</table>			
 			</div>
-		</div>				
+			
+		</div>	
+		<br>
+			<div class="float-right">
+				<a href="#/pedidosGarcom" class="btn btn-default"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+				
+				<a class="btn btn-info" href="#/pedidosGarcom"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+				
+			</div>				
 			
 	</div>	
 					
@@ -113,34 +122,6 @@
       <div class="modal-footer">
       	<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="AdicionaLinha(item);"><i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Modal -->
-<div id="modalSalvarPedido" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-   <meta charset="UTF-8">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</h4>
-      </div>
-      <div class="modal-body">
-      	<div class="alert alert-success">
-      		<center>
-      			Alterações salvas com sucesso. 
-      		</center>
-      		
-      	</div>
-        
-      </div>
-      <div class="modal-footer">
-      	<a ng-click="salvar()" class="btn btn-default" ng-class="{active: activetab == '/'}">Ok</a>
-       
       </div>
     </div>
 

@@ -9,7 +9,6 @@
 
 <script src="app/login/login.controller.js"></script>
 <script src="controllers/controllersGarcom.js"></script>
-<script src="app/shared/menu.controller.js"></script>
 
 <%@ include file="app/shared/barra_de_menus.html"%>
 
@@ -22,7 +21,7 @@
 	<body>
 	<div class="container">
 		<div class="row">
-		<!-- Caso o login seja inválido mostra o motivo. -->
+		<!-- Caso o login seja invï¿½lido mostra o motivo. -->
 		<div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
 		<div ng-view></div>
 		</div>  
@@ -33,6 +32,7 @@
     </div>
     
     <script>
+
 			    
 
 		 $(document).ready(function () {
@@ -64,7 +64,26 @@
 			  });  
 			});
 		 
+			 $("body").vegas({
+				    delay: 20000,
+				    timer: false,
+				    shuffle: true,
+				    transition: 'zoomOut',
+				    firstTransitionDuration: 1000,
+				    transitionDuration: 8000,
+				    slides: [
+				        { src: 'images/background/fundo3.jpg' },
+				        { src: 'images/background/fundo4.jpg' },
+				        { src: 'images/background/fundo8.jpg' },
+				        { src: 'images/background/fundo10.jpg' }
+				    ]
+				});
+			
+			function fechaMenu(){
+				$("#hamburguer").trigger('click');
+			}
 			</script> 
+			
 	
 	</body>
 </html>

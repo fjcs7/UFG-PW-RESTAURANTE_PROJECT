@@ -55,9 +55,6 @@ appt.controller('controllersGerenciais', function($rootScope, $location) {
 appt.controller('cadastrodeCardapio', function($rootScope, $location) {
 });
 
-appt.controller('pedidosPreparar', function($rootScope, $location) {
-});
-
 appt.controller('estacionamento', function($rootScope, $location) {
 });
 appt.controller('relatorioDevolucoes', function($rootScope, $location) {

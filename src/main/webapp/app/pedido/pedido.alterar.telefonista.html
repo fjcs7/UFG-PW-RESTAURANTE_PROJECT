@@ -133,7 +133,7 @@
 					      <th><center>#</center></th>
 					      <th><center>Descrição</center></th>
 					      <th><center>Quantidade</center></th>
-					      <th width="200px"><center>Ações</center></th>
+					      <th class="width-actions-250"><center>Ações</center></th>
 					    </tr>
 					  </thead>
 					  <tr ng-repeat="item in itens">
@@ -164,7 +164,7 @@
 		<br>
 		<div class="text-right">
 			<a href="#/pedidosTelefonista" class="btn btn-default"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
-			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+			<a class="btn btn-info" href="#/pedidosTelefonista"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
 		</div>					
 			
 	</div>
@@ -212,33 +212,6 @@
       <div class="modal-footer">
       	<button type="button" class="btn btn-default" data-dismiss="modal"> <i class="fa fa-reply" aria-hidden="true"></i>Voltar</button>
         <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="AdicionaLinha();"><i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Modal -->
-<div id="modalSalvarPedido" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</h4>
-      </div>
-      <div class="modal-body">
-      	<div class="alert alert-success">
-      		<center>
-      			Alterações salvas com sucesso. 
-      		</center>
-      		
-      	</div>
-        
-      </div>
-      <div class="modal-footer">
-      	<a ng-click="salvar()" class="btn btn-default" ng-class="{active: activetab == '/'}">Ok</a>
-       
       </div>
     </div>
 

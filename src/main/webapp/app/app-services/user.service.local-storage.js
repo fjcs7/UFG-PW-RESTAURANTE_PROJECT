@@ -25,10 +25,12 @@
         // private functions
 
         function getUsers() {
-        	var usuarios = [{nomeDeExibicao:'João Françolim', username:'garçom', password:'1234', perfil:'garcom'},
-                            {nomeDeExibicao:'Antônio Cunha', username:'garcom', password:'1234', perfil:'garcom'},
-                            {nomeDeExibicao:'Jhoana Da Silva', username:'telefonista', password:'1234', perfil:'telefonista'},
-                            {nomeDeExibicao:'Só Um Estagiário', username:'teste', password:'teste', perfil:'telefonista'}]
+        	var usuarios = [{nomeDeExibicao:'João Françolim', username:'joao', password:'1234', perfil:'garcom'},
+                            {nomeDeExibicao:'Antônio Cunha', username:'antonio', password:'1234', perfil:'garcom'},
+                            {nomeDeExibicao:'Marcos Antônio', username:'marcos', password:'1234', perfil:'telefonista'},
+                            {nomeDeExibicao:'Larissa Silva', username:'larissa', password:'1234', perfil:'gerente'},
+                            {nomeDeExibicao:'Kleber Júnior', username:'kleber', password:'1234', perfil:'caixa'},
+                            {nomeDeExibicao:'Raquel Viana', username:'raquel', password:'1234', perfil:'cozinha'}]
 
         	return usuarios;
         }
