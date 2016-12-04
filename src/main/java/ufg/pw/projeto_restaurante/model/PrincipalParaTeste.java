@@ -1,21 +1,27 @@
 package ufg.pw.projeto_restaurante.model;
 
-import java.util.List;
-
-import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVenda;
-import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVendaDAO;
-import ufg.pw.projeto_restaurante.model.item_de_venda.TipoItemVenda;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class PrincipalParaTeste {
 
 	public static void main(String[] args) {
-		List<ItemVenda> list;
-		ItemVenda itemA = new ItemVenda("Produto", "Um produto ai", 15.55, TipoItemVenda.PRATO);
-		ItemVendaDAO persist = ItemVendaDAO.getInstance();
-		persist.merge(itemA);
-		list = persist.findAll();
-		itemA = list.get(list.size()-1);
-		System.out.println(itemA.getId() + " - "+ itemA.getDescricao());
+		GregorianCalendar gc = new GregorianCalendar();
+		NumberFormat formatador = new DecimalFormat("00");
+		NumberFormat formatadorAno = new DecimalFormat("0000");
+		String horaCompleta = formatador.format(gc.get(Calendar.HOUR_OF_DAY)) +
+							  formatador.format(gc.get(Calendar.MINUTE))+
+							  formatador.format(gc.get(Calendar.SECOND));
+
+		String dataAtual =   formatador.format(gc.get(Calendar.DATE)) +
+							 formatador.format(gc.get(Calendar.MONTH))+
+							 formatadorAno.format(gc.get(Calendar.YEAR));
+
+		System.out.println(horaCompleta);
+		
+		System.out.println(dataAtual);
 	}
 
 }
