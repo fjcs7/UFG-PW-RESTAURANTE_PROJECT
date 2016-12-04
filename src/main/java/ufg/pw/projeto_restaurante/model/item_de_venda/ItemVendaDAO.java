@@ -1,4 +1,4 @@
-package ufg.pw.projeto_restaurante.model;
+package ufg.pw.projeto_restaurante.model.item_de_venda;
 
 import java.util.List;
 

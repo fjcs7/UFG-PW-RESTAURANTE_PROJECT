@@ -2,6 +2,10 @@ package ufg.pw.projeto_restaurante.model;
 
 import java.util.List;
 
+import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVenda;
+import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVendaDAO;
+import ufg.pw.projeto_restaurante.model.item_de_venda.TipoItemVenda;
+
 public class PrincipalParaTeste {
 
 	public static void main(String[] args) {
