@@ -68,7 +68,7 @@ public abstract class Pedido {
 	
 	public void finalizarAtendimento(){
 		GregorianCalendar gc = new GregorianCalendar();
-		this.horaFimAtendimento = gc.getTime();
+		this.horaFimAtendimento = gc.getTimeInMillis();
 	}
 	
 }
