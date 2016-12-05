@@ -1,15 +1,10 @@
 package ufg.pw.projeto_restaurante.model.utils.mesa;
 
-import java.beans.Transient;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-
-import org.hibernate.annotations.AttributeAccessor;
+import javax.persistence.Transient;
 
 import ufg.pw.projeto_restaurante.model.utils.mesa.state.StatusDeMesa;
 
@@ -21,11 +16,15 @@ public class Mesa {
 	private int id;
 	
 	@Column(name="status")
-	@JoinColumn(name="id")
-	private StatusDeMesa status;
+	private int status;
+	
+	@Transient
+	private StatusDeMesa state;
+	
 	public Mesa(){
-		this.status = StatusDeMesa.desocuparMesa(); 
+		this.setState(StatusDeMesa.desocuparMesa());
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -34,7 +33,19 @@ public class Mesa {
 	}
 
 	public int getStatus() {
-		return status.getValorStatus();
+		return this.status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public StatusDeMesa getState() {
+		return state;
+	}
+
+	public void setState(StatusDeMesa state) {
+		this.state = state;
+		status = state.getValorStatus();
 	}
 	
 }
