@@ -1,6 +1,7 @@
 package ufg.pw.projeto_restaurante.model.utils;
 
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
+import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
 public class PessoaFisica {
 	

@@ -1,8 +1,8 @@
 package ufg.pw.projeto_restaurante.model.funcionario;
 
 import ufg.pw.projeto_restaurante.model.utils.PessoaFisica;
-import ufg.pw.projeto_restaurante.model.utils.Telefone;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
+import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
 public class Funcionario extends PessoaFisica	{
 	
