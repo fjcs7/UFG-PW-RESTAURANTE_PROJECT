@@ -1,15 +1,11 @@
 package ufg.pw.projeto_restaurante.model.cliente;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import ufg.pw.projeto_restaurante.model.utils.PessoaFisica;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
 import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
-@Entity
-@Table(name = "cliente")
+//@Entity
+//@Table(name = "cliente")
 public class Cliente extends PessoaFisica {
 	
 	private Boolean possuiVeiculo;
@@ -29,7 +25,7 @@ public class Cliente extends PessoaFisica {
 		this.possuiVeiculo = true;
 	}
 	
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

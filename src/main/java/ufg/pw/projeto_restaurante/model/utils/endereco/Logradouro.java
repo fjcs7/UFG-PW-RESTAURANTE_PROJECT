@@ -1,30 +1,50 @@
 package ufg.pw.projeto_restaurante.model.utils.endereco;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+@Entity
 public class Logradouro {
-	private Integer ID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
+	
+	@Enumerated(EnumType.ORDINAL)
 	private EnumTipoLogradouro tipo;
+	
+	@Column
 	private String complemento;
-	private String referencia;
-	private Integer numero;
-	private Integer quadra;
-	private Integer lote;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="id_bairro",
+				insertable=true, updatable=true)
+	@Fetch(FetchMode.JOIN)
 	private Bairro bairro;
+	
+	public Logradouro(){}
 	
 	public Logradouro(EnumTipoLogradouro tipo, String complemento, String referencia, Integer numero, Integer quadra, Integer lote, Bairro bairro) {
 		this.complemento = complemento;
 		this.tipo        = tipo;
-		this.referencia  = referencia;
 		this.bairro      = bairro;
-		this.numero      = numero;
-		this.quadra      = quadra;
-		this.lote        = lote;
 	}
 	
-	public Integer getID() {
-		return ID;
+	public Long getId() {
+		return this.id;
 	}
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setID(Long id) {
+		this.id = id;
 	}
 	public EnumTipoLogradouro getTipo() {
 		return tipo;
@@ -37,30 +57,6 @@ public class Logradouro {
 	}
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
-	}
-	public String getReferencia() {
-		return referencia;
-	}
-	public void setReferencia(String referencia) {
-		this.referencia = referencia;
-	}
-	public Integer getNumero() {
-		return numero;
-	}
-	public void setNumero(Integer numero) {
-		this.numero = numero;
-	}
-	public Integer getQuadra() {
-		return quadra;
-	}
-	public void setQuadra(Integer quadra) {
-		this.quadra = quadra;
-	}
-	public Integer getLote() {
-		return lote;
-	}
-	public void setLote(Integer lote) {
-		this.lote = lote;
 	}
 	public Bairro getBairro() {
 		return bairro;

@@ -1,18 +1,30 @@
 package ufg.pw.projeto_restaurante.model.utils;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.MappedSuperclass;
 
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
 import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
-public class PessoaFisica {
+
+@MappedSuperclass
+public abstract class PessoaFisica {
 	
+	@Column
 	private String nome;
+	@Column
 	private Telefone telefone;
+	
 	private Endereco endereco;
+	@Column
 	private Long cpf;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 	
 	public PessoaFisica() {};

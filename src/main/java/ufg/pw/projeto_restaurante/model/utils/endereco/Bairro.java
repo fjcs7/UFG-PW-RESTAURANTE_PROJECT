@@ -1,16 +1,39 @@
 package ufg.pw.projeto_restaurante.model.utils.endereco;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+@Entity
 public class Bairro {
-	private Integer ID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
+	@Column
 	private String nome;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="id_cidade",
+				insertable=true, updatable=true)
+	@Fetch(FetchMode.JOIN)
 	private Cidade cidade;
 	
+	public Bairro(){}
+
 	public Bairro(String nome) {
 		this.nome = nome;
 	}
 	
-	public Integer getID() {
-		return ID;
+	public Long getID() {
+		return id;
 	}
 	
 	public Cidade getCidade() {
