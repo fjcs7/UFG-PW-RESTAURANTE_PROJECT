@@ -1,13 +1,21 @@
 package ufg.pw.projeto_restaurante.model.cliente;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import ufg.pw.projeto_restaurante.model.utils.PessoaFisica;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
 import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
+@Entity
+@Table(name = "cliente")
 public class Cliente extends PessoaFisica {
-
+	
 	private Boolean possuiVeiculo;
 	private Veiculo veiculo;
+	
+	public Cliente() {};
 
 	public Cliente(String nome, Telefone telefone, Endereco endereco, Long cpf) {
 		super(nome, telefone, endereco, cpf);
@@ -20,7 +28,11 @@ public class Cliente extends PessoaFisica {
 		this.veiculo = veiculo;
 		this.possuiVeiculo = true;
 	}
-
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public Boolean getPossuiVeiculo() {
 		return possuiVeiculo;
 	}

@@ -1,5 +1,7 @@
 package ufg.pw.projeto_restaurante.model.utils;
 
+import javax.persistence.Id;
+
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
 import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
@@ -9,8 +11,11 @@ public class PessoaFisica {
 	private Telefone telefone;
 	private Endereco endereco;
 	private Long cpf;
-	private Long id;
-
+	
+	@Id
+	protected Long id;
+	
+	public PessoaFisica() {};
 	public PessoaFisica(String nome, Telefone telefone, Endereco endereco, Long cpf) {
 		this.nome     = nome;
 		this.telefone =  telefone;
