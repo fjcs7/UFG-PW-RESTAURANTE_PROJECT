@@ -14,7 +14,7 @@ import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 import ufg.pw.projeto_restaurante.model.utils.mesa.Mesa;
 
 @Entity
-@Table(name="pedidoloja")
+@Table(name="pedido_loja")
 public class PedidoLoja extends Pedido{
 	
 	@ManyToOne(fetch = FetchType.EAGER)

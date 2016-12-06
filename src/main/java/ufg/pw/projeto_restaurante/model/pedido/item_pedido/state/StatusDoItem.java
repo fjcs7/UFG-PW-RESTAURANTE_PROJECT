@@ -1,8 +1,14 @@
 package ufg.pw.projeto_restaurante.model.pedido.item_pedido.state;
 
-import ufg.pw.projeto_restaurante.model.item_de_venda.TipoItemVenda;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
+@Embeddable
 public abstract class StatusDoItem {
+	@Column(name="status")
+	@Enumerated(EnumType.ORDINAL)
 	protected EnumStatusItemPedido valorStatus;
 
 	public int valorStatus() {

@@ -9,6 +9,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedido;
@@ -30,14 +33,20 @@ public abstract class Pedido {
 	@Column
 	protected Long horaFimAtendimento;
 	
-	@Column
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_cliente",
+				insertable=true, updatable=true)
+	@Fetch(FetchMode.JOIN)
 	protected Cliente cliente;
 	
-	@Column
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_funcionario",
+				insertable=true, updatable=true)
+	@Fetch(FetchMode.JOIN)
 	protected Funcionario atendente;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name="pedido_itens",
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="pedido_itempedido",
 	joinColumns={@JoinColumn(name="id_pedido")},
 	inverseJoinColumns={@JoinColumn(name="id_item")})
 	protected List<ItemPedido> itens;
@@ -48,6 +57,7 @@ public abstract class Pedido {
 	@Column
 	protected String motivoCancelamento;	
 	
+	@Embedded
 	protected StatusPedido status;
 	
 	public Pedido() {};

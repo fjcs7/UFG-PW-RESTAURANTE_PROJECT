@@ -1,11 +1,9 @@
 package ufg.pw.projeto_restaurante.model.utils.mesa;
 
-import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
 import ufg.pw.projeto_restaurante.model.utils.mesa.state.StatusDeMesa;
 
 @Entity
@@ -15,14 +13,12 @@ public class Mesa {
 	@Id
 	private int id;
 	
-	@Column(name="status")
-	private int status;
 	
-	@Transient
-	private StatusDeMesa state;
+	@Embedded
+	private StatusDeMesa status;
 	
 	public Mesa(){
-		this.setState(StatusDeMesa.desocuparMesa());
+		this.status = StatusDeMesa.desocuparMesa();
 	}
 
 	public int getId() {
@@ -33,19 +29,6 @@ public class Mesa {
 	}
 
 	public int getStatus() {
-		return this.status;
+		return this.status.getValorStatus();
 	}
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
-	public StatusDeMesa getState() {
-		return state;
-	}
-
-	public void setState(StatusDeMesa state) {
-		this.state = state;
-		status = state.getValorStatus();
-	}
-	
 }

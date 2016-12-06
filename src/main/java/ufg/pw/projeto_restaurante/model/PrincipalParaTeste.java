@@ -8,13 +8,13 @@ import ufg.pw.projeto_restaurante.model.utils.endereco.dao.PaisDao;
 public class PrincipalParaTeste {
 
 	public static void main(String[] args) {
-		Pais pais = new Pais("Brasil");
-		Estado goias = new Estado("Goiás",pais);
 		PaisDao pdao = new PaisDao();
 		EstadoDao edao = new EstadoDao();
-		pdao.salvar(pais);
-		edao.salvar(goias);
-		System.out.println(edao.consultarPorId(goias.getID()));
+		Pais pais = pdao.consultarPorId(340);
+		Estado goias = edao.consultarPorId(350);
+		
+		
+		System.out.println(goias.getPais().getNome());
 	}
 
 }

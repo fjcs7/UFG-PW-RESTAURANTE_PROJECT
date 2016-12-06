@@ -8,7 +8,7 @@ import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 
 @Entity
-@Table(name="entrega")
+@Table(name="pedido_entrega")
 public class PedidoEntrega extends Pedido {
 	
 	@Column

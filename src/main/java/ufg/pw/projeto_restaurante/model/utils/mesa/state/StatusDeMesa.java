@@ -1,9 +1,17 @@
 package ufg.pw.projeto_restaurante.model.utils.mesa.state;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
+@Embeddable
 public abstract class StatusDeMesa {
-
-	protected int valorStatus;
+	
+	@Column(name="status")
+	@Enumerated(EnumType.ORDINAL)
+	protected EnumStatusDaMesa valorStatus;
+	
 	public static StatusDeMesa utilizarMesa(){
 		return new MesaOcupada();
 	}
@@ -12,6 +20,6 @@ public abstract class StatusDeMesa {
 		return new MesaLivre();
 	}
 	public int getValorStatus(){
-		return this.valorStatus;
+		return this.valorStatus.valor();
 	}
 }
