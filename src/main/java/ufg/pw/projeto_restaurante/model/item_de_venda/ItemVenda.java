@@ -2,6 +2,8 @@ package ufg.pw.projeto_restaurante.model.item_de_venda;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,7 +11,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "itemvenda")
-
 public class ItemVenda {
 	
 	@Id
@@ -25,7 +26,7 @@ public class ItemVenda {
 	@Column
 	private String descricao;
 	
-	@Column
+	@Enumerated(EnumType.ORDINAL)
 	private TipoItemVenda tipo;
 	
 	public ItemVenda(String nome, String descricao, Double preco, TipoItemVenda tipo) {
@@ -36,7 +37,7 @@ public class ItemVenda {
 			this.tipo      = tipo;
 	}
 	
-	public ItemVenda() {	}
+	public ItemVenda() {};
 	
 	
 	public Integer getId() {

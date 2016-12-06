@@ -6,22 +6,51 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.persistence.*;
+
 import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedido;
 import ufg.pw.projeto_restaurante.model.pedido.state.StatusPedido;
 
+@MappedSuperclass
 public abstract class Pedido {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	protected Long id;
+	
+	@Column
 	protected Long data;
+	
+	@Column
 	protected Long horaInicioAtendimento;
+	
+	@Column
 	protected Long horaFimAtendimento;
+	
+	@Column
 	protected Cliente cliente;
+	
+	@Column
 	protected Funcionario atendente;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name="pedido_itens",
+	joinColumns={@JoinColumn(name="id_pedido")},
+	inverseJoinColumns={@JoinColumn(name="id_item")})
 	protected List<ItemPedido> itens;
+	
+	@Column
 	protected Double totalPedido;
-	protected String motivoCancelamento;
+	
+	@Column
+	protected String motivoCancelamento;	
+	
 	protected StatusPedido status;
+	
+	public Pedido() {};
 	
 	public Pedido(Funcionario atendente, Cliente cliente){
 		this.data = obtenhaDataCompleta();
