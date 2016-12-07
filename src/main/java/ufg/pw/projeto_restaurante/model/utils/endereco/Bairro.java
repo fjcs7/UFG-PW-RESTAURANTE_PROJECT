@@ -28,8 +28,9 @@ public class Bairro {
 	
 	public Bairro(){}
 
-	public Bairro(String nome) {
+	public Bairro(String nome, Cidade cidade) {
 		this.nome = nome;
+		this.cidade = cidade;
 	}
 	
 	public Long getID() {

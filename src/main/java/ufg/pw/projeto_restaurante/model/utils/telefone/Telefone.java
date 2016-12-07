@@ -5,14 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table
 public class Telefone {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column
@@ -26,7 +24,7 @@ public class Telefone {
 	
 	public Telefone() {};
 	
-	public Telefone(Integer ddd, Long numero, String tipo) {
+	public Telefone(int ddd, long numero, String tipo) {
 		this.ddd    = ddd;
 		this.numero = numero;
 		this.tipo   = tipo;
@@ -36,7 +34,7 @@ public class Telefone {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public Integer getDdd() {

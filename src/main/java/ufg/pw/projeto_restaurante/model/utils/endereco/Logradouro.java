@@ -34,7 +34,7 @@ public class Logradouro {
 	
 	public Logradouro(){}
 	
-	public Logradouro(EnumTipoLogradouro tipo, String complemento, String referencia, Integer numero, Integer quadra, Integer lote, Bairro bairro) {
+	public Logradouro(EnumTipoLogradouro tipo, String complemento, Bairro bairro) {
 		this.complemento = complemento;
 		this.tipo        = tipo;
 		this.bairro      = bairro;
@@ -43,7 +43,7 @@ public class Logradouro {
 	public Long getId() {
 		return this.id;
 	}
-	public void setID(Long id) {
+	public void setID(long id) {
 		this.id = id;
 	}
 	public EnumTipoLogradouro getTipo() {

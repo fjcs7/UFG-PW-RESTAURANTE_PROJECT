@@ -2,6 +2,8 @@ package ufg.pw.projeto_restaurante.model.funcionario;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import ufg.pw.projeto_restaurante.model.utils.PessoaFisica;
@@ -10,6 +12,7 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
 @Entity
 @Table(name = "funcionario")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Funcionario extends PessoaFisica	{
 	
 	@Column
@@ -20,7 +23,7 @@ public class Funcionario extends PessoaFisica	{
 	
 	public Funcionario() {};
 	
-	public Funcionario(String nome, Telefone telefone, Endereco endereco, Long cpf, String matricula, String senha) {
+	public Funcionario(String nome, Telefone telefone, Endereco endereco, String cpf, String matricula, String senha) {
 		super(nome, telefone, endereco, cpf);
 		this.matricula = matricula;
 		this.senha     = senha;

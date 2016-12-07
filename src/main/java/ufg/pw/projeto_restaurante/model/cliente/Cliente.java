@@ -3,6 +3,8 @@ package ufg.pw.projeto_restaurante.model.cliente;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -16,6 +18,7 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
 @Entity
 @Table(name = "cliente")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Cliente extends PessoaFisica {
 	
 	@Column
@@ -29,13 +32,12 @@ public class Cliente extends PessoaFisica {
 	
 	public Cliente() {};
 
-	public Cliente(String nome, Telefone telefone, Endereco endereco, Long cpf) {
+	public Cliente(String nome, Telefone telefone, Endereco endereco, String cpf) {
 		super(nome, telefone, endereco, cpf);
 		this.possuiVeiculo = false;
 	}
 
-	public Cliente(String nome, Telefone telefone, Endereco endereco, Long cpf, String matricula, String senha,
-			Veiculo veiculo) {
+	public Cliente(String nome, Telefone telefone, Endereco endereco, String cpf, Veiculo veiculo) {
 		super(nome, telefone, endereco, cpf);
 		this.veiculo = veiculo;
 		this.possuiVeiculo = true;

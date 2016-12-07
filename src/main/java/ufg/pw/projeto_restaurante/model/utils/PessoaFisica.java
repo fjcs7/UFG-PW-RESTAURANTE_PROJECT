@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -20,30 +22,32 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 public abstract class PessoaFisica {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	protected Long id;
 	
 	@Column
 	private String nome;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id_telefone",
-				insertable=true, updatable=true)
-	@Fetch(FetchMode.JOIN)
-	private Telefone telefone;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_endereco",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
 	private Endereco endereco;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="id_telefone",
+				insertable=true, updatable=true)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private Telefone telefone;
+	
 	@Column
-	private Long cpf;
+	private String cpf;
 	
 	
 	public PessoaFisica() {};
-	public PessoaFisica(String nome, Telefone telefone, Endereco endereco, Long cpf) {
+	public PessoaFisica(String nome, Telefone telefone, Endereco endereco, String cpf) {
 		this.nome     = nome;
 		this.telefone =  telefone;
 		this.endereco = endereco;
@@ -82,11 +86,11 @@ public abstract class PessoaFisica {
 		this.endereco = endereco;
 	}
 	
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}		
 

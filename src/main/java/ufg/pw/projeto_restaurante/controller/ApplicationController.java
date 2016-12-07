@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import ufg.pw.projeto_restaurante.model.cliente.ClienteNegocio;
 import ufg.pw.projeto_restaurante.model.pedido.PedidoNegocio;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedidoNegocio;
 
@@ -22,6 +23,7 @@ public class ApplicationController extends Application {
 	  public ApplicationController() {
 	    singletons.add(new PedidoNegocio());
 	    singletons.add(new ItemPedidoNegocio());
+	    singletons.add(new ClienteNegocio());
 	  }
 
 }

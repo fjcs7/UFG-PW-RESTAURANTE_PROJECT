@@ -3,6 +3,8 @@ package ufg.pw.projeto_restaurante.model.utils.endereco;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,7 +15,8 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 public class Endereco {
 	
-	@Id
+	@Id	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_endereco")
 	private Long id;
 	@Column
 	private Long numero;
@@ -32,7 +35,7 @@ public class Endereco {
 	
 	public Endereco(){}
 	
-	public Endereco(Long numero, Integer quadra, Integer lote, Logradouro logradouro) {
+	public Endereco(long numero, Integer quadra, Integer lote, Logradouro logradouro) {
 		this.numero     = numero;
 		this.quadra     = quadra;
 		this.lote       = lote;
@@ -43,7 +46,7 @@ public class Endereco {
 		return numero;
 	}
 
-	public void setNumero(Long numero) {
+	public void setNumero(long numero) {
 		this.numero = numero;
 	}
 

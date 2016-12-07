@@ -12,7 +12,7 @@ import ufg.pw.projeto_restaurante.model.cliente.dao.ClienteDao;
 @Path("/clientes")
 public class ClienteNegocio {
 	@GET
-	@Path("/listar_clientes")
+	@Path("/listar")
 	@Produces("application/json")
 	public List<Cliente> listarClientes(){
 		ClienteDao clienteDao = new ClienteDao();
