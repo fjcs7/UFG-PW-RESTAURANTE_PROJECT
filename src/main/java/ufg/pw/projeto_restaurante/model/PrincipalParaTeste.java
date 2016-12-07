@@ -47,19 +47,19 @@ public class PrincipalParaTeste {
 		LogradouroDao lDao = new LogradouroDao();
 		logradouro = lDao.salvar(logradouro);
 		
-		Endereco end = new Endereco(1452,45,04,logradouro);
+		Endereco end;// = new Endereco(1452,45,04,logradouro);
 		EnderecoDao endDao = new EnderecoDao();
-		//end = endDao.salvar(end);
+		end = endDao.consultarPorId((long)1);
 		
 		Telefone tel = new Telefone(62, 35965456,"Celular");
 		TelefoneDao tDao = new TelefoneDao();
 		//tel = tDao.salvar(tel);
 		
-		Cliente cli = new Cliente("Fernando", tel, end, "1239204144",car);
+		Cliente cli = new Cliente("Johana", tel, end, "1239204144",car);
 		ClienteDao cliDao = new ClienteDao();
 		cli = cliDao.salvar(cli);
 		
-		Cliente cli2 = new Cliente("Frozzen", new Telefone(62, 35965456,"Celular"), end, "1339204144",car);
+		Cliente cli2 = new Cliente("Biscatto", new Telefone(62, 35965456,"Celular"), end, "1339204144",car);
 		cli2 = cliDao.salvar(cli2);
 		
 		System.out.println(cliDao.consultarPorId(cli.getId()).getNome());
