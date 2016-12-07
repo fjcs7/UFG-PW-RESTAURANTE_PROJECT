@@ -14,7 +14,7 @@ public abstract class GenericDao<T, I extends Serializable> {
 
 	protected EntityManager entityManager;
 
-	private Class<T> persistedClass;
+	protected Class<T> persistedClass;
 
 	protected GenericDao() {
 		entityManager = getEntityManager();
