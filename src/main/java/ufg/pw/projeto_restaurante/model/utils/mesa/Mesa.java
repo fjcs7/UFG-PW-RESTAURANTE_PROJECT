@@ -13,12 +13,13 @@ public class Mesa {
 	@Id
 	private int id;
 	
-	
 	@Embedded
 	private StatusDeMesa status;
 	
-	public Mesa(){
-		this.status = StatusDeMesa.desocuparMesa();
+	public Mesa(){this.status = StatusDeMesa.desocuparMesa();}
+	public Mesa(int id){
+		this();
+		this.id = id;
 	}
 
 	public int getId() {

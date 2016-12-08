@@ -33,13 +33,13 @@ public abstract class Pedido {
 	@Column
 	protected Long horaFimAtendimento;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
 	@JoinColumn(name="id_cliente",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	protected Cliente cliente;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
 	@JoinColumn(name="id_funcionario",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
@@ -60,9 +60,12 @@ public abstract class Pedido {
 	@Embedded
 	protected StatusPedido status;
 	
-	public Pedido() {};
+	public Pedido() {
+		this.status = StatusPedido.abrirPedido();
+	};
 	
 	public Pedido(Funcionario atendente, Cliente cliente){
+		this();
 		this.data = obtenhaDataCompleta();
 		this.horaInicioAtendimento = obtenhaHoraCompleta();
 		this.atendente = atendente;

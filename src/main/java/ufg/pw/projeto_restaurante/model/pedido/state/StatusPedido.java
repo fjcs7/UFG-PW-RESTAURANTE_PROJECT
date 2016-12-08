@@ -6,7 +6,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 @Embeddable
-public abstract class StatusPedido {
+public class StatusPedido {
 	@Column(name="status")
 	@Enumerated(EnumType.ORDINAL)
 	protected EnumStatusDePedido valorStatus;

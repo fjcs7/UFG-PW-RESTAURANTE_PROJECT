@@ -56,6 +56,7 @@ public class Cliente extends PessoaFisica {
 	}
 
 	public void setVeiculo(Veiculo veiculo) {
+		this.possuiVeiculo = true;
 		this.veiculo = veiculo;
 	}
 
