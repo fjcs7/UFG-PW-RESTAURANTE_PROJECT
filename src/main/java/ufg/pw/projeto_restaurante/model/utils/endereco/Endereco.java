@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -31,6 +33,7 @@ public class Endereco {
 	@JoinColumn(name="id_logradouro",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
+	@Cascade(value=CascadeType.PERSIST)
 	private Logradouro logradouro;
 	
 	public Endereco(){}

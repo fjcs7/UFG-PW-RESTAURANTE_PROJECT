@@ -11,6 +11,7 @@ import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 import ufg.pw.projeto_restaurante.model.pedido.PedidoLoja;
 import ufg.pw.projeto_restaurante.model.pedido.dao.PedidoLojaDao;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedido;
+import ufg.pw.projeto_restaurante.model.pedido.state.EnumStatusDePedido;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Bairro;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Cidade;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
@@ -25,13 +26,15 @@ import ufg.pw.projeto_restaurante.model.utils.endereco.dao.EstadoDao;
 import ufg.pw.projeto_restaurante.model.utils.endereco.dao.LogradouroDao;
 import ufg.pw.projeto_restaurante.model.utils.endereco.dao.PaisDao;
 import ufg.pw.projeto_restaurante.model.utils.mesa.Mesa;
+import ufg.pw.projeto_restaurante.model.utils.mesa.dao.MesaDao;
 import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 import ufg.pw.projeto_restaurante.model.utils.telefone.dao.TelefoneDao;
 
 public class PrincipalParaTeste {
 
 	public static void main(String[] args) {
-		inserirDadosDePedidoLoja();
+		PedidoLojaDao pedidoDao = new PedidoLojaDao();
+		System.out.println(pedidoDao.obterListaPorStatus(EnumStatusDePedido.ABERTO));
 
 	}
 	
@@ -87,24 +90,25 @@ public class PrincipalParaTeste {
 		Endereco end = new Endereco(1452,45,04,logradouro);
 		EnderecoDao endDao = new EnderecoDao();
 		end = endDao.consultarPorId((long)1);
-		end.setId(null);
+		//end.setId(null);
 		
 		TelefoneDao tDao = new TelefoneDao();
 		Telefone tel = tDao.consultarPorId(new Long(1));
-		tel.setId(null);
+		//tel.setId(null);
 		
 		Funcionario func = new Funcionario("Gerentão", tel, end, "00000000012" , "1359", "@1234567");
 		
 		ClienteDao cliDao = new ClienteDao();
 		Cliente cli = cliDao.consultarPorId(new Long(1190));
-		cli.setId(null);
+		//cli.setId(null);
 		
-		Mesa mesa = new Mesa(10);
-		
+		MesaDao md = new MesaDao();
+		Mesa mesa = md.consultarPorId(10);
+
 		PedidoLoja pl = new PedidoLoja(func,cli,mesa);
 		System.out.println(pl.getStatus());
 		PedidoLojaDao plDao = new PedidoLojaDao();
-		plDao.salvar(pl);
+		pl= plDao.atualizar(pl);
 	}
 
 }

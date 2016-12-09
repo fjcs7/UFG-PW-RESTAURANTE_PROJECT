@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;	
 import org.hibernate.annotations.FetchMode;
@@ -15,11 +16,13 @@ import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVenda;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.state.StatusDoItem;
 
 @Entity
-@Table(name = "itempedido")
 public class ItemPedido {
 
 	@Id
 	private Integer id;
+	
+	@Column
+	private Long id_pedido;
 
 	@Column
 	private Integer quantidade;
@@ -96,6 +99,22 @@ public class ItemPedido {
 
 	public void setStatus(StatusDoItem status) {
 		this.status = status;
+	}
+
+	public Long getId_pedido() {
+		return id_pedido;
+	}
+
+	public void setId_pedido(Long id_pedido) {
+		this.id_pedido = id_pedido;
+	}
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
 	}
 
 }

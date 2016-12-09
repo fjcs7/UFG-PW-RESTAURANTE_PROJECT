@@ -2,13 +2,13 @@ package ufg.pw.projeto_restaurante.model.pedido;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 
 @Entity
-@Table(name="pedido_entrega")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class PedidoEntrega extends Pedido {
 	
 	@Column

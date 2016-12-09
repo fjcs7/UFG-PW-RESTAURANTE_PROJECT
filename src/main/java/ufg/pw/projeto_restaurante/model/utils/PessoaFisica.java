@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -26,16 +28,18 @@ public abstract class PessoaFisica {
 	@Column
 	private String nome;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = javax.persistence.CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_endereco",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
+	@Cascade(value=CascadeType.PERSIST)
 	private Endereco endereco;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = javax.persistence.CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_telefone",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
+	@Cascade(value=CascadeType.PERSIST)
 	private Telefone telefone;
 	
 	@Column

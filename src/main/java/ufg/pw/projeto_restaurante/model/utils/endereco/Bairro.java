@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -24,6 +26,7 @@ public class Bairro {
 	@JoinColumn(name="id_cidade",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
+	@Cascade(value=CascadeType.PERSIST)
 	private Cidade cidade;
 	
 	public Bairro(){}

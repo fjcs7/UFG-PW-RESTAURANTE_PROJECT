@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -33,22 +35,21 @@ public abstract class Pedido {
 	@Column
 	protected Long horaFimAtendimento;
 	
-	@ManyToOne(fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_cliente",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
+	@Cascade(value=CascadeType.PERSIST)
 	protected Cliente cliente;
 	
-	@ManyToOne(fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_funcionario",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
+	@Cascade(value=CascadeType.PERSIST)
 	protected Funcionario atendente;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name="pedido_itempedido",
-	joinColumns={@JoinColumn(name="id_pedido")},
-	inverseJoinColumns={@JoinColumn(name="id_item")})
+	@OneToMany(targetEntity = ItemPedido.class, mappedBy="id")
 	protected List<ItemPedido> itens;
 	
 	@Column
