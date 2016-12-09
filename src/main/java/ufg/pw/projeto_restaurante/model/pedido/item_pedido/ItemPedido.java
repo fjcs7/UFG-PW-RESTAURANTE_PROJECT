@@ -7,8 +7,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;	
 import org.hibernate.annotations.FetchMode;
 
@@ -37,6 +35,9 @@ public class ItemPedido {
 
 	@Column
 	private String motivoDevolucao;
+	
+	@Column
+	private Long pedido_id;
 
 	@Embedded
 	private StatusDoItem status;

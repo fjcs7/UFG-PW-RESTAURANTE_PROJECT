@@ -20,6 +20,7 @@ import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedido;
 import ufg.pw.projeto_restaurante.model.pedido.state.StatusPedido;
 
 @MappedSuperclass
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class Pedido {
 	
 	@Id
@@ -49,7 +50,8 @@ public abstract class Pedido {
 	@Cascade(value=CascadeType.PERSIST)
 	protected Funcionario atendente;
 	
-	@OneToMany(targetEntity = ItemPedido.class, mappedBy="id")
+	@OneToMany
+	@JoinColumn(name="pedido_id", referencedColumnName="id")
 	protected List<ItemPedido> itens;
 	
 	@Column
