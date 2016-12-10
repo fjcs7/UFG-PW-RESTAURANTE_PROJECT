@@ -1,8 +1,5 @@
 package ufg.pw.projeto_restaurante.model;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-
 import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.cliente.Veiculo;
 import ufg.pw.projeto_restaurante.model.cliente.dao.ClienteDao;
@@ -10,11 +7,10 @@ import ufg.pw.projeto_restaurante.model.cliente.dao.VeiculoDao;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 import ufg.pw.projeto_restaurante.model.pedido.PedidoLoja;
 import ufg.pw.projeto_restaurante.model.pedido.dao.PedidoLojaDao;
-import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedido;
-import ufg.pw.projeto_restaurante.model.pedido.state.EnumStatusDePedido;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Bairro;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Cidade;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
+import ufg.pw.projeto_restaurante.model.utils.endereco.EnderecoNegocio;
 import ufg.pw.projeto_restaurante.model.utils.endereco.EnumTipoLogradouro;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Estado;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Logradouro;
@@ -33,8 +29,9 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.dao.TelefoneDao;
 public class PrincipalParaTeste {
 
 	public static void main(String[] args) {
-		PedidoLojaDao pedidoDao = new PedidoLojaDao();
-		System.out.println(pedidoDao.obterListaPorStatus(EnumStatusDePedido.ABERTO));
+		EnderecoNegocio negEnd = new EnderecoNegocio();
+		
+		System.out.println(negEnd.SalvarEstado("Goiás", "Brazil").getID());
 
 	}
 	

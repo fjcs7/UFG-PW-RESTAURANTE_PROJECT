@@ -27,7 +27,7 @@ public class Estado {
 	@JoinColumn(name="id_pais",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
-	@Cascade(value=CascadeType.PERSIST)
+	@Cascade(value=CascadeType.MERGE)
 	private Pais pais;
 	
 	public Estado(){}
