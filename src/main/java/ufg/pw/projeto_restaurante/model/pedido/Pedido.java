@@ -21,10 +21,16 @@ import ufg.pw.projeto_restaurante.model.pedido.state.StatusPedido;
 
 @MappedSuperclass
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public abstract class Pedido {
+public abstract class Pedido{
 	
+
+	@TableGenerator(name = "pedidos_gen", 
+					table = "id_gen", 
+					pkColumnName = "gen_name", 
+					valueColumnName = "gen_val", 
+					allocationSize = 1)
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pedidos_gen")
 	protected Long id;
 	
 	@Column
@@ -38,7 +44,8 @@ public abstract class Pedido {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_cliente",
-				insertable=true, updatable=true)
+				insertable=true, updatable=true
+				)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
 	protected Cliente cliente;
@@ -51,7 +58,8 @@ public abstract class Pedido {
 	protected Funcionario atendente;
 	
 	@OneToMany
-	@JoinColumn(name="pedido_id", referencedColumnName="id")
+	@Id
+	@JoinColumn(name="id_pedido", referencedColumnName="id")
 	protected List<ItemPedido> itens;
 	
 	@Column

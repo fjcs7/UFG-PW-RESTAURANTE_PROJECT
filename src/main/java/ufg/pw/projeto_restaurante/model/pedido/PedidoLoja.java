@@ -1,13 +1,12 @@
 package ufg.pw.projeto_restaurante.model.pedido;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.AssociationOverride;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
@@ -15,11 +14,14 @@ import org.hibernate.annotations.FetchMode;
 
 import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
-import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedido;
 import ufg.pw.projeto_restaurante.model.utils.mesa.Mesa;
 
 @Entity
-public class PedidoLoja extends Pedido{
+@AssociationOverride(name="itens",
+        			 joinColumns = @JoinColumn(name="id_item_loja"))
+public class PedidoLoja extends Pedido implements Serializable {
+	
+	private static final long serialVersionUID = 2603445969674186466L;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_mesa",
@@ -27,10 +29,6 @@ public class PedidoLoja extends Pedido{
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
 	protected Mesa mesa;
-	
-	@AssociationOverride(name = "")
-	@OneToMany(mappedBy ="pedido_id",targetEntity = ItemPedido.class,  fetch=FetchType.EAGER)
-	protected List<ItemPedido> itens;
 	
 	public PedidoLoja() {};
 	

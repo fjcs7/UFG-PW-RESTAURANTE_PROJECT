@@ -4,12 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import org.hibernate.annotations.Fetch;	
 import org.hibernate.annotations.FetchMode;
-
 import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVenda;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.state.StatusDoItem;
 
@@ -17,10 +19,8 @@ import ufg.pw.projeto_restaurante.model.pedido.item_pedido.state.StatusDoItem;
 public class ItemPedido {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column
-	private Long id_pedido;
 
 	@Column
 	private Integer quantidade;
@@ -35,9 +35,6 @@ public class ItemPedido {
 
 	@Column
 	private String motivoDevolucao;
-	
-	@Column
-	private Long pedido_id;
 
 	@Embedded
 	private StatusDoItem status;
@@ -100,14 +97,6 @@ public class ItemPedido {
 
 	public void setStatus(StatusDoItem status) {
 		this.status = status;
-	}
-
-	public Long getId_pedido() {
-		return id_pedido;
-	}
-
-	public void setId_pedido(Long id_pedido) {
-		this.id_pedido = id_pedido;
 	}
 
 	public Integer getQuantidade() {
