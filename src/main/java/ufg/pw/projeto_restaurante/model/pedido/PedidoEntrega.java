@@ -3,12 +3,14 @@ package ufg.pw.projeto_restaurante.model.pedido;
 import java.io.Serializable;
 
 import javax.persistence.AssociationOverride;
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 
 import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
+
 
 @Entity
 @AssociationOverride(name="itens",

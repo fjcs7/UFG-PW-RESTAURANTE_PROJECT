@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.Fetch;	
 import org.hibernate.annotations.FetchMode;
@@ -39,19 +40,27 @@ public class ItemPedido {
 	@Embedded
 	private StatusDoItem status;
 
-	public ItemPedido() {};
+	public ItemPedido() {
+		this.status = StatusDoItem.solicitarItem();
+	};
 
-	public ItemPedido(Integer idPedido, Integer quantidade, ItemVenda produto) {
+	public ItemPedido(Integer quantidade, ItemVenda produto) {
+		this();
 		this.quantidade = quantidade;
 		this.produto = produto;
-		this.status = StatusDoItem.solicitarItem();
 		this.calculaValorTotal();
 	}
 
-	public ItemPedido(Integer idPedido, Integer quantidade, ItemVenda produto, Integer valorStatus) {
+	public ItemPedido(Integer quantidade, ItemVenda produto, Integer valorStatus) {
+		this();
 		this.quantidade = quantidade;
 		this.produto = produto;
 		this.status = StatusDoItem.obterStatusDoItem(valorStatus);
+		this.calculaValorTotal();
+	}
+	
+	public ItemPedido(Integer idPedido, Integer quantidade) {
+		this.quantidade = quantidade;
 		this.calculaValorTotal();
 	}
 

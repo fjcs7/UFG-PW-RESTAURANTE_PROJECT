@@ -13,7 +13,7 @@ public class EnderecoNegocio {
 		return p;	
 	}
 	
-	public Pais AtualizarPais(int id, String nomeDoPais){
+	public Pais AlterarPais(int id, String nomeDoPais){
 		paisDao = new PaisDao();
 		Pais p = paisDao.consultarPorId(id);
 		p.setNome(nomeDoPais);
@@ -34,6 +34,26 @@ public class EnderecoNegocio {
 		Estado e = new Estado(estado, this.SalvarPais(nomeDoPais));
 		e = estadoDao.salvar(e);
 		return e;
+	}
+	
+	public Estado AlterarEstado(int idEstado, int idPais, String NovoNomeEstado){
+		paisDao = new PaisDao();
+		estadoDao = new EstadoDao();
+		Estado e = estadoDao.consultarPorId(idEstado);
+		e.setPais(paisDao.consultarPorId(idPais));
+		e.setNome(NovoNomeEstado);
+		e = estadoDao.atualizar(e);
+		return e;
+	}
+	
+	public Cidade AlterarCidade(String NomeCidade, int idEstado, int idPais){
+		return null;
+	}
+	
+	public Bairro SalvarBairro(String nome){
+		
+		
+		return null;
 	}
 	
 	

@@ -127,6 +127,12 @@ public abstract class Pedido{
 		return this.itens.add(item);
 	}
 	
+	public void adicionarItems(List<ItemPedido> itens){
+		for (ItemPedido itemPedido : itens) {
+			this.itens.add(itemPedido);
+		}
+	}
+	
 	public boolean removerItem(ItemPedido item){
 		return this.itens.remove(item);
 	}
