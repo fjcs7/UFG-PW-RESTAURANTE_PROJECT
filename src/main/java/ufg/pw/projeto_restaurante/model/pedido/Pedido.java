@@ -123,6 +123,9 @@ public abstract class Pedido{
 	public Long getData() {
 		return data;
 	}
+	public Long getId() {
+		return id;
+	}
 	public Long getHoraInicioAtendimento() {
 		return horaInicioAtendimento;
 	}
