@@ -29,9 +29,8 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.dao.TelefoneDao;
 public class PrincipalParaTeste {
 
 	public static void main(String[] args) {
-		EnderecoNegocio negEnd = new EnderecoNegocio();
+		inserirDadosDePedidoLoja();
 		
-		System.out.println(negEnd.SalvarEstado("Goiás", "Brazil").getID());
 
 	}
 	
