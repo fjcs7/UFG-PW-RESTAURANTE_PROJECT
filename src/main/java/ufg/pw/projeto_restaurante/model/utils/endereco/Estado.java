@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.ws.rs.FormParam;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -18,9 +19,11 @@ import org.hibernate.annotations.FetchMode;
 public class Estado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@FormParam("id")
 	private Integer ID;
 	
 	@Column
+	@FormParam("nome")
 	private String nome;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -28,6 +31,7 @@ public class Estado {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.MERGE)
+	@FormParam("id")
 	private Pais pais;
 	
 	public Estado(){}
@@ -57,5 +61,9 @@ public class Estado {
 
 	public void setPais(Pais pais) {
 		this.pais = pais;
+	}
+
+	public void setID(Integer iD) {
+		ID = iD;
 	}
 }

@@ -8,25 +8,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.ws.rs.FormParam;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.jboss.resteasy.annotations.Form;
 
 @Entity
 public class Endereco {
 	
 	@Id	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_endereco")
+	@FormParam("id")
 	private Long id;
 	@Column
+	@FormParam("numero")
 	private Long numero;
 	@Column
+	@FormParam("quadra")
 	private Integer quadra;
 	@Column
+	@FormParam("lote")
 	private Integer lote;
 	@Column
+	@FormParam("referencia")
 	private String referencia;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -34,6 +41,7 @@ public class Endereco {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form
 	private Logradouro logradouro;
 	
 	public Endereco(){}
@@ -83,6 +91,14 @@ public class Endereco {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public void setNumero(Long numero) {
+		this.numero = numero;
+	}
+
+	public void setReferencia(String referencia) {
+		this.referencia = referencia;
 	}
 
 }

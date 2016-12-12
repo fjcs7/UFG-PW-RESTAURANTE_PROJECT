@@ -9,10 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.Fetch;	
 import org.hibernate.annotations.FetchMode;
+import org.jboss.resteasy.annotations.Form;
+
 import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVenda;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.state.StatusDoItem;
 
@@ -21,23 +24,29 @@ public class ItemPedido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@FormParam("id")
 	private Integer id;
 
 	@Column
+	@FormParam("quantidade")
 	private Integer quantidade;
 
 	@Column
+	@FormParam("valorTotal")
 	private Double valorTotal;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_itemvenda", insertable = true, updatable = true)
 	@Fetch(FetchMode.JOIN)
+	@Form
 	private ItemVenda produto;
 
 	@Column
+	@FormParam("motivoDevolucao")
 	private String motivoDevolucao;
 
 	@Embedded
+	@Form
 	private StatusDoItem status;
 
 	public ItemPedido() {

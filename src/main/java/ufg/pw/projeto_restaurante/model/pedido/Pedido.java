@@ -8,11 +8,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.QueryParam;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.jboss.resteasy.annotations.Form;
 
 import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
@@ -31,15 +34,19 @@ public abstract class Pedido{
 					allocationSize = 1)
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pedidos_gen")
+	@FormParam("id")
 	protected Long id;
 	
 	@Column
+	@FormParam("data")
 	protected Long data;
 	
 	@Column
+	@FormParam("horaInicioAtendimento")
 	protected Long horaInicioAtendimento;
 	
 	@Column
+	@FormParam("horaFimAtendimento")
 	protected Long horaFimAtendimento;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -48,6 +55,7 @@ public abstract class Pedido{
 				)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form(prefix = "cliente")
 	protected Cliente cliente;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -55,25 +63,30 @@ public abstract class Pedido{
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form(prefix = "atendente")
 	protected Funcionario atendente;
 	
 	@OneToMany
 	@Id
 	@JoinColumn(name="id_pedido", referencedColumnName="id")
+	@Form(prefix = "itens")
 	protected List<ItemPedido> itens;
 	
 	@Column
+	@FormParam("totalPedido")
 	protected Double totalPedido;
 	
 	@Column
+	@FormParam("motivoCancelamento")
 	protected String motivoCancelamento;	
 	
 	@Embedded
+	@Form(prefix = "status")
 	protected StatusPedido status;
 	
 	public Pedido() {
 		this.status = StatusPedido.abrirPedido();
-	};
+	}
 	
 	public Pedido(Funcionario atendente, Cliente cliente){
 		this();
@@ -179,6 +192,34 @@ public abstract class Pedido{
 		
 		return Long.parseLong(horaCompleta);
 		
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setData(Long data) {
+		this.data = data;
+	}
+
+	public void setHoraInicioAtendimento(Long horaInicioAtendimento) {
+		this.horaInicioAtendimento = horaInicioAtendimento;
+	}
+
+	public void setHoraFimAtendimento(Long horaFimAtendimento) {
+		this.horaFimAtendimento = horaFimAtendimento;
+	}
+
+	public void setItens(List<ItemPedido> itens) {
+		this.itens = itens;
+	}
+
+	public void setTotalPedido(Double totalPedido) {
+		this.totalPedido = totalPedido;
+	}
+
+	public void setStatus(StatusPedido status) {
+		this.status = status;
 	}
 
 }

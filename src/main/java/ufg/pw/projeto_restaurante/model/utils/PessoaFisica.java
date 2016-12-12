@@ -8,11 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.ws.rs.FormParam;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.jboss.resteasy.annotations.Form;
 
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
 import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
@@ -23,9 +25,11 @@ public abstract class PessoaFisica {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@FormParam("id")
 	protected Long id;
 	
 	@Column
+	@FormParam("nome")
 	private String nome;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -33,6 +37,7 @@ public abstract class PessoaFisica {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form
 	private Endereco endereco;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -40,9 +45,11 @@ public abstract class PessoaFisica {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form
 	private Telefone telefone;
 	
 	@Column
+	@FormParam("cpf")
 	private String cpf;
 	
 	

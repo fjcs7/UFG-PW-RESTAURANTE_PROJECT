@@ -8,11 +8,13 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.jboss.resteasy.annotations.Form;
 
 import ufg.pw.projeto_restaurante.model.utils.PessoaFisica;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Endereco;
@@ -24,6 +26,7 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 public class Cliente extends PessoaFisica {
 	
 	@Column
+	@FormParam("possuiVeiculo")
 	private Boolean possuiVeiculo;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -31,6 +34,7 @@ public class Cliente extends PessoaFisica {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form
 	private Veiculo veiculo;
 	
 	public Cliente() {};

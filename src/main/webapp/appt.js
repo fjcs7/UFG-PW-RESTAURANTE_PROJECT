@@ -1,12 +1,10 @@
-var appt = angular.module('appt',['ngRoute', 'ngCookies']);
+var appt = angular.module('appt',['ngRoute', 'ngCookies', 'ngResource']);
 appt.config.$inject = ['$routeProvider', '$locationProvider'];
 appt.config(function($routeProvider, $locationProvider)
 {
    
    $routeProvider
  
- 
-	   
 	   .when('/cadastrar', {
       templateUrl : 'app/pedido/pedido.cadastrar.garcom.html',
       controller  : 'pedidoController',

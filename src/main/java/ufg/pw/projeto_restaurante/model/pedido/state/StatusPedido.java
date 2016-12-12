@@ -11,6 +11,8 @@ public class StatusPedido {
 	@Enumerated(EnumType.ORDINAL)
 	protected EnumStatusDePedido valorStatus;
 	
+	public StatusPedido(){}
+	
 	public int getValorStatus() {
 		return valorStatus.valor();
 	}
@@ -19,5 +21,9 @@ public class StatusPedido {
 	}
 	public static PedidoAberto abrirPedido(){
 		return new PedidoAberto();
+	}
+
+	public void setValorStatus(EnumStatusDePedido valorStatus) {
+		this.valorStatus = valorStatus;
 	}
 }

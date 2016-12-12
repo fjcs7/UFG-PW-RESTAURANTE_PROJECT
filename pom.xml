@@ -67,6 +67,13 @@
 	    <artifactId>resteasy-jackson-provider</artifactId>
 	    <version>3.0.19.Final</version>
 	</dependency>
+	
+	<!-- Para receber objetos via post -->
+	<dependency>
+		<groupId>org.jboss.resteasy</groupId>
+		<artifactId>resteasy-client</artifactId>
+		<version>3.0.4.Final</version>
+	</dependency>
 
 
 

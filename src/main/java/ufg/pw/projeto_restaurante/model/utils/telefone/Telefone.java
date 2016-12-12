@@ -5,21 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.ws.rs.FormParam;
 
 @Entity
 public class Telefone {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@FormParam("id")
 	private Long id;
 	
 	@Column
+	@FormParam("ddd")
 	private Integer ddd;
 	
 	@Column
+	@FormParam("numero")
 	private Long numero;
 	
 	@Column
+	@FormParam("tipo")
 	private String tipo;
 	
 	public Telefone() {};

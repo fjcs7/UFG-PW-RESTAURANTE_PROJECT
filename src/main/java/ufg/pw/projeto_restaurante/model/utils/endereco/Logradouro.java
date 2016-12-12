@@ -10,22 +10,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.ws.rs.FormParam;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.jboss.resteasy.annotations.Form;
 
 @Entity
 public class Logradouro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@FormParam("id")
 	private Long id;
 	
 	@Enumerated(EnumType.ORDINAL)
+	@FormParam("tipo")
 	private EnumTipoLogradouro tipo;
 	
 	@Column
+	@FormParam("id")
 	private String complemento;
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -33,6 +38,7 @@ public class Logradouro {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form
 	private Bairro bairro;
 	
 	public Logradouro(){}
@@ -66,5 +72,9 @@ public class Logradouro {
 	}
 	public void setBairro(Bairro bairro) {
 		this.bairro = bairro;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

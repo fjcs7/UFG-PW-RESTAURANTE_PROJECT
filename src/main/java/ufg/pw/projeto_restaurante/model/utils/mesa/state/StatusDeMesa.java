@@ -4,13 +4,21 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.QueryParam;
 
 @Embeddable
 public class StatusDeMesa {
 	
 	@Column(name="status")
 	@Enumerated(EnumType.ORDINAL)
+	@QueryParam("valorStatus")
 	protected EnumStatusDaMesa valorStatus;
+	
+	@SuppressWarnings("static-access")
+	public StatusDeMesa(){
+		this.utilizarMesa();
+	}
 	
 	public static StatusDeMesa utilizarMesa(){
 		return new MesaOcupada();

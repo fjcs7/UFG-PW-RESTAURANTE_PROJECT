@@ -5,13 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.ws.rs.FormParam;
 
 @Entity
 public class Pais {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@FormParam("id")
 	private Integer id;
 	@Column
+	@FormParam("nome")
 	private String nome;
 	
 	public Pais(){}
@@ -30,5 +33,9 @@ public class Pais {
 	
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

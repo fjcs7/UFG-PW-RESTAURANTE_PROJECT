@@ -36,4 +36,9 @@ public class PedidoEntrega extends Pedido implements Serializable {
 	public void setObservacaoEntrega(String observacaoEntrega) {
 		this.observacaoEntrega = observacaoEntrega;
 	}
+
+	public PedidoEntrega fromString() {
+		// TODO Auto-generated method stub
+		return new PedidoEntrega();
+	}
 }

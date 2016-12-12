@@ -8,19 +8,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.ws.rs.FormParam;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.jboss.resteasy.annotations.Form;
 
 @Entity
 public class Cidade {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@FormParam("id")
 	private Long id;
 	@Column
+	@FormParam("nome")
 	private String nome;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -28,6 +32,7 @@ public class Cidade {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form
 	private Estado estado;
 	
 	public Cidade(){}
@@ -47,6 +52,15 @@ public class Cidade {
 	
 	public String getNome() {
 		return nome;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 
 }

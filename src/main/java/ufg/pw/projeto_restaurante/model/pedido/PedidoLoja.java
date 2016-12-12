@@ -7,10 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.QueryParam;
+
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.jboss.resteasy.annotations.Form;
 
 import ufg.pw.projeto_restaurante.model.cliente.Cliente;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
@@ -28,6 +32,7 @@ public class PedidoLoja extends Pedido implements Serializable {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
+	@Form
 	protected Mesa mesa;
 	
 	public PedidoLoja() {};
@@ -38,5 +43,9 @@ public class PedidoLoja extends Pedido implements Serializable {
 	}
 	public Mesa getMesa() {
 		return mesa;
+	}
+
+	public void setMesa(Mesa mesa) {
+		this.mesa = mesa;
 	}
 }

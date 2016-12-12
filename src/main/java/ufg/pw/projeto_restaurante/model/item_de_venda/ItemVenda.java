@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
+
+import org.jboss.resteasy.annotations.Form;
 
 @Entity
 @Table(name = "itemvenda")
@@ -15,18 +18,23 @@ public class ItemVenda {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@FormParam("id")
 	private Integer id;	
 	
 	@Column
+	@FormParam("preco")
 	private Double preco;
 	
 	@Column
+	@FormParam("nome")
 	private String nome;
 	
 	@Column
+	@FormParam("descricao")
 	private String descricao;
 	
 	@Enumerated(EnumType.ORDINAL)
+	@FormParam("tipo")
 	private TipoItemVenda tipo;
 	
 	public ItemVenda(String nome, String descricao, Double preco, TipoItemVenda tipo) {

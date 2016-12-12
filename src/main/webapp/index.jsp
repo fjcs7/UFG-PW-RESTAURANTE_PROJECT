@@ -1,15 +1,6 @@
 
 <%@ include file="/app/shared/header.html"%>
-
-<!-- /#wrapper -->
-<script src="appt.js"></script>
-<script src="app/app-services/authentication.service.js"></script>
-<script src="app/app-services/flash.service.js"></script>
-<script src="app/app-services/user.service.local-storage.js"></script>
-
-<script src="app/login/login.controller.js"></script>
-<script src="controllers/controllersGarcom.js"></script>
-
+<%@ include file="rotas.html"%>
 <%@ include file="app/shared/barra_de_menus.html"%>
 
 
