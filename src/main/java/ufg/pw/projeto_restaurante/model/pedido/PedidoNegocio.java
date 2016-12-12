@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.annotation.Resources;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -66,9 +67,9 @@ public class PedidoNegocio {
 	}
 	
 	@PUT
-	@Path("/salvar_pedido_loja/")
+	@Path("/salvar_pedido_loja/{pedido}")
 	@Consumes("application/json")
-	public boolean SalvarPedidoLoja(@Form PedidoLoja pedido){
+	public boolean SalvarPedidoLoja(@Form(prefix="pedido") PedidoLoja pedido){
 		
 //		lojaDao = new PedidoLojaDao();
 //		

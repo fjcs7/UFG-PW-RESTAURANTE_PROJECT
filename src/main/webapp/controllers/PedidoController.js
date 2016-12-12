@@ -12,15 +12,20 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
 		   
 		   //var novoPedido = $resource('api/pedidos/salvar_pedido_loja/:novoPedido');
 
-
 		    $http.get('api/pedidos/novo_pedido_loja/teste').
-		    then(function(response) {
-		        alert(response.data.data);
+		    then(function(request) {
+		    	$rootScope.pedido = request;
 		    });
 //		    var pedido =  $http.get('api/pedidos/novo_pedido_loja/teste');
-//		    alert(pedido.data.data);
+		    alert($rootScope.pedido);
 //		    
-//		    $http.put('api/pedidos/salvar_pedido_loja', pedido);
+		    $http.put('api/pedidos/salvar_pedido_loja/', $rootScope.pedido).then(function(value) {
+		    	alert(value.data);
+		    }, function(reason) {
+		    	alert(reason.data);
+		    }, function(value) {
+		    	alert(value.data);
+		    });
 
 		   
 		    			 
