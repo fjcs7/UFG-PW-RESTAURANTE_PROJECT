@@ -54,35 +54,23 @@ public class PedidoNegocio {
 	}
 	
 	@GET
-	@Path("/novo_pedido_loja/{teste}")
+	@Path("/novo_pedido_loja")
 	@Produces("application/json")
-	public Pedido NovoPedidoLoja(@PathParam("teste") String teste){
-//		Funcionario func = FuncionarioNegocio.getInstancia().ConsutarFuncionario(idFuncionario);
-//		Cliente cli = new Cliente(NomeCliente,null,null,null);
-//		Mesa mesa = MesaNegocio.getInstancia().ConsultarMesa(idMesa);
-//		PedidoLoja pl = new PedidoLoja(func,cli,mesa);
-//		pl.adicionarItems(itens);
-		System.out.println(teste);
+	public Pedido NovoPedidoLoja(){
 		return new PedidoLoja();
 	}
 	
-	@PUT
-	@Path("/salvar_pedido_loja/{pedido}")
+	@POST
+	@Path("/salvar_pedido_loja")
 	@Consumes("application/json")
-	public boolean SalvarPedidoLoja(@Form(prefix="pedido") PedidoLoja pedido){
-		
-//		lojaDao = new PedidoLojaDao();
-//		
-//		try {
-//			lojaDao.salvar(pedido);
-//			
-//			return true;
-//		} catch (Exception e) {
-//			return false;
-//		}
-		System.out.println("entrou");
-		System.out.println(pedido);
-		return true;
+	public long SalvarPedidoLoja(@Form PedidoLoja pedido){
+		lojaDao = new PedidoLojaDao();
+		try {
+			pedido = lojaDao.salvar(pedido);
+			return pedido.getId();
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 	
 

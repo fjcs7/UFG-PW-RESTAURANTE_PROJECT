@@ -12,13 +12,11 @@ public class StatusDeMesa {
 	
 	@Column(name="status")
 	@Enumerated(EnumType.ORDINAL)
-	@QueryParam("valorStatus")
+	@FormParam("valorStatus")
 	protected EnumStatusDaMesa valorStatus;
 	
 	@SuppressWarnings("static-access")
-	public StatusDeMesa(){
-		this.utilizarMesa();
-	}
+	public StatusDeMesa(){}
 	
 	public static StatusDeMesa utilizarMesa(){
 		return new MesaOcupada();

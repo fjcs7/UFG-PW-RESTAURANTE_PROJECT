@@ -20,7 +20,7 @@ public class Mesa {
 	private int id;
 	
 	@Embedded
-	@Form
+	@Form(prefix="status")
 	private StatusDeMesa status;
 	
 	public Mesa(){this.status = StatusDeMesa.desocuparMesa();}
@@ -36,6 +36,10 @@ public class Mesa {
 		this.id = id;
 	}
 
+	public void setStatus(StatusDeMesa status){
+		this.status = status;
+	}
+	
 	public int getStatus() {
 		return this.status.getValorStatus();
 	}

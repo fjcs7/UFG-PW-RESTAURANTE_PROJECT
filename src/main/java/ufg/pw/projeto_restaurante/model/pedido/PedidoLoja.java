@@ -32,7 +32,7 @@ public class PedidoLoja extends Pedido implements Serializable {
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(value=CascadeType.PERSIST)
-	@Form
+	@Form(prefix="mesa")
 	protected Mesa mesa;
 	
 	public PedidoLoja() {};
@@ -47,5 +47,9 @@ public class PedidoLoja extends Pedido implements Serializable {
 
 	public void setMesa(Mesa mesa) {
 		this.mesa = mesa;
+	}
+	
+	public String toString(){
+		return "Pedido de Numero: " + this.id + " Da mesa: " + this.mesa.getId();
 	}
 }
