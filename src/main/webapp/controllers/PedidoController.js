@@ -1,4 +1,4 @@
-appt.controller('pedidoController', function($rootScope, $location, $http, $resource) {
+appt.controller('pedidoController', function($rootScope, $location, $http) {
 	
 	
 		   $rootScope.pedidos = [  {numero: 1, descricao: 'Arroz temperado', tempoEspera: '00:30:39', mesa: 13 },
@@ -10,13 +10,17 @@ appt.controller('pedidoController', function($rootScope, $location, $http, $reso
 		   $rootScope.numItens = 1;
 		   $rootScope.itens = [];
 		   
-		   var novoPedido = $resource('api/pedidos/salvar_pedido_loja');
+		   //var novoPedido = $resource('api/pedidos/salvar_pedido_loja/:novoPedido');
 
 
 		    $http.get('api/pedidos/novo_pedido_loja/teste').
 		    then(function(response) {
 		        alert(response.data.data);
 		    });
+//		    var pedido =  $http.get('api/pedidos/novo_pedido_loja/teste');
+//		    alert(pedido.data.data);
+//		    
+//		    $http.put('api/pedidos/salvar_pedido_loja', pedido);
 
 		   
 		    			 

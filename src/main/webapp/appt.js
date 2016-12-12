@@ -1,4 +1,4 @@
-var appt = angular.module('appt',['ngRoute', 'ngCookies', 'ngResource']);
+var appt = angular.module('appt',['ngRoute', 'ngCookies']);
 appt.config.$inject = ['$routeProvider', '$locationProvider'];
 appt.config(function($routeProvider, $locationProvider)
 {
