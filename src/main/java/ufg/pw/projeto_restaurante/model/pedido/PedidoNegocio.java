@@ -27,6 +27,7 @@ import ufg.pw.projeto_restaurante.model.item_de_venda.TipoItemVenda;
 import ufg.pw.projeto_restaurante.model.pedido.dao.PedidoLojaDao;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedido;
 import ufg.pw.projeto_restaurante.model.pedido.state.EnumStatusDePedido;
+import ufg.pw.projeto_restaurante.model.pedido.state.StatusPedido;
 import ufg.pw.projeto_restaurante.model.utils.mesa.Mesa;
 import ufg.pw.projeto_restaurante.model.utils.mesa.MesaNegocio;
 
@@ -37,7 +38,7 @@ public class PedidoNegocio {
 	@GET
 	@Path("/listar_pedidos_loja_abertos")
 	@Produces("application/json")
-	public List<PedidoLoja> ListarPedidosLojaAbertos(){
+	public List<PedidoLoja> listarPedidosLojaAbertos(){
 		lojaDao = new PedidoLojaDao();
 		return lojaDao.obterListaPorStatus(EnumStatusDePedido.ABERTO);
 	}
@@ -56,23 +57,76 @@ public class PedidoNegocio {
 	@GET
 	@Path("/novo_pedido_loja")
 	@Produces("application/json")
-	public Pedido NovoPedidoLoja(){
+	public Pedido novoPedidoLoja(){
 		return new PedidoLoja();
 	}
 	
 	@POST
 	@Path("/salvar_pedido_loja")
 	@Consumes("application/json")
-	public long SalvarPedidoLoja(@Form PedidoLoja pedido){
+	public Pedido salvarPedidoLoja(@Form PedidoLoja pedido){
 		lojaDao = new PedidoLojaDao();
 		try {
 			pedido = lojaDao.salvar(pedido);
+			return pedido;
+		} catch (Exception e) {
+			return pedido;
+		}
+	}
+	
+	@POST
+	@Path("/alterar_pedido_loja")
+	@Consumes("application/json")
+	public long modificarPedidoLoja(@Form PedidoLoja pedido){
+		lojaDao = new PedidoLojaDao();
+		try {
+			pedido = lojaDao.atualizar(pedido);
 			return pedido.getId();
 		} catch (Exception e) {
 			return 0;
 		}
 	}
 	
+	@POST
+	@Path("/cancelar_pedido_loja")
+	@Consumes("application/json")
+	public long cancelarPedidoLoja(@Form PedidoLoja pedido){
+		pedido.status = StatusPedido.CancelarPedido();
+		lojaDao = new PedidoLojaDao();
+		try {
+			pedido = lojaDao.atualizar(pedido);
+			return pedido.getId();
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	@POST
+	@Path("/finalizar_pedido_loja")
+	@Consumes("application/json")
+	public long finalizarPedidoLoja(@Form PedidoLoja pedido){
+		pedido.status = StatusPedido.FinalizarPedido();
+		lojaDao = new PedidoLojaDao();
+		try {
+			pedido = lojaDao.atualizar(pedido);
+			return pedido.getId();
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	@POST
+	@Path("/excluir_pedido_loja/{idPedido}")
+	@Consumes("application/json")
+	public boolean excluirPedidoLoja(@FormParam("idPedido") long idPedido){
+		lojaDao = new PedidoLojaDao();
+		try {
+			lojaDao.remover(idPedido); ;
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 
 }

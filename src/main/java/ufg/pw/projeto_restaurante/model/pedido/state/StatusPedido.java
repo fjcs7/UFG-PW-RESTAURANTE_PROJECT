@@ -22,7 +22,15 @@ public class StatusPedido {
 	public static PedidoAberto abrirPedido(){
 		return new PedidoAberto();
 	}
+	
+	public static PedidoCancelado CancelarPedido(){
+		return new PedidoCancelado();
+	}
 
+	public static PedidoFinalizado FinalizarPedido(){
+		return new PedidoFinalizado();
+	}
+	
 	public void setValorStatus(EnumStatusDePedido valorStatus) {
 		this.valorStatus = valorStatus;
 	}
