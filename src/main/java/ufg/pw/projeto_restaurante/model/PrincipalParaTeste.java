@@ -6,6 +6,7 @@ import ufg.pw.projeto_restaurante.model.cliente.dao.ClienteDao;
 import ufg.pw.projeto_restaurante.model.cliente.dao.VeiculoDao;
 import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 import ufg.pw.projeto_restaurante.model.pedido.PedidoLoja;
+import ufg.pw.projeto_restaurante.model.pedido.PedidoNegocio;
 import ufg.pw.projeto_restaurante.model.pedido.dao.PedidoLojaDao;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Bairro;
 import ufg.pw.projeto_restaurante.model.utils.endereco.Cidade;
@@ -29,7 +30,8 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.dao.TelefoneDao;
 public class PrincipalParaTeste {
 
 	public static void main(String[] args) {
-		inserirDadosDePedidoLoja();
+		PedidoNegocio pn = new PedidoNegocio();
+		System.out.println(pn.listarPedidosLojaAbertos());
 		
 
 	}

@@ -1,163 +1,182 @@
 
-        <div class="row well well-sm">
-		  	 <center><h2><b class="fa fa-line-chart"> Relatório de Devoluções</b></h2></center>
-        </div>
+<div class="row well well-sm">
+	<center>
+		<h2>
+			<b class="fa fa-line-chart"> Relatório de Devoluções</b>
+		</h2>
+	</center>
+</div>
 
-		<div class="row jumbotron flip-left">
-		     			
- 		        <form class="form">	
- 		        			
-					<div class="box">
-						<legend>Período</legend>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="form-group">
-		                            <label>Início:  <b class="fa fa-calendar-o"> </b> </label>
-                            		<input type="date" id="datainicial" class="form-control" name="datainicial" ng-model="datainicial" placeholder="dd-mm-aaaa"  required />
-		                         </div>
-	                         </div>
-	                         
-	                         <div class="col-md-3">
-								<div class="form-group">
-		                            <label>Final:  <b class="fa fa-calendar-o"> </b></label>
-                            		<input type="date" id="datafinal" name="datafinal" class="form-control" ng-model="datafinal" placeholder="dd-mm-aaaa" required />
-		                         </div>
-	                         </div>
-	                         
-	                         <div class="col-md-4">
-								<div class="form-group">
-									<label>Tipo</label><br>
-		                            <md-radio-group ng-model="tipoRelatorio">
-                                        <label><input  type="radio" ng-model="tipoRelatorio.nome" checked="checked">Todos </label>
-                                        <label><input type="radio" ng-model="tipoRelatorio.nome" value="1">Refeições </label>
-                                        <label> <input type="radio" ng-model="tipoRelatorio.nome" value="2">Bebidas</label>
-                                    </md-radio-group>
-		                         </div>
-	                         </div>                         
-	                         
-		
-						</div>
+<div class="row jumbotron flip-left">
+
+	<form class="form">
+
+		<div class="box">
+			<legend>Período</legend>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>Início: <b class="fa fa-calendar-o"> </b>
+						</label> <input type="date" id="datainicial" class="form-control"
+							name="datainicial" ng-model="datainicial"
+							placeholder="dd-mm-aaaa" required />
 					</div>
-					<br>
-					
-						<div class="box">
-						<legend>Filtros</legend>
-							<div class="row">
-		                         
-		                         <div class="col-md-2">
-									<div class="form-group">
-			                          <label>Garçom:</label>
-                                      <select class="form-control" style="height:38px;">
-                                              <option>Todos</option>
-                                              <option>Carlos</option>
-                                              <option>Fernando</option>
-                                             <option>Geraldo</option>
-                                        </select>
-			                         </div>
-		                         </div>
-		                         
-		                         <div class="col-md-2">
-									<div class="form-group">
-			                          <label>Entrega:</label>
-                                      <select class="form-control" style="height:38px;">
-                                              <option>Todos</option>
-                                              <option>Sim</option>
-                                              <option>Nao</option>
-                                        </select>
-			                         </div>
-		                         </div>
-		                         
-		                         <div class="col-md-2">
-									<div class="form-group">
-			                          <label>Forma Pgto:</label>
-                                      <select class="form-control" style="height:38px;">
-                                              <option>Todos</option>
-                                              <option>Dinheiro</option>
-                                              <option>Cartão</option>
-                                            <option>Cheque</option>
-                                        </select>
-			                         </div>
-		                         </div>
-		                         
-		                         <div class="col-md-2">
-									<div class="form-group">
-			                          <label>Op. Caixa:</label>
-                                      <select class="form-control" style="height:38px;">
-                                              <option>Todas</option>
-                                              <option>Maria</option>
-                                              <option>Joana</option>
-                                            <option>Abadia</option>
-                                        </select>
-			                         </div>
-		                         </div>
-		                         
-		                         <div class="col-md-2">
-									<div class="form-group">
-			                          <label>Telefonista:</label>
-                                      <select class="form-control" style="height:38px;">
-                                             <option>Todas</option>
-                                              <option>Simone</option>
-                                              <option>Geralda</option>
-                                            <option>Joaquina</option>
-                                        </select>
-			                         </div>
-		                         </div>
-			
-							</div>
-						</div>
-						<br>
-						<div class="text-right">
-	                       <a class="btn btn-warning" data-toggle="modal" data-target="#modalVisualizar"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar</a>
-	                       <a class="btn btn-info" data-toggle="modal" data-target="#modalImprimir"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</a>
-	                   </div>	
-				
-				</form>
- 		     </div>	     
+				</div>
+
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>Final: <b class="fa fa-calendar-o"> </b></label> <input
+							type="date" id="datafinal" name="datafinal" class="form-control"
+							ng-model="datafinal" placeholder="dd-mm-aaaa" required />
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Tipo</label><br>
+						<md-radio-group ng-model="tipoRelatorio"> <label><input
+							type="radio" ng-model="tipoRelatorio.nome" checked="checked">Todos
+						</label> <label><input type="radio" ng-model="tipoRelatorio.nome"
+							value="1">Refeições </label> <label> <input type="radio"
+							ng-model="tipoRelatorio.nome" value="2">Bebidas
+						</label> </md-radio-group>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+		<br>
+
+		<div class="box">
+			<legend>Filtros</legend>
+			<div class="row">
+
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Garçom:</label> <select class="form-control"
+							style="height: 38px;">
+							<option>Todos</option>
+							<option>Carlos</option>
+							<option>Fernando</option>
+							<option>Geraldo</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Entrega:</label> <select class="form-control"
+							style="height: 38px;">
+							<option>Todos</option>
+							<option>Sim</option>
+							<option>Nao</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Forma Pgto:</label> <select class="form-control"
+							style="height: 38px;">
+							<option>Todos</option>
+							<option>Dinheiro</option>
+							<option>Cartão</option>
+							<option>Cheque</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Op. Caixa:</label> <select class="form-control"
+							style="height: 38px;">
+							<option>Todas</option>
+							<option>Maria</option>
+							<option>Joana</option>
+							<option>Abadia</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Telefonista:</label> <select class="form-control"
+							style="height: 38px;">
+							<option>Todas</option>
+							<option>Simone</option>
+							<option>Geralda</option>
+							<option>Joaquina</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<br>
+		<div class="text-right">
+			<a class="btn btn-warning" data-toggle="modal"
+				data-target="#modalVisualizar"><i class="fa fa-eye"
+				aria-hidden="true"></i> Visualizar</a> <a class="btn btn-info"
+				data-toggle="modal" data-target="#modalImprimir"><i
+				class="fa fa-print" aria-hidden="true"></i> Imprimir</a>
+		</div>
+
+	</form>
+</div>
 
 
 
-  <!-- Modal  Visualizar-->
-  <div id="modalVisualizar" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-             <meta charset="UTF-8">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title"><i class="fa fa-cutlery" aria-hidden="true"></i> Relatório de Devoluções</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="images/relatorio/relatorio_devolucao.png" alt="Relatório Devolução" style="width:500px;height:448px;">
-                  </div>
+<!-- Modal  Visualizar-->
+<div id="modalVisualizar" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<meta charset="UTF-8">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">
+					<i class="fa fa-cutlery" aria-hidden="true"></i> Relatório de
+					Devoluções
+				</h4>
+			</div>
+			<div class="modal-body">
+				<img src="images/relatorio/relatorio_devolucao.png"
+					alt="Relatório Devolução" style="width: 500px; height: 448px;">
+			</div>
 
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</button>
-                      </div>
-              </div>
-          </div>
-  </div>
-	
-
-  <!-- Modal Imprimir-->
-        <div id="modalImprimir" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <meta charset="UTF-8">
-                <!-- Modal content-->
-                <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"></button>
-                            <h4 class="modal-title"><i class="fa fa-print" aria-hidden="true"></i> Impressão de Relatório</h4>
-                        </div>
-                            <div class="modal-body">
-                                Enviado para Impressora Padrão do Sistema!
-                            </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                </div>
-                </div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					<i class="fa fa-reply" aria-hidden="true"></i> Voltar
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 
+<!-- Modal Imprimir-->
+<div id="modalImprimir" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<meta charset="UTF-8">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"></button>
+				<h4 class="modal-title">
+					<i class="fa fa-print" aria-hidden="true"></i> Impressão de
+					Relatório
+				</h4>
+			</div>
+			<div class="modal-body">Enviado para Impressora Padrão do
+				Sistema!</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+			</div>
+		</div>
 
-            </div>
 
-        </div>
+
+	</div>
+
+</div>

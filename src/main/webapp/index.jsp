@@ -8,21 +8,23 @@
 <title>Restaurante</title>
 
 
-	</head>
-	<body>
+</head>
+<body>
 	<div class="container">
 		<div class="row">
-		<!-- Caso o login seja inv�lido mostra o motivo. -->
-		<div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-		<div ng-view></div>
-		</div>  
+			<!-- Caso o login seja inv�lido mostra o motivo. -->
+			<div
+				ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
+				ng-if="flash" ng-bind="flash.message"></div>
+			<div ng-view></div>
+		</div>
 	</div>
 	</div>
-        <!-- /#page-content-wrapper -->
+	<!-- /#page-content-wrapper -->
 
-    </div>
-    
-    <script>
+	</div>
+
+	<script>
 
 			    
 
@@ -73,8 +75,8 @@
 			function fechaMenu(){
 				$("#hamburguer").trigger('click');
 			}
-			</script> 
-			
-	
-	</body>
+			</script>
+
+
+</body>
 </html>
