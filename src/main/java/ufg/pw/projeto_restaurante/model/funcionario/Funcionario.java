@@ -1,5 +1,7 @@
 package ufg.pw.projeto_restaurante.model.funcionario;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -13,8 +15,13 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 @Entity
 @Table(name = "funcionario")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Funcionario extends PessoaFisica	{
+public class Funcionario extends PessoaFisica	implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3111134482317536030L;
+
 	@Column
 	private String matricula;
 	

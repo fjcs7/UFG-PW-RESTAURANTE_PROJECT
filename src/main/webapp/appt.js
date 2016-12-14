@@ -7,7 +7,7 @@ appt.config(function($routeProvider, $locationProvider)
  
 	   .when('/cadastrar', {
       templateUrl : 'app/pedido/pedido.cadastrar.garcom.html',
-      controller  : 'pedidoController',
+      controller  : 'novoPedidoController',
 	   }) 
 	   
 	   .when('/alterar', {

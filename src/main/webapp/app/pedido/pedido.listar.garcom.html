@@ -14,7 +14,7 @@
 		<div class="col-md-10 col-xs-12">
 			<div class="input-group">
 				<input type="text" id="pesquisa" ng-model="pesquisa"
-					class="form-control" placeholder="Pesquisa"> <span
+					class="form-control" placeholder="Pesquisa"><span
 					class="input-group-btn">
 					<button class="btn" type="button">
 						<i class="fa fa-search" aria-hidden="true"></i>
@@ -32,18 +32,18 @@
 			<thead>
 				<tr>
 					<th><center>#</center></th>
-					<th><center>Descrição</center></th>
-					<th><center>Tempo de Espera</center></th>
+					<th><center>Nome do Cliente</center></th>
+					<th><center>Hora do pedido</center></th>
 					<th><center>Mesa</center></th>
 					<th width="160px"><center>Ações</center></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="pedido in pedidos | filter:pesquisa">
-					<td><center>{{pedido.id}}</center></td>
-					<td><center>{{pedido.cliente.nome}}</center></td>
-					<td><center>{{pedido.data.horaInicioAtendimento}}</center></td>
-					<td><center>{{pedido.mesa.id}}</center></td>
+				<tr ng-repeat="x in pedidos | filter:pesquisa">
+					<td><center>{{x.id}}</center></td>
+					<td><center>{{x.cliente.nome}}</center></td>
+					<td><center>{{x.data.horaInicioAtendimento}}</center></td>
+					<td><center>{{x.mesa.id}}</center></td>
 					<td class="width-actions">
 						<center>
 							<a class="btn btn-success"> <i class="fa fa-check-square-o"

@@ -40,7 +40,8 @@ public class PedidoNegocio {
 	@Produces("application/json")
 	public List<PedidoLoja> listarPedidosLojaAbertos(){
 		lojaDao = new PedidoLojaDao();
-		return lojaDao.obterListaPorStatus(EnumStatusDePedido.ABERTO);
+		List<PedidoLoja> pedidos = lojaDao.obterListaPorStatus(EnumStatusDePedido.ABERTO);
+		return pedidos;
 	}
 	
 	@GET

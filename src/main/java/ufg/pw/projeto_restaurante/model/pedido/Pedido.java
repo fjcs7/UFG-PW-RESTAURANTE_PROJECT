@@ -11,6 +11,7 @@ import javax.persistence.*;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.QueryParam;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
@@ -49,19 +50,19 @@ public abstract class Pedido{
 	@FormParam("horaFimAtendimento")
 	protected Long horaFimAtendimento;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_cliente",
 				insertable=true, updatable=true
 				)
-	@Fetch(FetchMode.JOIN)
+	@Fetch(FetchMode.SELECT)
 	@Cascade(value=CascadeType.PERSIST)
 	@Form(prefix = "cliente")
 	protected Cliente cliente;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_funcionario",
 				insertable=true, updatable=true)
-	@Fetch(FetchMode.JOIN)
+	@Fetch(FetchMode.SELECT)
 	@Cascade(value=CascadeType.PERSIST)
 	@Form(prefix = "atendente")
 	protected Funcionario atendente;

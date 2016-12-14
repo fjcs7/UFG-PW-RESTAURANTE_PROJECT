@@ -16,15 +16,16 @@
 
 				<div class="col-md-2">
 					<div class="form-group">
-						<label for="mesa">Mesa</label> <input
-							class="form-control input-sm" id="mesa" name="mesa" type="text"
-							placeholder="Mesa">
+						<label for="mesa">Mesa</label>
+						<select ng-model="mesaSelecionada" id="mesa" name="mesa" 
+						        ng-options="mesa.id for mesa in mesas" placeholder="Mesa">
+						</select>
 					</div>
 				</div>
 
 				<div class="col-md-10">
 					<div class="form-group float-right">
-						<button type="button" class="btn btn-default" data-toggle="modal"
+						<button ng-click="carregarItens()" type="button" class="btn btn-default" data-toggle="modal"
 							data-target="#modalAdidionarItem" style="margin-top: 20px;">
 							<i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Item
 						</button>
@@ -106,10 +107,12 @@
 					<form class="form-horizontal">
 						<fieldset>
 							<div class="col-md-9">
-								<span class="form-group"> <label for="item"
-									class="control-label">Item</label> <input type="text" required
-									autocomplete="off" class="form-control"
-									ng-model="item.descricao" placeholder="item">
+								<span class="form-group"> <label for="produtos"
+									class="control-label">Item</label> 
+									<select ng-click="carregarItens()" class="form-control" ng-model="itensDeProduto" 
+									        id="produto" name="produto" 
+						        			ng-options="produto.nome for produto in produtos" placeholder="Produto">
+									</select>
 
 								</span>
 							</div>

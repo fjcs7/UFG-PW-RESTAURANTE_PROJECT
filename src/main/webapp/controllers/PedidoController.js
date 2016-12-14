@@ -1,37 +1,8 @@
 appt.controller('pedidoController', function($rootScope, $location, $http) {
 	
-	
-//		   $rootScope.pedidos = [  {numero: 1, descricao: 'Arroz temperado', tempoEspera: '00:30:39', mesa: 13 },
-//					               {numero: 2, descricao: 'Feijoada', tempoEspera: '00:23:30', mesa: 34},
-//					               {numero: 3, descricao: 'Arroz branco e feijão tropeiro', tempoEspera: '00:18:40', mesa: 3},
-//					               {numero: 4, descricao: 'Suco de laranja', tempoEspera: '00:15:03', mesa: 4 },
-//					               {numero: 5, descricao: 'Vinho tinto', tempoEspera: '00:10:03', mesa: 10 }]
 
-//		   $rootScope.numItens = 1;
-//		   $rootScope.itens = [];
-		   
-		   //var novoPedido = $resource('api/pedidos/salvar_pedido_loja/:novoPedido');
-
-		   $http.get('api/pedidos/listar_pedidos_loja_abertos').then(function(request) {$rootScope.pedidos = request.dados;});
-		   
-//		    $http.get('api/pedidos/novo_pedido_loja').
-//		    then(function(request) {
-//		    	$rootScope.pedido = request;
-//		    	$rootScope.pedido.data.mesa = null;
-//		    });
-//		    var pedido =  $http.get('api/pedidos/novo_pedido_loja/teste');
-//		    alert($rootScope.pedido);
-////		    
-//		    $http.post('api/pedidos/salvar_pedido_loja', $rootScope.pedido).then(function(value) {
-//		    	alert(value.data);
-//		    }, function(reason) {
-//		    	alert(reason.data);
-//		    }, function(value) {
-//		    	alert(value.data);
-//		    });
-
-		   
-		    			 
+		   $http.get('api/pedidos/listar_pedidos_loja_abertos').then(function(request) {$rootScope.pedidos = request.data;});
+			 
 		   $rootScope.AdicionaLinha = function(item) {				
 				
 			   item.numero = $rootScope.numItens;
@@ -53,8 +24,19 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
 		   }
 			
 		   $rootScope.calculaTroco = function() {
-				 
 				 var valorRecebido = $("#valorRecebido").val();
 				 $("#troco").val(valorRecebido - 130.00);
 			 }
 });
+
+appt.controller('novoPedidoController', function($rootScope, $location, $http) {
+	   $http.get('api/mesas/disponiveis').then(function(mesas) {$rootScope.mesas = mesas.data;});
+	   
+	   
+	   $rootScope.carregarItens = function(){
+		   $http.get('api/produtos/listar').then(function(produtos) {$rootScope.produtos = produtos.data;});
+	   }
+	   
+});
+ 
+

@@ -1,5 +1,7 @@
 package ufg.pw.projeto_restaurante.model.cliente;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +11,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Veiculo {
+public class Veiculo implements Serializable {
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2513054072294627875L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

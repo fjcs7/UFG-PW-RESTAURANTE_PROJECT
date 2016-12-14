@@ -1,5 +1,7 @@
 package ufg.pw.projeto_restaurante.model.utils;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,8 +23,13 @@ import ufg.pw.projeto_restaurante.model.utils.telefone.Telefone;
 
 
 @MappedSuperclass
-public abstract class PessoaFisica {
+public abstract class PessoaFisica implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@FormParam("id")
