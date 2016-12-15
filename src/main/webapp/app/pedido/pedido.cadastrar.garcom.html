@@ -18,7 +18,7 @@
 					<div class="form-group">
 						<label for="mesa">Mesa</label>
 						<select ng-model="mesaSelecionada" id="mesa" name="mesa" 
-						        ng-options="mesa.id for mesa in mesas" placeholder="Mesa">
+						        ng-options="mesa.id for mesa in mesas" placeholder="Mesa" value="mesa">
 						</select>
 					</div>
 				</div>
@@ -34,7 +34,7 @@
 
 			</div>
 			<br>
-			<div ng-show="itens.length>0" id="divItensPedido"
+			<div ng-show="itensPedido.length>0" id="divItensPedido"
 				class="table-responsive box-white">
 				<table class="table table-hover" id="itensPedido">
 					<thead style="background: #F5F5F5;">
@@ -45,9 +45,9 @@
 							<th class="width-actions-250"><center>Ações</center></th>
 						</tr>
 					</thead>
-					<tr ng-repeat="item in itens">
-						<td><center>{{item.numero}}</center></td>
-						<td><center>{{item.descricao}}</center></td>
+					<tr ng-repeat="item in itensPedido track by $index">
+						<td><center>{{$index + 1}}</center></td>
+						<td><center>{{item.produto.descricao}}</center></td>
 						<td>
 							<center>
 								<span class=""><i class="fa fa-plus-square"
@@ -76,9 +76,9 @@
 		</div>
 		<br>
 		<div class="float-right">
-			<a href="#/pedidosGarcom" class="btn btn-default"><i
+			<a class="btn btn-default"><i
 				class="fa fa-reply" aria-hidden="true"></i> Voltar</a> <a
-				class="btn btn-info""#/pedidosGarcom"><i class="fa fa-floppy-o"
+				class="btn btn-info" ng-click="adicionarPedido(pedido, itensPedido, mesaSelecionada)"><i class="fa fa-floppy-o"
 				aria-hidden="true"></i> Salvar</a>
 
 		</div>
@@ -109,7 +109,7 @@
 							<div class="col-md-9">
 								<span class="form-group"> <label for="produtos"
 									class="control-label">Item</label> 
-									<select ng-click="carregarItens()" class="form-control" ng-model="produtoAdicionar" 
+									<select class="form-control" ng-model="itemPedido.produto" 
 									        id="produto" name="produto" 
 						        			ng-options="produto.nome for produto in produtos" placeholder="Produto" value="produto">
 						        			<option value="0">Selecione</option>
@@ -119,9 +119,9 @@
 							</div>
 
 							<div class="col-md-3">
-								<span class="form-group"> <label for="quantidadeItem"
+								<span class="form-group"> <label for="itemPedido.quantidade"
 									class="control-label">Quantidade</label> <input type="number"
-									class="form-control" ng-model="quantidade"
+									class="form-control" ng-model="itemPedido.quantidade"
 									placeholder="QTD" required="required" autocomplete="off">
 
 								</span>
@@ -136,7 +136,7 @@
 					<i class="fa fa-reply" aria-hidden="true"></i> Voltar
 				</button>
 				<button type="button" class="btn btn-primary" 
-					ng-click="AdicionaLinha()">
+					ng-click="AdicionaLinha(itemPedido, modeloItem, itensPedido)" data-dismiss="modal">
 					<i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar
 				</button>
 			</div>

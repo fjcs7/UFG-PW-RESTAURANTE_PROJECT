@@ -24,28 +24,40 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
 });
 
 appt.controller('novoPedidoController', function($rootScope, $location, $http) {
-	   $http.get('api/mesas/disponiveis').then(function(mesas) {$rootScope.mesas = mesas.data;});
+	
+	   $http.get('api/pedidos/novo_pedido_loja').then(function(novoPedido) {$rootScope.pedido = novoPedido.data;}); 
+	   
+	   $http.get('api/mesas/disponiveis').then(function(mesas) {$rootScope.mesas = mesas.data;});   
 	   
 	   
-	   $rootScope.carregarItens = function(){
-		   $http.get('api/produtos/listar').then(function(produtos) {$rootScope.produtos = produtos.data;});
-	   }
+	   $http.get('api/produtos/listar').then(function(produtos) {$rootScope.produtos = produtos.data;});
+	
 	   
-	   
-	   $http.get('api/itens/novoItem').then(function(modelo) {$rootScope.modeloItem = modelo.data;});
-	 
+	   $http.get('api/itens/novoItem').then(function(modelo) {$rootScope.modeloItem = modelo.data;}); 
 	   
    
 	   $rootScope.itensPedido = [];
 	   
-	   $rootScope.AdicionaLinha = function() {	
-		    var itemAdicionar = $rootScope.modeloItem;
-		    
-		    itemAdicionar.quantidade = $rootScope.quantidadeItem;
-		    itemAdicionar.produto    = $rootScope.produtoAdicionar;
-		    
-		    alert($rootScope.quantidadeItem);
+	   $rootScope.AdicionaLinha = function(item, modeloItem, itensPedido) {	
 		   
+		    var itemAdicionar = modeloItem;		    
+		    itemAdicionar.quantidade = item.quantidade;
+		    itemAdicionar.produto    = item.produto;
+		    itensPedido.push(itemAdicionar);
+	   }
+	   
+	   
+	   $rootScope.adicionarPedido = function(pedido, itensPedido, mesaSelecionada) {
+		   pedido.itens = itensPedido;
+		   pedido.mesa = mesaSelecionada;
+		   
+		   $http.post('api/pedidos/salvar_pedido_loja', $rootScope.pedido).then(function(value) {
+	            $rootScope.pedido = value.data;
+	          }, function(reason) {
+	            alert("Não foi possível salvar");
+	          }, function(value) {
+	            alert("Salvo com sucesso! Código do pedido : " + value.data.id);
+	          });
 	   }
 	   
 });
