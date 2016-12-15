@@ -89,7 +89,7 @@ public abstract class Pedido implements Serializable {
 	
 	@Embedded
 	@Form(prefix = "status")
-	protected StatusPedido status;
+	protected StatusPedido status= StatusPedido.abrirPedido();
 	
 	public Pedido() {
 		this.status = StatusPedido.abrirPedido();
@@ -141,9 +141,6 @@ public abstract class Pedido implements Serializable {
 	}
 	public Double getTotalPedido() {
 		return totalPedido;
-	}
-	public String getStatus() {
-		return status.toString();
 	}
 	
 	public boolean adicionarItem(ItemPedido item){
@@ -230,6 +227,10 @@ public abstract class Pedido implements Serializable {
 
 	public void setStatus(StatusPedido status) {
 		this.status = status;
+	}
+
+	public StatusPedido getStatus() {
+		return status;
 	}
 
 }

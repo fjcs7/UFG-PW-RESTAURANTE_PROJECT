@@ -43,13 +43,13 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 		    var itemAdicionar = modeloItem;		    
 		    itemAdicionar.quantidade = item.quantidade;
 		    itemAdicionar.produto    = item.produto;
-		    itensPedido.push(itemAdicionar);
+		    $rootScope.pedido.itens.push(itemAdicionar);
 	   }
 	   
 	   
-	   $rootScope.adicionarPedido = function(pedido, itensPedido, mesaSelecionada) {
-		   pedido.itens = itensPedido;
-		   pedido.mesa = mesaSelecionada;
+	   $rootScope.adicionarPedido = function(mesaSelecionada) {
+		   $rootScope.pedido.mesa = mesaSelecionada;
+		   
 		   
 		   $http.post('api/pedidos/salvar_pedido_loja', $rootScope.pedido).then(function(value) {
 	            $rootScope.pedido = value.data;

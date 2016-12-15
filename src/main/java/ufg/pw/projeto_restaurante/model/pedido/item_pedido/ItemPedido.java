@@ -56,7 +56,7 @@ public class ItemPedido  implements Serializable {
 
 	@Embedded
 	@Form(prefix="status")
-	private StatusDoItem status;
+	private StatusDoItem status = StatusDoItem.solicitarItem();
 
 	public ItemPedido() {
 		this.status = StatusDoItem.solicitarItem();
