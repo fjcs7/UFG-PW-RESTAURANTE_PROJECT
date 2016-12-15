@@ -34,8 +34,7 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 	
 	   
 	   $http.get('api/itens/novoItem').then(function(modelo) {$rootScope.modeloItem = modelo.data;}); 
-	   
-   
+	      
 	   $rootScope.itensPedido = [];
 	   
 	   $rootScope.AdicionaLinha = function(item, modeloItem, itensPedido) {	
@@ -45,6 +44,7 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 		    itemAdicionar.produto    = item.produto;
 		    itensPedido.push(itemAdicionar);
 	   }
+	   
 	   
 	   
 	   $rootScope.adicionarPedido = function(pedido, itensPedido, mesaSelecionada) {
