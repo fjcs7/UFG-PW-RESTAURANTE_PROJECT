@@ -109,9 +109,9 @@
 							<div class="col-md-9">
 								<span class="form-group"> <label for="produtos"
 									class="control-label">Item</label> 
-									<select ng-click="carregarItens()" class="form-control" ng-model="itensDeProduto" 
+									<select ng-click="carregarItens()" class="form-control" ng-model="produtoAdicionar" 
 									        id="produto" name="produto" 
-						        			ng-options="produto.nome for produto in produtos" placeholder="Produto" value="produto.nome">
+						        			ng-options="produto.nome for produto in produtos" placeholder="Produto" value="produto">
 						        			<option value="0">Selecione</option>
 									</select>
 
@@ -121,7 +121,7 @@
 							<div class="col-md-3">
 								<span class="form-group"> <label for="quantidadeItem"
 									class="control-label">Quantidade</label> <input type="number"
-									class="form-control" ng-model="produto.quantidade"
+									class="form-control" ng-model="quantidade"
 									placeholder="QTD" required="required" autocomplete="off">
 
 								</span>
@@ -136,7 +136,7 @@
 					<i class="fa fa-reply" aria-hidden="true"></i> Voltar
 				</button>
 				<button type="button" class="btn btn-primary" 
-					ng-click="AdicionaLinha(produto)">
+					ng-click="AdicionaLinha()">
 					<i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar
 				</button>
 			</div>

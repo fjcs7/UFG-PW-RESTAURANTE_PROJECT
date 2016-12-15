@@ -31,10 +31,20 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 		   $http.get('api/produtos/listar').then(function(produtos) {$rootScope.produtos = produtos.data;});
 	   }
 	   
+	   
+	   $http.get('api/itens/novoItem').then(function(modelo) {$rootScope.modeloItem = modelo.data;});
+	 
+	   
+   
 	   $rootScope.itensPedido = [];
 	   
-	   $rootScope.AdicionaLinha = function(item) {	
+	   $rootScope.AdicionaLinha = function() {	
+		    var itemAdicionar = $rootScope.modeloItem;
 		    
+		    itemAdicionar.quantidade = $rootScope.quantidadeItem;
+		    itemAdicionar.produto    = $rootScope.produtoAdicionar;
+		    
+		    alert($rootScope.quantidadeItem);
 		   
 	   }
 	   
