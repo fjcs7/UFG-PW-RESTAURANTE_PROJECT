@@ -1,5 +1,6 @@
 package ufg.pw.projeto_restaurante.model.pedido;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
@@ -25,8 +26,13 @@ import ufg.pw.projeto_restaurante.model.pedido.state.StatusPedido;
 
 @MappedSuperclass
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public abstract class Pedido{
+public abstract class Pedido implements Serializable {
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2198220753333852106L;
 
 	@TableGenerator(name = "pedidos_gen", 
 					table = "id_gen", 

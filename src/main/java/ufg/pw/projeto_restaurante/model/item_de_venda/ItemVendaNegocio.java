@@ -6,6 +6,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import ufg.pw.projeto_restaurante.model.item_de_venda.dao.ItemVendaDao;
 
 @Path("/produtos")

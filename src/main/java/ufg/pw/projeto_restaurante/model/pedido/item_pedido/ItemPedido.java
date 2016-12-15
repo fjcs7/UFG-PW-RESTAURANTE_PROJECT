@@ -1,5 +1,7 @@
 package ufg.pw.projeto_restaurante.model.pedido.item_pedido;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -12,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.hibernate.annotations.Fetch;	
 import org.hibernate.annotations.FetchMode;
 import org.jboss.resteasy.annotations.Form;
@@ -20,7 +23,13 @@ import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVenda;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.state.StatusDoItem;
 
 @Entity
-public class ItemPedido {
+@JsonSerialize
+public class ItemPedido  implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1310920981967100687L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +47,7 @@ public class ItemPedido {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_itemvenda", insertable = true, updatable = true)
 	@Fetch(FetchMode.JOIN)
-	@Form
+	@Form(prefix="produto")
 	private ItemVenda produto;
 
 	@Column
@@ -46,7 +55,7 @@ public class ItemPedido {
 	private String motivoDevolucao;
 
 	@Embedded
-	@Form
+	@Form(prefix="status")
 	private StatusDoItem status;
 
 	public ItemPedido() {

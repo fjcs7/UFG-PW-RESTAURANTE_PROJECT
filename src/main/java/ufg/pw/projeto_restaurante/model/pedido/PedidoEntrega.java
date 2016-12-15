@@ -13,8 +13,7 @@ import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 
 
 @Entity
-@AssociationOverride(name="itens",
-				     joinColumns = @JoinColumn(name="id_item_entrega"))
+@AssociationOverride(joinColumns = @JoinColumn(name="id_item_entrega"), name="itens")
 public class PedidoEntrega extends Pedido implements Serializable {
 	
 	/**

@@ -21,8 +21,7 @@ import ufg.pw.projeto_restaurante.model.funcionario.Funcionario;
 import ufg.pw.projeto_restaurante.model.utils.mesa.Mesa;
 
 @Entity
-@AssociationOverride(name="itens",
-        			 joinColumns = @JoinColumn(name="id_item_loja"))
+@AssociationOverride(joinColumns = @JoinColumn(name="id_item_loja"), name="itens")
 public class PedidoLoja extends Pedido implements Serializable {
 	
 	private static final long serialVersionUID = 2603445969674186466L;

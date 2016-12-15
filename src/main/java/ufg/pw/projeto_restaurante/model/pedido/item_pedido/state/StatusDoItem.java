@@ -1,12 +1,22 @@
 package ufg.pw.projeto_restaurante.model.pedido.item_pedido.state;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 @Embeddable
-public abstract class StatusDoItem {
+@JsonSerialize
+public abstract class StatusDoItem  implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 765337200708503075L;
+	
 	@Column(name="status")
 	@Enumerated(EnumType.ORDINAL)
 	protected EnumStatusItemPedido valorStatus;
