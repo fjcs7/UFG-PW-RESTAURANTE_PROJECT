@@ -20,7 +20,7 @@
 					<div class="form-group">
 						<label for="numero">Número</label> <input
 							class="form-control input-sm" id="numero" name="numero"
-							value="34" type="text" disabled>
+							value="{{pedidoAlterar.id}}" type="text" disabled>
 					</div>
 				</div>
 
@@ -44,7 +44,7 @@
 
 			</div>
 			<br>
-			<div ng-show="itens.length>0" id="divItensPedido"
+			<div ng-show="pedidoAlterar.itens.length>0" id="divItensPedido"
 				class="table-responsive box-white">
 				<table class="table table-hover" id="itensPedido">
 					<thead style="background: #F5F5F5;">

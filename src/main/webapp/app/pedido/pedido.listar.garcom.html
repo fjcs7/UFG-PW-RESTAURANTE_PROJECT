@@ -34,6 +34,7 @@
 					<th><center>#</center></th>
 					<th><center>Data Atendimento</center></th>
 					<th><center>Mesa</center></th>
+					<th><center>Itens</center></th>
 					<th width="160px"><center>Ações</center></th>
 				</tr>
 			</thead>
@@ -42,11 +43,16 @@
 					<td><center>{{x.id}}</center></td>
 					<td><center>{{x.data}} {{x.horaInicioAtendimento}}</center></td>
 					<td><center>{{x.mesa.id}}</center></td>
+					<td>
+					    <center ng-repeat="p in x.itens">
+							{{p.produto.nome}}
+					    </center>
+					</td>
 					<td class="width-actions">
 						<center>
 							<a class="btn btn-success" ng-click="excluirPedido(x.id)"> <i class="fa fa-check-square-o"
 								aria-hidden="true"></i> Finalizar
-							</a> <a href="#/alterar" class="btn btn-primary"> <i
+							</a> <a ng-click="alterarPedido(x, pedidoAlterar)" class="btn btn-primary"> <i
 								class="fa fa-pencil-square-o" aria-hidden="true"></i> Alterar
 							</a> <a class="btn btn-danger" data-toggle="modal"
 								data-target="#modalCancelar" > <i class="fa fa-times-circle"

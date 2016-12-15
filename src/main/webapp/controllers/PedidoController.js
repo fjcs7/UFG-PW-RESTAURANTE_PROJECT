@@ -2,6 +2,8 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
 	
 
 		   $http.get('api/pedidos/listar_pedidos_loja_abertos').then(function(request) {$rootScope.pedidos = request.data;});
+		   
+		   $rootScope.objetoAlterar = null;
 		  
 		   $rootScope.removerItem = function(index) {
 			   $rootScope.itens.splice(index, 1);	 
@@ -19,7 +21,7 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
 				 var valorRecebido = $("#valorRecebido").val();
 				 $("#troco").val(valorRecebido - 130.00);
 				 alert(1)
-			 }
+		   }
 		   
 		   $rootScope.excluirPedido = function(id) {
 			   alert(id)
@@ -30,7 +32,20 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
               
             });
 			   alert(4)
-			   }	   
+			   }	
+		   
+		   $rootScope.formatarData = function(data, horario) {
+			   
+			alert(data);
+			    var dataFormatada = data.substring(1, 2)+"/"+data.substring(3, 4)+"/"+data.substring(5,7)+ " "+horario.substring(1, 2)+":"+horario.substring(3, 4)+":"+horario.substring(5, 6);
+			   alert(dataFormatada);
+		   }
+		   
+		   $rootScope.alterarPedido = function(pedido, pedidoAlterar) {
+			   pedidoAlterar = pedido;
+			   alert(1)
+			   $location.path('/alterar');
+		   }
 			   
 });
 
