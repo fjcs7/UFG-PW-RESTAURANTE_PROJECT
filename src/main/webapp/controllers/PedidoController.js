@@ -34,7 +34,7 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 	
 	   
 	   $http.get('api/itens/novoItem').then(function(modelo) {$rootScope.modeloItem = modelo.data;}); 
-	   
+	      
 	   $rootScope.itensPedido = [];
 	   
 	   $rootScope.AdicionaLinha = function(item, modeloItem, itensPedido) {	
@@ -42,13 +42,31 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 		    var itemAdicionar = modeloItem;		    
 		    itemAdicionar.quantidade = item.quantidade;
 		    itemAdicionar.produto    = item.produto;
-		    $rootScope.pedido.itens.push(itemAdicionar);
+		    itensPedido.push(itemAdicionar);
+		    alert(itemAdicionar.produto.valor)
 	   }
 	   
 	   
-	   $rootScope.adicionarPedido = function(mesaSelecionada) {
-		   $rootScope.pedido.mesa = mesaSelecionada;
+	   $rootScope.excluirPedido = function(id) {
+		  alert(id)
+		   $http.post('api/pedidos/excluir_pedido_loja/'+id, $rootScope.pedido).then(function(value) {
+			   alert(id)
+	            $rootScope.pedido = value.data;
+	          }, function(reason) {
+	            alert("Não foi possível salvar");
+	          }, function(value) {
+	            alert("Salvo com sucesso! Código do pedido : " + value.data.id);
+	          });
+	   }	   
+	   
+	   
+	   $rootScope.adicionarPedido = function(pedido, itensPedido, mesaSelecionada) {
+		   pedido.itens = itensPedido;
+		   pedido.mesa = mesaSelecionada;
 		   
+		   console.log(mesaSelecionada)
+		   console.log(itensPedido[0].produto);
+		   console.log(pedido);
 		   
 		   $http.post('api/pedidos/salvar_pedido_loja', $rootScope.pedido).then(function(value) {
 	            $rootScope.pedido = value.data;
