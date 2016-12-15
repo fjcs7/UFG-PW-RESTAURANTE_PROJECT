@@ -7,6 +7,7 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 import ufg.pw.projeto_restaurante.model.cliente.ClienteNegocio;
+import ufg.pw.projeto_restaurante.model.funcionario.FuncionarioNegocio;
 import ufg.pw.projeto_restaurante.model.item_de_venda.ItemVendaNegocio;
 import ufg.pw.projeto_restaurante.model.pedido.PedidoNegocio;
 import ufg.pw.projeto_restaurante.model.pedido.item_pedido.ItemPedidoNegocio;
@@ -28,6 +29,7 @@ public class ApplicationController extends Application {
 	    singletons.add(new ClienteNegocio());
 	    singletons.add(MesaNegocio.getInstancia());
 	    singletons.add(new ItemVendaNegocio());
+	    singletons.add(FuncionarioNegocio.getInstancia());
 	  }
 
 }
