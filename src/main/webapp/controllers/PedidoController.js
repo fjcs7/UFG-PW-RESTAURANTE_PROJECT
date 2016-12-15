@@ -2,14 +2,8 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
 	
 
 		   $http.get('api/pedidos/listar_pedidos_loja_abertos').then(function(request) {$rootScope.pedidos = request.data;});
-			 
-		   $rootScope.AdicionaLinha = function(item) {				
-				
-			   item.numero = $rootScope.numItens;
-			   $rootScope.itens.push(angular.copy(item));
-			   $rootScope.numItens++;   
-			   
-		   }
+		  
+		   
 			
 		   $rootScope.removerItem = function(index) {
 			   $rootScope.itens.splice(index, 1);	 
@@ -35,6 +29,13 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 	   
 	   $rootScope.carregarItens = function(){
 		   $http.get('api/produtos/listar').then(function(produtos) {$rootScope.produtos = produtos.data;});
+	   }
+	   
+	   $rootScope.itensPedido = [];
+	   
+	   $rootScope.AdicionaLinha = function(item) {	
+		    
+		   
 	   }
 	   
 });

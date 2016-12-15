@@ -52,7 +52,7 @@
 							<center>
 								<span class=""><i class="fa fa-plus-square"
 									aria-hidden="true"></i></span> <span> {{item.quantidade}}</span> <span
-									class=""><i class="fa fa-minus-square"
+									class=""><i class="fa fa-min	 us-square"
 									aria-hidden="true"></i></span>
 							</center>
 						</td>
@@ -111,7 +111,8 @@
 									class="control-label">Item</label> 
 									<select ng-click="carregarItens()" class="form-control" ng-model="itensDeProduto" 
 									        id="produto" name="produto" 
-						        			ng-options="produto.nome for produto in produtos" placeholder="Produto">
+						        			ng-options="produto.nome for produto in produtos" placeholder="Produto" value="produto.nome">
+						        			<option value="0">Selecione</option>
 									</select>
 
 								</span>
@@ -120,7 +121,7 @@
 							<div class="col-md-3">
 								<span class="form-group"> <label for="quantidadeItem"
 									class="control-label">Quantidade</label> <input type="number"
-									class="form-control" ng-model="item.quantidade"
+									class="form-control" ng-model="produto.quantidade"
 									placeholder="QTD" required="required" autocomplete="off">
 
 								</span>
@@ -134,8 +135,8 @@
 				<button type="button" class="btn btn-default" data-dismiss="modal">
 					<i class="fa fa-reply" aria-hidden="true"></i> Voltar
 				</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal"
-					ng-click="AdicionaLinha(item);">
+				<button type="button" class="btn btn-primary" 
+					ng-click="AdicionaLinha(produto)">
 					<i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar
 				</button>
 			</div>
