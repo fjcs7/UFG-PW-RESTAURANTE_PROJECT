@@ -3,8 +3,6 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
 
 		   $http.get('api/pedidos/listar_pedidos_loja_abertos').then(function(request) {$rootScope.pedidos = request.data;});
 		  
-		   
-			
 		   $rootScope.removerItem = function(index) {
 			   $rootScope.itens.splice(index, 1);	 
 		   }

@@ -32,8 +32,7 @@
 			<thead>
 				<tr>
 					<th><center>#</center></th>
-					<th><center>Nome do Cliente</center></th>
-					<th><center>Hora do pedido</center></th>
+					<th><center>Data Atendimento</center></th>
 					<th><center>Mesa</center></th>
 					<th width="160px"><center>Ações</center></th>
 				</tr>
@@ -41,8 +40,7 @@
 			<tbody>
 				<tr ng-repeat="x in pedidos | filter:pesquisa">
 					<td><center>{{x.id}}</center></td>
-					<td><center>{{x.cliente.nome}}</center></td>
-					<td><center>{{x.data.horaInicioAtendimento}}</center></td>
+					<td><center>{{x.data}} {{x.horaInicioAtendimento}}</center></td>
 					<td><center>{{x.mesa.id}}</center></td>
 					<td class="width-actions">
 						<center>

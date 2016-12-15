@@ -93,7 +93,9 @@ public abstract class Pedido implements Serializable {
 	protected StatusPedido status;
 	
 	public Pedido() {
-		this.status = StatusPedido.abrirPedido();
+	    this.status = StatusPedido.abrirPedido();
+	    this.data = obtenhaDataCompleta();
+	    this.horaInicioAtendimento = obtenhaHoraCompleta();
 	}
 	
 	public Pedido(Funcionario atendente, Cliente cliente){
