@@ -35,7 +35,6 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 	   
 	   $http.get('api/itens/novoItem').then(function(modelo) {$rootScope.modeloItem = modelo.data;}); 
 	   
-   
 	   $rootScope.itensPedido = [];
 	   
 	   $rootScope.AdicionaLinha = function(item, modeloItem, itensPedido) {	
