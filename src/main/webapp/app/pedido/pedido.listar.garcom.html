@@ -46,12 +46,12 @@
 					<td><center>{{x.mesa.id}}</center></td>
 					<td class="width-actions">
 						<center>
-							<a class="btn btn-success"> <i class="fa fa-check-square-o"
+							<a class="btn btn-success" ng-click="excluirPedido(x.id)"> <i class="fa fa-check-square-o"
 								aria-hidden="true"></i> Finalizar
 							</a> <a href="#/alterar" class="btn btn-primary"> <i
 								class="fa fa-pencil-square-o" aria-hidden="true"></i> Alterar
-							</a> <a type="button" class="btn btn-danger" data-toggle="modal"
-								data-target="#modalCancelar" ng-click="excluirPedido(x.id)"> <i class="fa fa-times-circle"
+							</a> <a class="btn btn-danger" data-toggle="modal"
+								data-target="#modalCancelar" > <i class="fa fa-times-circle"
 								aria-hidden="true" ></i> Cancelar
 							</a>
 						</center>

@@ -1,8 +1,5 @@
 <meta charset="UTF-8">
-<div
-	ng-init="itens = [{numero: 1, descricao: 'Feijão tropeiro', quantidade: '2'},
-                         {numero: 2, descricao: 'Arroz branco', quantidade: '2'},
-                         {numero: 3, descricao: 'Suco de laranja', quantidade: '2'}]">
+<div>
 </div>
 
 <div class="row well well-sm">
@@ -29,9 +26,10 @@
 
 				<div class="col-md-2">
 					<div class="form-group">
-						<label for="mesa">Mesa</label> <input
-							class="form-control input-sm" id="mesa" name="mesa" value="10"
-							type="text">
+						<label for="mesa">Mesa</label>
+						<select ng-model="mesaSelecionada" id="mesa" name="mesa" 
+						        ng-options="mesa.id for mesa in mesas" placeholder="Mesa">
+						</select>
 					</div>
 				</div>
 

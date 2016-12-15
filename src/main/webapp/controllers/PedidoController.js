@@ -20,7 +20,20 @@ appt.controller('pedidoController', function($rootScope, $location, $http) {
 		   $rootScope.calculaTroco = function() {
 				 var valorRecebido = $("#valorRecebido").val();
 				 $("#troco").val(valorRecebido - 130.00);
+				 alert(1)
 			 }
+		   
+		   $rootScope.excluirPedido = function(id) {
+			   alert(id)
+			   $http.post('api/pedidos/excluir_pedido_loja/'+id, $rootScope.pedido).then(function(value) {
+				  
+              $rootScope.pedido = value.data;
+              console.log(value.data);
+              
+            });
+			   alert(4)
+			   }	   
+			   
 });
 
 appt.controller('novoPedidoController', function($rootScope, $location, $http) {
@@ -46,20 +59,6 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 		    alert(itemAdicionar.produto.valor)
 	   }
 	   
-	   
-	   $rootScope.excluirPedido = function(id) {
-		  alert(id)
-		   $http.post('api/pedidos/excluir_pedido_loja/'+id, $rootScope.pedido).then(function(value) {
-			   alert(id)
-	            $rootScope.pedido = value.data;
-	          }, function(reason) {
-	            alert("Não foi possível salvar");
-	          }, function(value) {
-	            alert("Salvo com sucesso! Código do pedido : " + value.data.id);
-	          });
-	   }	   
-	   
-	   
 	   $rootScope.adicionarPedido = function(pedido, itensPedido, mesaSelecionada) {
 		   pedido.itens = itensPedido;
 		   pedido.mesa = mesaSelecionada;
@@ -76,6 +75,8 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 	            alert("Salvo com sucesso! Código do pedido : " + value.data.id);
 	          });
 	   }
+	   
+	   
 	   
 });
  
