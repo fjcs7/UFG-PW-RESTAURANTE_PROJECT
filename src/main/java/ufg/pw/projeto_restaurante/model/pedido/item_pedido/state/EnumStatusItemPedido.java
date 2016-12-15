@@ -1,5 +1,7 @@
 package ufg.pw.projeto_restaurante.model.pedido.item_pedido.state;
 
+import org.codehaus.jackson.annotate.JsonTypeInfo.Id;
+
 public enum EnumStatusItemPedido {
 	SOLICITADO("Solicitado", 0),
 	PRONTO("Pronto",1),

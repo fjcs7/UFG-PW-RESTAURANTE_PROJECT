@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.ws.rs.FormParam;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
@@ -56,7 +57,7 @@ public class Endereco {
 	public Long getNumero() {
 		return numero;
 	}
-
+	
 	public void setNumero(long numero) {
 		this.numero = numero;
 	}
@@ -93,9 +94,6 @@ public class Endereco {
 		this.id = id;
 	}
 
-	public void setNumero(Long numero) {
-		this.numero = numero;
-	}
 
 	public void setReferencia(String referencia) {
 		this.referencia = referencia;

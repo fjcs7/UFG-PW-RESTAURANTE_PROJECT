@@ -68,13 +68,7 @@ appt.controller('novoPedidoController', function($rootScope, $location, $http) {
 		   console.log(itensPedido[0].produto);
 		   console.log(pedido);
 		   
-		   $http.post('api/pedidos/salvar_pedido_loja', $rootScope.pedido).then(function(value) {
-	            $rootScope.pedido = value.data;
-	          }, function(reason) {
-	            alert("Não foi possível salvar");
-	          }, function(value) {
-	            alert("Salvo com sucesso! Código do pedido : " + value.data.id);
-	          });
+		   var resultado = $http.post('api/pedidos/salvar_pedido_loja', pedido);
 	   }
 	   
 });

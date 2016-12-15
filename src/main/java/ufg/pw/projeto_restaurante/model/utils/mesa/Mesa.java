@@ -7,6 +7,7 @@ import javax.persistence.Table;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.QueryParam;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.jboss.resteasy.annotations.Form;
 
 import ufg.pw.projeto_restaurante.model.utils.mesa.state.StatusDeMesa;
@@ -20,10 +21,10 @@ public class Mesa {
 	private int id;
 	
 	@Embedded
-	@Form(prefix="status")
+	@JsonIgnore
 	private StatusDeMesa status;
 	
-	public Mesa(){this.status = StatusDeMesa.desocuparMesa();}
+	public Mesa(){}
 	public Mesa(int id){
 		this();
 		this.id = id;
