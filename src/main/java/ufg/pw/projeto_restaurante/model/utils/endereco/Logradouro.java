@@ -74,7 +74,4 @@ public class Logradouro {
 		this.bairro = bairro;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 }

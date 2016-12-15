@@ -77,6 +77,7 @@ public abstract class Pedido implements Serializable {
 	@Id
 	@JoinColumn(name="id_pedido", referencedColumnName="id")
 	@Form(prefix = "itens")
+	@Cascade(value=CascadeType.PERSIST)
 	protected List<ItemPedido> itens;
 	
 	@Column
@@ -89,7 +90,7 @@ public abstract class Pedido implements Serializable {
 	
 	@Embedded
 	@Form(prefix = "status")
-	protected StatusPedido status= StatusPedido.abrirPedido();
+	protected StatusPedido status;
 	
 	public Pedido() {
 		this.status = StatusPedido.abrirPedido();

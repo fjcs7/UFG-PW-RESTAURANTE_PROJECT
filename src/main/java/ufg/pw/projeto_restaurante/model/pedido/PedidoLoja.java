@@ -30,7 +30,6 @@ public class PedidoLoja extends Pedido implements Serializable {
 	@JoinColumn(name="id_mesa",
 				insertable=true, updatable=true)
 	@Fetch(FetchMode.SELECT)
-	@Cascade(value=CascadeType.PERSIST)
 	@Form(prefix="mesa")
 	protected Mesa mesa;
 	

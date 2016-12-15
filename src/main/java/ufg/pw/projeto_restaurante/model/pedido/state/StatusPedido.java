@@ -5,6 +5,8 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Embeddable
 public class StatusPedido {
 	@Column(name="status")
@@ -16,6 +18,8 @@ public class StatusPedido {
 	public int getValorStatus() {
 		return valorStatus.valor();
 	}
+	
+	@JsonIgnore
 	public String getDescricaoStatus() {
 		return valorStatus.nome();
 	}

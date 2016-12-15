@@ -49,19 +49,21 @@ public class PedidoNegocio {
 	
 	@POST
 	@Path("/salvar_pedido_loja")
-	@Consumes("application/json")
+	@Consumes(value="application/json")
 	@Produces("application/json")
-	public Pedido salvarPedidoLoja(@Form PedidoLoja pedido){
+	public Pedido salvarPedidoLoja(PedidoLoja pedido){
 		lojaDao = new PedidoLojaDao();
-		System.out.println(pedido.getData());
+		System.out.println("======================================>>>>>>>>>" + pedido);
 		pedido.mesa.setStatus(StatusDeMesa.utilizarMesa());
 		pedido.setStatus(StatusPedido.abrirPedido());
 		pedido.getHoraInicioAtendimento();
 
 		try {
 			pedido = lojaDao.salvar(pedido);
+			System.out.println("======================================>>>>>>>>>" +pedido);
 			return pedido;
 		} catch (Exception e) {
+			System.out.println(e);
 			return pedido;
 		}
 	}

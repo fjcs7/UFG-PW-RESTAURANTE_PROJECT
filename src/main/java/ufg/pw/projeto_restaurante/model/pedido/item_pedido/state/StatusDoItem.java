@@ -7,6 +7,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @Embeddable
@@ -19,7 +20,7 @@ public abstract class StatusDoItem  implements Serializable {
 	
 	@Column(name="status")
 	@Enumerated(EnumType.ORDINAL)
-	protected EnumStatusItemPedido valorStatus;
+	protected EnumStatusItemPedido valorStatus = EnumStatusItemPedido.SOLICITADO;
 
 	public int valorStatus() {
 		return valorStatus.valor();
